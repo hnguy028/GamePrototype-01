@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="32" tileheight="32" nextobjectid="13">
+ <tileset firstgid="1" name="meta_tiles" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="2" columns="2">
+  <image source="meta_tiles.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="collidable" type="bool" value="false"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="3" name="color_pallete_diag" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="208" columns="16">
+  <image source="color_pallete_diag.png" width="529" height="430"/>
+ </tileset>
+ <tileset firstgid="211" name="room01" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="9" columns="3">
+  <image source="room01.png" width="100" height="100"/>
+ </tileset>
+ <layer name="tile" width="15" height="15">
+  <data encoding="csv">
+211,212,213,211,212,213,211,212,213,211,212,213,211,212,213,
+214,215,216,214,215,216,214,215,216,214,215,216,214,215,216,
+217,218,219,217,218,219,217,218,219,217,218,219,217,218,219,
+211,212,213,3,3,3,3,3,3,3,3,3,211,212,213,
+214,215,216,3,3,3,3,3,3,3,3,3,214,215,216,
+217,218,219,3,3,3,3,3,3,3,3,3,217,218,219,
+211,212,213,3,3,3,3,3,3,3,3,3,211,212,213,
+214,215,216,3,3,3,3,3,3,3,3,3,214,215,216,
+217,218,219,3,3,3,3,3,3,3,3,3,217,218,219,
+211,212,213,3,3,3,3,3,3,3,3,3,211,212,213,
+214,215,216,3,3,3,3,3,3,3,3,3,214,215,216,
+217,218,219,3,3,3,3,3,3,3,3,3,217,218,219,
+211,212,213,3,3,3,3,3,3,3,3,3,211,212,213,
+214,215,216,211,212,213,3,3,3,211,212,213,214,215,216,
+217,218,219,214,215,216,3,3,3,214,215,216,217,218,219
+</data>
+ </layer>
+ <layer name="meta" width="15" height="15">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,2,2,2,2,2,2,2,2,2,1,1,1,
+1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,
+1,1,1,1,1,1,2,2,2,1,1,1,1,1,1
+</data>
+ </layer>
+ <layer name="tint" width="15" height="15">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="objects">
+  <object id="1" name="SpawnPoint" x="233.667" y="428" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="collectables">
+  <object id="7" name="coin" x="162.667" y="208.666" width="15" height="15"/>
+  <object id="8" name="coin" x="232.667" y="209" width="15" height="15"/>
+  <object id="10" name="coin" x="303.333" y="207.333" width="15" height="15"/>
+ </objectgroup>
+ <objectgroup name="portals">
+  <object id="12" name="Portal" x="191" y="435.667" width="96" height="42.6667">
+   <properties>
+    <property name="worldName" value="desert_world2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
