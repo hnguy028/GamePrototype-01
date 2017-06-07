@@ -1,2 +1,2 @@
-# GamePrototype-01
-Developing a basic 8-bit game. Let's see where this goes.
+# Loot 2D
+2D RPG game using pygame. Let's see where this goes.
