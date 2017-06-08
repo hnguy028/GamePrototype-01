@@ -5,7 +5,7 @@ class HUD:
         self.topSize = topSize
         self.bottomSize = bottomSize
 
-        window
+        # window
 
     def initHUD(self):
         print("Init HUD")
