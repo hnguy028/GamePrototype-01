@@ -3,7 +3,7 @@ from __future__ import division
 import pygame, sys, time, math, pyganim
 from pygame import *
 from pygame.locals import *
-from pytmx.util_pygame import load_pygame
+import pytmx.util_pygame
 
 pygame.init()
 
@@ -43,7 +43,7 @@ left_facing = pygame.transform.flip(right_facing, True, False)
 pWidth, pHeight = front_facing.get_size()
 
 # init map to desert_world1
-gameMap = load_pygame('TileGameResources\%s.tmx' % ('desert_world2'))
+gameMap = pytmx.util_pygame.load_pygame('TileGameResources\%s.tmx' % ('desert_world2'))
 
 # creating the PygAnimation objects for walking/running in all directions
 animTypes = 'back_run back_walk front_run front_walk right_run right_walk'.split()
@@ -138,7 +138,8 @@ def loadMap(xRoom, yRoom, roomWidth, roomHeight):
         for xTile in range(roomWidth*(xRoom),roomWidth*(xRoom+1)):
             tile = gameMap.get_tile_image(xTile,yTile,0)
             mapTiles.append(tile)
-    print gameMap.layers[0].width
+    print(gameMap.layers[0].width)
+
 
 def drawMap(tileSize, roomWidth, roomHeight):
     i=0
@@ -333,7 +334,7 @@ while True:
          and ( (x + ( (frameBlockX-1)*WWIDTH) ) <= (portal.x + portal.width) )
          and ( (y + ( (frameBlockY-1)*WHEIGHT) ) <= (portal.y + portal.height) ) ):
 
-        gameMap = load_pygame('TileGameResources\\'+portal.worldName+'.tmx')
+        gameMap = pytmx.util_pygame.load_pygame('TileGameResources\\' + portal.worldName + '.tmx')
 
         spawn = gameMap.get_object_by_name("SpawnPoint") # defined in tmx meta
             
