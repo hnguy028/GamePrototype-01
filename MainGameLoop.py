@@ -1,4 +1,6 @@
-from creation02 import *
+from Loot_2D import *
+from GameClasses import *
+from functions import *
 
 pygame.init()
 
