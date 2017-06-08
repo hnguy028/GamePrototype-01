@@ -15,7 +15,7 @@ ROOMHEIGHT = 15
 mainClock = pygame.time.Clock()
 
 TILE = TileSurface(TILESIZE)
-WORLD = WindowSurface(TILE.size, 4, ROOMWIDTH, ROOMHEIGHT, "desert_world2")
+WORLD = WindowSurface(TILE.size, 4*32, ROOMWIDTH, ROOMHEIGHT, "desert_world2")
 ROOM = RoomSurface(ROOMWIDTH, ROOMHEIGHT, TILE, WORLD.playerSpawn)
 PLAYER = Player(WORLD, 'link', 100, 100, 100, DOWN)
 COIN = Coin1()

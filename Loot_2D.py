@@ -1,3 +1,4 @@
+# currently only generating coins?
 from includes import *
 
 # DIRTYCODE : TOBE removed

@@ -1,6 +1,6 @@
 from includes import *
 
-# loads map defined by the portal
+# load map subsection defined by the portal location
 def checkPortal(player, tile, room, world):
     # TODO : need to check if a portal exists in the first place (currently assuming that there is a portal on each map)
     # TODO : should work anyways, the for loop should handle null (need to test)

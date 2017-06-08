@@ -2,25 +2,24 @@ from includes import *
 
 # Window surface definition
 class WindowSurface:
-    # tileSize : (32)
+    # tileSize : in pixels
+    # hudSize in pixels
     # roomWidth, roomHeight : size of rooms in tiles
     # worldName : string name for tmx file name
     # spawn : object from tmx containing x,y spawn location for player
     def __init__(self, tileSize, hudSize, roomWidth, roomHeight, worldName):
-        # window size in pixels
+        # calculate window size in pixels
         self.widthPixels = tileSize * roomWidth  # in pixels
         self.heightPixels = tileSize * roomHeight  # in pixels
 
         self.windowWidth = tileSize * roomWidth
-        self.windowHeight = tileSize * roomHeight + tileSize * hudSize
+        self.windowHeight = tileSize * roomHeight + hudSize
 
         # create window
         self.surface = pygame.display.set_mode((self.windowWidth, self.windowHeight), 0, tileSize)
         pygame.display.set_caption('Loot 2D')
 
         # init map
-        # helps python read as string
-        assert isinstance(worldName, str)
         self.worldName = worldName
         self.gameMap = load_pygame('TileGameResources\%s.tmx' % worldName)
 
