@@ -1,7 +1,8 @@
 from includes import *
+from constants import *
 
 # load map subsection defined by the portal location
-def checkPortal(player, tile, room, world):
+def checkPortal(player, room, world):
     # TODO : need to check if a portal exists in the first place (currently assuming that there is a portal on each map)
     # TODO : should work anyways, the for loop should handle null (need to test)
     portals = world.gameMap.get_layer_by_name("portals")
@@ -27,4 +28,4 @@ def checkPortal(player, tile, room, world):
             world.loadMap(room)
 
             # draw new world
-            world.drawMap(tile.size, room.width, room.height)
+            world.drawMap(TILESIZE, ROOMWIDTH, ROOMHEIGHT)

@@ -23,8 +23,8 @@ class Player:
         self.magic = magic
         self.coins = coins
 
-        self.walkRate = 10
-        self.runRate = 1
+        self.walkRate = CHAR_WALKRATE
+        self.runRate = CHAR_RUNRATE
 
         # creating the PygAnimation objects for walking/running in all directions
         animTypes = 'back_run back_walk front_run front_walk right_run right_walk'.split()

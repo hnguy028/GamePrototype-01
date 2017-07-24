@@ -5,19 +5,17 @@ from functions import *
 pygame.init()
 
 # Init Program
-
-# constants and variable intitialization
-TILESIZE = 32
-ROOMWIDTH = 15
-ROOMHEIGHT = 15
+#TILESIZE = 32
+#ROOMWIDTH = 15
+#ROOMHEIGHT = 15
 
 # clock cycle
 mainClock = pygame.time.Clock()
 
-TILE = TileSurface(TILESIZE)
-WORLD = WindowSurface(TILE.size, 4*32, ROOMWIDTH, ROOMHEIGHT, "desert_world2")
-ROOM = RoomSurface(ROOMWIDTH, ROOMHEIGHT, TILE, WORLD.playerSpawn)
+WORLD = WindowSurface(4*32, ROOMWIDTH, ROOMHEIGHT, "desert_world2")
+ROOM = RoomSurface(ROOMWIDTH, ROOMHEIGHT, WORLD.playerSpawn)
 PLAYER = Player(WORLD, 'link', 100, 100, 100, DOWN)
+HUD = HUD()
 COIN = Coin1()
 
 WORLD.loadMap(ROOM)
@@ -25,7 +23,7 @@ WORLD.loadMap(ROOM)
 # Game loop
 while True:
     # draw current room to screen
-    WORLD.drawMap(TILE.size, ROOM.width, ROOM.height)
+    WORLD.drawMap(TILESIZE, ROOM.width, ROOM.height)
 
     COIN.getCoin(WORLD)
     COIN.drawCoin( WORLD)
@@ -59,13 +57,13 @@ while True:
             curRate = PLAYER.walkRate
 
         if PLAYER.moveUp:
-            PLAYER.move_Up(curRate, TILE.size, WORLD, ROOM)
+            PLAYER.move_Up(curRate, TILESIZE, WORLD, ROOM)
         if PLAYER.moveDown:
-            PLAYER.move_Down(curRate, TILE.size, WORLD, ROOM)
+            PLAYER.move_Down(curRate, TILESIZE, WORLD, ROOM)
         if PLAYER.moveLeft:
-            PLAYER.move_Left(curRate, TILE.size, WORLD, ROOM)
+            PLAYER.move_Left(curRate, TILESIZE, WORLD, ROOM)
         if PLAYER.moveRight:
-            PLAYER.move_Right(curRate, TILE.size, WORLD, ROOM)
+            PLAYER.move_Right(curRate, TILESIZE, WORLD, ROOM)
 
     else:
         PLAYER.idle(WORLD)
@@ -74,12 +72,13 @@ while True:
     PLAYER.boundsCheck(WORLD, ROOM)
 
     # check if the player has stepped into a portal object
-    checkPortal(PLAYER, TILE, ROOM, WORLD)
+    checkPortal(PLAYER, ROOM, WORLD)
 
     #       coinx, coiny, coinq = getCoin()
     #        world.loadMap()
 
     # TODO : add gui
+    HUD.drawRect(WORLD.surface)
     # create menu gui - player menu / controls
     # windowSurface.blit(instructionSurf, instructionRect)
 
