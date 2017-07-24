@@ -1,6 +1,7 @@
 # Global Constants & Variable definition
 
 GAME_TITLE = "LOOT 2D"
+GAME_ICON = "icon.png"
 
 RESOURCE_DIRECTORY = ""
 CHARACTER_DIRECTORY = ""
@@ -17,8 +18,6 @@ UP = 'up'
 DOWN = 'down'
 LEFT = 'left'
 RIGHT = 'right'
-
-
 
 # TMX object codes
 SPAWN_CODE = 'SpawnPoint'

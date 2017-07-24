@@ -10,4 +10,4 @@ Implement Clothing (overlay other sprites ontop of character / relative to chara
 
 Bugs
 Collision Detection is a little off
-Maps are rendered with invisible tiles from the adjacent rooms
+Maps are rendered with non visible tiles from the adjacent rooms

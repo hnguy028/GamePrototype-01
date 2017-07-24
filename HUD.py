@@ -21,6 +21,7 @@ class HUD:
             for xTile in range(width):
                 self.surface.blit(self.mapTiles[i], (xTile * TILESIZE, yTile * TILESIZE))
                 i += 1
+
     def drawRect(self, surface):
         pygame.draw.rect(surface, (230, 50, 50),
                          Rect((0, TILESIZE * ROOMHEIGHT), (TILESIZE * ROOMWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
