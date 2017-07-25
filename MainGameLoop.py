@@ -22,7 +22,8 @@ ROOM.loadMap()
 
 cloud = pygame.image.load('resources/menu_sprites/cloud.jpg')
 cloud1 = pygame.transform.scale(cloud, (100,100))
-cloud2 = pygame.transform.flip(cloud1,True,True)
+cloud1.set_alpha(128)
+cloud2 = pygame.transform.flip(cloud1,True,False)
 c1p = -50
 c2p = 50+(TILESIZE*FRAMEWIDTH)
 
@@ -51,6 +52,8 @@ while running:
                 if event.key == K_ESCAPE:
                     pygame.quit()
                     sys.exit()
+                elif event.key == K_p:
+                    state = State.START_MENU
 
                 PLAYER.handleKeyDown(event)
 
@@ -107,6 +110,8 @@ while running:
                 if event.key == K_ESCAPE:
                     pygame.quit()
                     sys.exit()
+                elif event.key == K_RETURN:
+                    state = State.GAME
             #elif event.type == KEYUP:
                 #PLAYER.handleKeyUp(event)
         image = pygame.image.load('resources/menu_sprites/castle.png')
@@ -120,8 +125,10 @@ while running:
                          Rect((0, ((TILESIZE*FRAMEHEIGHT)-(TILESIZE * HUDSIZE_BOTTOM))), (TILESIZE * FRAMEWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
 
         # Cloud
-        WORLD.surface.blit(cloud1, (c1p, 50))
-        WORLD.surface.blit(cloud2, (c2p, 125))
+        blit_alpha(WORLD.surface,cloud1,(c1p,50),128)
+        blit_alpha(WORLD.surface, cloud2, (c2p, 125), 128)
+        #WORLD.surface.blit(cloud1, (c1p, 50))
+        #WORLD.surface.blit(cloud2, (c2p, 125))
         c1p += 2
         c2p -= 1.5
 

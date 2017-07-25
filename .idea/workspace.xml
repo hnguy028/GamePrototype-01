@@ -2,221 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c773617-5454-480b-a811-eb6763d84b93" name="Default" comment="created main gameloop">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/Player.png" afterPath="$PROJECT_DIR$/resources/maps/Player.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/TileMap.caf" afterPath="$PROJECT_DIR$/resources/maps/TileMap.caf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/color_pallete.png" afterPath="$PROJECT_DIR$/resources/maps/color_pallete.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/color_pallete_diag.png" afterPath="$PROJECT_DIR$/resources/maps/color_pallete_diag.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/color_pallete_diag1.png" afterPath="$PROJECT_DIR$/resources/maps/color_pallete_diag1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/desert_world1.tmx" afterPath="$PROJECT_DIR$/resources/maps/desert_world1.tmx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/desert_world2.tmx" afterPath="$PROJECT_DIR$/resources/maps/desert_world2.tmx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/hidden_room.tmx" afterPath="$PROJECT_DIR$/resources/maps/hidden_room.tmx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/hit.caf" afterPath="$PROJECT_DIR$/resources/maps/hit.caf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_ext.png" afterPath="$PROJECT_DIR$/resources/maps/meta_ext.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete_10.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete_10.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete_25.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete_25.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete_50.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete_50.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_tiles.png" afterPath="$PROJECT_DIR$/resources/maps/meta_tiles.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/move.caf" afterPath="$PROJECT_DIR$/resources/maps/move.caf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/overworldtiles.png" afterPath="$PROJECT_DIR$/resources/maps/overworldtiles.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/pickup.caf" afterPath="$PROJECT_DIR$/resources/maps/pickup.caf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/room01.png" afterPath="$PROJECT_DIR$/resources/maps/room01.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_desert_refined - Copy.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_desert_refined - Copy.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_desert_refined.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_desert_refined.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_desert_spacing.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_desert_spacing.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_frozen_desert_spacing.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_frozen_desert_spacing.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/town.tmx" afterPath="$PROJECT_DIR$/resources/maps/town.tmx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.000.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.001.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.002.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.003.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.004.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.005.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.000.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.001.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.002.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.003.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.004.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.005.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.000.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.001.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.002.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.003.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.004.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.005.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.000.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.001.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.002.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.003.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.004.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.005.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.000.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.001.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.002.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.003.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.004.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.005.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.000.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.001.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.002.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.003.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.004.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.005.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_sleep.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_sleep.000.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_sleep.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_sleep.001.gif" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.000.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.001.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.002.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.003.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.004.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.005.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.000.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.001.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.002.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.003.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.004.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.005.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.000.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.001.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.002.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.003.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.004.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.005.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.000.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.001.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.002.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.003.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.004.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.005.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.000.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.001.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.002.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.003.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.004.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.005.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.000.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.001.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.002.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.003.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.004.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.005.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/0.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/0.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/1.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/12.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/12.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/13.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/13.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/14.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/14.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/2.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/24.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/24.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/25.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/25.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/26.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/26.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/36.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/36.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/37.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/37.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/38.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/38.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/15.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/15.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/16.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/16.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/17.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/17.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/27.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/27.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/28.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/28.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/29.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/29.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/3.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/39.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/39.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/4.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/4.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/40.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/40.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/41.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/41.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/5.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/5.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/18.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/18.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/19.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/19.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/20.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/20.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/30.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/30.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/31.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/31.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/32.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/32.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/42.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/42.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/43.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/43.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/44.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/44.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/6.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/6.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/7.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/7.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/8.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/8.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/10.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/10.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/11.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/11.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/21.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/21.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/22.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/22.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/23.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/23.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/33.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/33.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/34.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/34.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/35.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/35.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/45.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/45.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/46.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/46.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/47.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/47.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/9.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/9.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/48.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/48.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/49.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/49.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/50.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/50.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/60.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/60.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/61.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/61.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/62.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/62.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/72.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/72.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/73.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/73.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/74.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/74.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/84.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/84.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/85.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/85.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/86.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/86.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/51.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/51.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/52.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/52.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/53.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/53.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/63.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/63.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/64.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/64.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/65.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/65.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/75.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/75.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/76.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/76.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/77.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/77.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/87.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/87.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/88.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/88.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/89.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/89.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/54.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/54.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/55.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/55.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/56.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/56.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/66.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/66.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/67.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/67.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/68.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/68.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/78.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/78.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/79.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/79.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/80.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/80.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/90.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/90.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/91.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/91.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/92.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/92.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/57.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/57.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/58.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/58.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/59.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/59.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/69.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/69.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/70.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/70.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/71.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/71.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/81.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/81.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/82.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/82.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/83.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/83.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/93.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/93.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/94.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/94.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/95.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/95.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_00.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_00.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_01.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_01.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_02.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_02.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_03.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_03.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HUD.py" afterPath="$PROJECT_DIR$/HUD.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Loot_2D.py" afterPath="$PROJECT_DIR$/Loot_2D.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainGameLoop.py" afterPath="$PROJECT_DIR$/MainGameLoop.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Player.py" afterPath="$PROJECT_DIR$/Player.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Room.py" afterPath="$PROJECT_DIR$/Room.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Window.py" afterPath="$PROJECT_DIR$/Window.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/constants.py" afterPath="$PROJECT_DIR$/constants.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.py" afterPath="$PROJECT_DIR$/functions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes.py" afterPath="$PROJECT_DIR$/includes.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -255,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -265,11 +52,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainGameLoop.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainGameLoop.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainGameLoop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="125" column="18" lean-forward="false" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+            <state relative-caret-position="149">
+              <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -280,7 +79,7 @@
       <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="272">
               <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
               <folding />
             </state>
@@ -304,16 +103,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="State.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/State.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -387,15 +176,15 @@
         <option value="$PROJECT_DIR$/Collectables.py" />
         <option value="$PROJECT_DIR$/includes.py" />
         <option value="$PROJECT_DIR$/Room.py" />
-        <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/Player.py" />
         <option value="$PROJECT_DIR$/Loot_2D.py" />
         <option value="$PROJECT_DIR$/Window.py" />
         <option value="$PROJECT_DIR$/HUD.py" />
         <option value="$PROJECT_DIR$/State.py" />
         <option value="$PROJECT_DIR$/constants.py" />
-        <option value="$PROJECT_DIR$/MainGameLoop.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/MainGameLoop.py" />
+        <option value="$PROJECT_DIR$/functions.py" />
       </list>
     </option>
   </component>
@@ -795,6 +584,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -877,6 +669,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -959,6 +754,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,6 +812,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1043,13 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1099,14 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2050">
@@ -1114,6 +900,32 @@
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,19 +941,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MainGameLoop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="125" column="18" lean-forward="false" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+        <state relative-caret-position="149">
+          <caret line="127" column="8" lean-forward="false" selection-start-line="127" selection-start-column="8" selection-end-line="127" selection-end-column="53" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
