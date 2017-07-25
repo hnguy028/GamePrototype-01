@@ -1,11 +1,13 @@
 # currently only generating coins?
+from constants import *
 from includes import *
+
 
 # DIRTYCODE : TOBE removed
 class Coin1:
     def __init__(self):
         self.coinAnimObjs = {}
-        imagesAndDurations = [('collectables/coin/coin_%s.png' % (str(num).rjust(2, '0')), 0.1) for num in range(4)]
+        imagesAndDurations = [(COLLECTABLES_DIRECTORY + 'coin/coin_%s.png' % (str(num).rjust(2, '0')), 0.1) for num in range(4)]
         self.coinAnimObjs['coin'] = pyganim.PygAnimation(imagesAndDurations)
         self.coinConductor = pyganim.PygConductor(self.coinAnimObjs)
 
@@ -13,9 +15,9 @@ class Coin1:
         #self.y = -1
         self.coinExists = False
 
-    def getCoin(self, world):
+    def getCoin(self, room):
         try:
-            self.colLayer = world.gameMap.get_layer_by_name("collectables")
+            self.colLayer = room.gameMap.get_layer_by_name(COLLECTABLE_CODE)
             #self.x = coinLoc.x
             #self.y = coinLoc.y
             self.coinExists = True
@@ -25,11 +27,11 @@ class Coin1:
         if self.coinExists:
             self.coinConductor.play()
 
-    def drawCoin(self, world):
+    def drawCoin(self, surface):
         if self.coinExists:
             for coin in self.colLayer:
                 if coin.name == "coin" and coin.visible:
-                    self.coinAnimObjs["coin"].blit(world.surface, (coin.x, coin.y))
+                    self.coinAnimObjs["coin"].blit(surface, (coin.x, coin.y))
 
     def removeCoin(self, x, y):
         if self.coinExists:

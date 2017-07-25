@@ -7,6 +7,9 @@ Implement Main Menu
     - Front - Character Selection
     - Middle - Static Castle Sprite
     - Back - Moving Enviroment Background
+    * Use RNG to generate random transformation on a set number of clouds for the background
+        - size, speed, transparency, location etc
+
 
 Implement Loading Screen
     - Display Percentage and Errors in loading
@@ -29,6 +32,11 @@ Implement Menus
 Implement Clothing (overlay other sprites ontop of character / relative to character position)
 
 Implement Attack and Defend Sprite Motion
+
+Dynamic Character Collision Points in a List / Array
+Character Size Transformation
+
+Implement Window Resize (Possible just static and predefined sizes in options menu)
 
 Bugs
 Collision Detection is a little off

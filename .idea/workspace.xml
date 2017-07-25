@@ -2,9 +2,221 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c773617-5454-480b-a811-eb6763d84b93" name="Default" comment="created main gameloop">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/Player.png" afterPath="$PROJECT_DIR$/resources/maps/Player.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/TileMap.caf" afterPath="$PROJECT_DIR$/resources/maps/TileMap.caf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/color_pallete.png" afterPath="$PROJECT_DIR$/resources/maps/color_pallete.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/color_pallete_diag.png" afterPath="$PROJECT_DIR$/resources/maps/color_pallete_diag.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/color_pallete_diag1.png" afterPath="$PROJECT_DIR$/resources/maps/color_pallete_diag1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/desert_world1.tmx" afterPath="$PROJECT_DIR$/resources/maps/desert_world1.tmx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/desert_world2.tmx" afterPath="$PROJECT_DIR$/resources/maps/desert_world2.tmx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/hidden_room.tmx" afterPath="$PROJECT_DIR$/resources/maps/hidden_room.tmx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/hit.caf" afterPath="$PROJECT_DIR$/resources/maps/hit.caf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_ext.png" afterPath="$PROJECT_DIR$/resources/maps/meta_ext.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete_10.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete_10.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete_25.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete_25.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_pallete_50.png" afterPath="$PROJECT_DIR$/resources/maps/meta_pallete_50.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/meta_tiles.png" afterPath="$PROJECT_DIR$/resources/maps/meta_tiles.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/move.caf" afterPath="$PROJECT_DIR$/resources/maps/move.caf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/overworldtiles.png" afterPath="$PROJECT_DIR$/resources/maps/overworldtiles.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/pickup.caf" afterPath="$PROJECT_DIR$/resources/maps/pickup.caf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/room01.png" afterPath="$PROJECT_DIR$/resources/maps/room01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_desert_refined - Copy.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_desert_refined - Copy.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_desert_refined.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_desert_refined.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_desert_spacing.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_desert_spacing.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/tmw_frozen_desert_spacing.png" afterPath="$PROJECT_DIR$/resources/maps/tmw_frozen_desert_spacing.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/TileGameResources/town.tmx" afterPath="$PROJECT_DIR$/resources/maps/town.tmx" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.000.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.001.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.002.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.003.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.004.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_run.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_run.005.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.000.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.001.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.002.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.003.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.004.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_back_walk.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_back_walk.005.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.000.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.001.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.002.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.003.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.004.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_run.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_run.005.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.000.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.001.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.002.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.003.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.004.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_front_walk.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_front_walk.005.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.000.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.001.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.002.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.003.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.004.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_run.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_run.005.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.000.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.001.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.002.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.002.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.003.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.003.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.004.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.004.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_left_walk.005.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_left_walk.005.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_sleep.000.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_sleep.000.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/chrono/crono_sleep.001.gif" afterPath="$PROJECT_DIR$/resources/characters/chrono/crono_sleep.001.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.000.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.001.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.002.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.003.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.004.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_run.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_run.005.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.000.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.001.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.002.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.003.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.004.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_back_walk.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_back_walk.005.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.000.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.001.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.002.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.003.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.004.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_run.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_run.005.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.000.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.001.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.002.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.003.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.004.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_front_walk.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_front_walk.005.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.000.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.001.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.002.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.003.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.004.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_run.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_run.005.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.000.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.000.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.001.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.001.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.002.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.002.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.003.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.003.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.004.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.004.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/link/char_right_walk.005.png" afterPath="$PROJECT_DIR$/resources/characters/link/char_right_walk.005.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/0.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/0.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/1.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/1.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/12.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/12.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/13.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/13.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/14.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/14.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/2.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/2.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/24.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/24.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/25.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/25.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/26.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/26.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/36.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/36.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/37.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/37.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/0/38.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/0/38.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/15.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/15.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/16.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/16.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/17.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/17.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/27.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/27.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/28.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/28.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/29.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/29.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/3.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/39.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/39.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/4.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/4.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/40.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/40.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/41.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/41.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/1/5.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/1/5.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/18.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/18.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/19.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/19.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/20.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/20.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/30.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/30.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/31.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/31.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/32.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/32.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/42.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/42.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/43.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/43.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/44.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/44.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/6.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/6.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/7.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/7.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/2/8.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/2/8.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/10.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/10.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/11.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/11.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/21.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/21.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/22.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/22.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/23.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/23.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/33.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/33.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/34.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/34.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/35.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/35.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/45.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/45.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/46.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/46.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/47.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/47.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/3/9.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/3/9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/48.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/48.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/49.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/49.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/50.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/50.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/60.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/60.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/61.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/61.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/62.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/62.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/72.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/72.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/73.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/73.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/74.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/74.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/84.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/84.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/85.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/85.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/4/86.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/4/86.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/51.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/51.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/52.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/52.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/53.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/53.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/63.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/63.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/64.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/64.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/65.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/65.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/75.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/75.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/76.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/76.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/77.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/77.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/87.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/87.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/88.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/88.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/5/89.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/5/89.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/54.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/54.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/55.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/55.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/56.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/56.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/66.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/66.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/67.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/67.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/68.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/68.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/78.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/78.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/79.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/79.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/80.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/80.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/90.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/90.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/91.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/91.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/6/92.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/6/92.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/57.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/57.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/58.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/58.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/59.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/59.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/69.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/69.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/70.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/70.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/71.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/71.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/81.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/81.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/82.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/82.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/83.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/83.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/93.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/93.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/94.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/94.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/characters/zombie/7/95.png" afterPath="$PROJECT_DIR$/resources/characters/zombie/7/95.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_00.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_00.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_01.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_01.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_02.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_02.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/collectables/coin/coin_03.png" afterPath="$PROJECT_DIR$/resources/collectables/coin/coin_03.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HUD.py" afterPath="$PROJECT_DIR$/HUD.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Loot_2D.py" afterPath="$PROJECT_DIR$/Loot_2D.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainGameLoop.py" afterPath="$PROJECT_DIR$/MainGameLoop.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Player.py" afterPath="$PROJECT_DIR$/Player.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Room.py" afterPath="$PROJECT_DIR$/Room.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Window.py" afterPath="$PROJECT_DIR$/Window.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/constants.py" afterPath="$PROJECT_DIR$/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.py" afterPath="$PROJECT_DIR$/functions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes.py" afterPath="$PROJECT_DIR$/includes.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,9 +234,11 @@
       <file leaf-file-name="Loot_2D.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Loot_2D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="68" lean-forward="false" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+              <folding>
+                <element signature="e#35#58#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -32,10 +246,32 @@
       <file leaf-file-name="Player.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Player.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-636">
-              <caret line="167" column="32" lean-forward="true" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
+            <state relative-caret-position="2050">
+              <caret line="137" column="51" lean-forward="false" selection-start-line="137" selection-start-column="51" selection-end-line="137" selection-end-column="51" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainGameLoop.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MainGameLoop.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="125" column="18" lean-forward="false" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,18 +280,8 @@
       <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyganim.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pyganim.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2329">
-              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+            <state relative-caret-position="425">
+              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -64,52 +290,10 @@
       <file leaf-file-name="Room.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameClasses.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameClasses.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            <state relative-caret-position="663">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <element signature="e#52#78#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Collectables.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Collectables.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HUD.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/HUD.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,8 +303,42 @@
         <entry file="file://$PROJECT_DIR$/includes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="State.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/State.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Window.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Window.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="61" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HUD.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HUD.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="109" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,7 +355,21 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>set_c</find>
+      <find>world.widthPixels</find>
+      <find>world.heightPixels</find>
+      <find>load</find>
+      <find>world.loadMap</find>
+      <find>room.loadMap(room)</find>
+      <find>world.numRooms</find>
+      <find>draw</find>
     </findStrings>
+    <replaceStrings>
+      <replace>room.pixelHeight</replace>
+      <replace>room.loadMap</replace>
+      <replace>room.loadMap()</replace>
+      <replace>room.numRooms</replace>
+      <replace>room.pixelWidth</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -147,21 +379,23 @@
       <list>
         <option value="$PROJECT_DIR$/creation01.py" />
         <option value="$PROJECT_DIR$/creation02.py" />
-        <option value="$PROJECT_DIR$/includes.py" />
         <option value="$PROJECT_DIR$/mainGameLoop.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/Tile.py" />
-        <option value="$PROJECT_DIR$/Collectables.py" />
-        <option value="$PROJECT_DIR$/Loot_2D.py" />
-        <option value="$PROJECT_DIR$/functions.py" />
-        <option value="$PROJECT_DIR$/MainGameLoop.py" />
-        <option value="$PROJECT_DIR$/Window.py" />
         <option value="$PROJECT_DIR$/GameClasses.py" />
+        <option value="$PROJECT_DIR$/resources/global/functions.py" />
+        <option value="$PROJECT_DIR$/Collectables.py" />
+        <option value="$PROJECT_DIR$/includes.py" />
         <option value="$PROJECT_DIR$/Room.py" />
+        <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/Player.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/constants.py" />
+        <option value="$PROJECT_DIR$/Loot_2D.py" />
+        <option value="$PROJECT_DIR$/Window.py" />
         <option value="$PROJECT_DIR$/HUD.py" />
+        <option value="$PROJECT_DIR$/State.py" />
+        <option value="$PROJECT_DIR$/constants.py" />
+        <option value="$PROJECT_DIR$/MainGameLoop.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -205,8 +439,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -219,13 +451,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Loot_2D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Loot_2D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hinguyen\Git\Loot_2D\resources\menu_sprites" />
+      <recent name="C:\Users\hinguyen\Git\Loot_2D" />
+      <recent name="C:\Users\hinguyen\Git\Loot_2D\resources\global" />
+      <recent name="C:\Users\hinguyen\Git\Loot_2D\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hinguyen\Git\Loot_2D\resources\maps" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.mainGameLoop">
     <configuration default="false" name="creation02" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -446,7 +705,6 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960254" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.50317967" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32949308" sideWeight="0.49682036" order="2" side_tool="false" content_ui="tabs" />
@@ -459,6 +717,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -475,37 +734,13 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Collectables.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HUD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Loot_2D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="68" lean-forward="false" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
-          <folding />
+          <folding>
+            <element signature="e#35#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -514,7 +749,7 @@
         <state relative-caret-position="153">
           <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -524,7 +759,7 @@
         <state relative-caret-position="1394">
           <caret line="82" column="39" lean-forward="false" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -533,7 +768,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -541,7 +778,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -549,9 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="51" lean-forward="false" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding>
-            <element signature="e#52#78#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -559,7 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -567,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -576,24 +810,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Tile.py" />
     <entry file="file://$PROJECT_DIR$/Loot_2D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="68" lean-forward="false" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
-          <folding />
+          <folding>
+            <element signature="e#35#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -602,7 +831,7 @@
         <state relative-caret-position="153">
           <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -612,7 +841,7 @@
         <state relative-caret-position="1394">
           <caret line="82" column="39" lean-forward="false" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -621,7 +850,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -629,7 +860,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -637,9 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="51" lean-forward="false" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding>
-            <element signature="e#52#78#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -647,7 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,24 +892,19 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Tile.py" />
     <entry file="file://$PROJECT_DIR$/Loot_2D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="68" lean-forward="false" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
-          <folding />
+          <folding>
+            <element signature="e#35#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -690,7 +913,7 @@
         <state relative-caret-position="153">
           <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,7 +923,7 @@
         <state relative-caret-position="1360">
           <caret line="82" column="39" lean-forward="true" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -709,7 +932,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -717,7 +942,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -725,9 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="51" lean-forward="false" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding>
-            <element signature="e#52#78#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,7 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="52" lean-forward="false" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,142 +974,24 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pytmx/pytmx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pytmx/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainGameLoop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="65" column="47" lean-forward="false" selection-start-line="65" selection-start-column="47" selection-end-line="65" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Window.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Tile.py" />
     <entry file="file://$PROJECT_DIR$/trash.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-884">
           <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameClasses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <element signature="e#52#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Room.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="47" lean-forward="false" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Loot_2D.py">
+    <entry file="file://$PROJECT_DIR$/Tile.py" />
+    <entry file="file://$PROJECT_DIR$/pytmx/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="68" lean-forward="false" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Collectables.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="27" lean-forward="false" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+          <caret line="9" column="4" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -899,23 +1003,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Player.py">
+    <entry file="file://$PROJECT_DIR$/resources/maps/desert_world2.tmx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-636">
-          <caret line="167" column="32" lean-forward="true" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pytmx/pytmx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="284" column="0" lean-forward="false" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pytmx/util_pygame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Collectables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/State.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="61" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HUD.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="391">
+          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="109" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2050">
+          <caret line="137" column="51" lean-forward="false" selection-start-line="137" selection-start-column="51" selection-end-line="137" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Loot_2D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="e#35#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainGameLoop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="125" column="18" lean-forward="false" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="49" lean-forward="false" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -5,6 +5,7 @@ import sys
 import time
 import math
 import pyganim
+from State import *
 from pygame import *
 from pygame.locals import *
 from pytmx.util_pygame import load_pygame

@@ -1,31 +1,34 @@
-from includes import *
 from constants import *
+
+from includes import *
+
 
 # load map subsection defined by the portal location
 def checkPortal(player, room, world):
     # TODO : need to check if a portal exists in the first place (currently assuming that there is a portal on each map)
     # TODO : should work anyways, the for loop should handle null (need to test)
-    portals = world.gameMap.get_layer_by_name("portals")
+    portals = room.gameMap.get_layer_by_name("portals")
 
     for portal in portals:
         # check if player is within the bounds of the portal
-        if (((player.x + (room.xRoom * world.widthPixels)) >= portal.x)
-                and ((player.y + (room.yRoom * world.heightPixels)) >= portal.y)
-                and ((player.x + (room.xRoom * world.widthPixels)) <= (portal.x + portal.width))
-                and ((player.y + (room.yRoom * world.heightPixels)) <= (portal.y + portal.height))):
+        if (((player.x + (room.xRoom * room.pixelWidth)) >= portal.x)
+                and ((player.y + (room.yRoom * room.pixelHeight)) >= portal.y)
+                and ((player.x + (room.xRoom * room.pixelWidth)) <= (portal.x + portal.width))
+                and ((player.y + (room.yRoom * room.pixelHeight)) <= (portal.y + portal.height))):
 
-            world.gameMap = load_pygame('TileGameResources\\' + portal.worldName + '.tmx')
+            room.gameMap = load_pygame(MAPS_DIRECTORY + '%s.tmx' % portal.worldName)
 
-            world.playerSpawn = world.gameMap.get_object_by_name("SpawnPoint")
+            room.playerSpawn = room.gameMap.get_object_by_name("SpawnPoint")
 
-            room.xRoom = int(world.playerSpawn.x // world.widthPixels)
-            room.yRoom = int(world.playerSpawn.y // world.heightPixels)
+            room.xRoom = int(room.playerSpawn.x // room.pixelWidth)
+            room.yRoom = int(room.playerSpawn.y // room.pixelHeight)
 
-            player.x = world.playerSpawn.x % world.widthPixels
-            player.y = world.playerSpawn.y % world.heightPixels
+            player.x = room.playerSpawn.x % room.pixelWidth
+            player.y = room.playerSpawn.y % room.pixelHeight
 
             # reload tmx of new world
-            world.loadMap(room)
+            room.loadMap()
 
             # draw new world
-            world.drawMap(TILESIZE, ROOMWIDTH, ROOMHEIGHT)
+            room.drawMap(world.surface)
+

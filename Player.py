@@ -1,17 +1,19 @@
-from includes import *
 from constants import *
 
+from includes import *
+
+
 class Player:
-    def __init__(self, world, character, health, magic, coins, direction):
+    def __init__(self, room, spawn, character, health, magic, coins, direction):
         # player images
-        self.front_facing = pygame.image.load('characters/%s/char_front.png' % character)
-        self.back_facing = pygame.image.load('characters/%s/char_back.png' % character)
-        self.right_facing = pygame.image.load('characters/%s/char_right.png' % character)
+        self.front_facing = pygame.image.load(CHARACTER_DIRECTORY + '%s/char_front.png' % character)
+        self.back_facing = pygame.image.load(CHARACTER_DIRECTORY + '%s/char_back.png' % character)
+        self.right_facing = pygame.image.load(CHARACTER_DIRECTORY + '%s/char_right.png' % character)
         self.left_facing = pygame.transform.flip(self.right_facing, True, False)
 
         # player's x,y coordinates on the current map/room
-        self.x = world.playerSpawn.x % world.widthPixels
-        self.y = world.playerSpawn.y % world.widthPixels
+        self.x = spawn.x % room.pixelWidth
+        self.y = spawn.y % room.pixelHeight
         self.direction = direction  # initial stance
         self.running = self.moveUp = self.moveDown = self.moveLeft = self.moveRight = False
 
@@ -30,7 +32,7 @@ class Player:
         animTypes = 'back_run back_walk front_run front_walk right_run right_walk'.split()
         self.animObjs = {}
         for animType in animTypes:
-            imagesAndDurations = [('characters/%s/char_%s.%s.png' % (character, animType, str(num).rjust(3, '0')), 0.1)
+            imagesAndDurations = [(CHARACTER_DIRECTORY + '%s/char_%s.%s.png' % (character, animType, str(num).rjust(3, '0')), 0.1)
                                   for num in range(6)]
             self.animObjs[animType] = pyganim.PygAnimation(imagesAndDurations)
 
@@ -104,58 +106,58 @@ class Player:
             if self.moveDown:
                 self.direction = DOWN
 
-    def move_Up(self, rate, tileSize, world, room):
-        topLeft = world.gameMap.get_tile_properties(
-            (self.x + (world.widthPixels * room.xRoom)) / tileSize,
-            ((self.y + (world.heightPixels * room.yRoom) - rate) / tileSize),
-            1)["collidable"]
+    def move_Up(self, rate, tileSize, room):
+        topLeft = room.gameMap.get_tile_properties(
+            (self.x + (room.pixelWidth * room.xRoom)) / tileSize,
+            ((self.y + (room.pixelHeight * room.yRoom) - rate) / tileSize),
+            1)[IMPASSIVE_CODE]
 
-        topRight = world.gameMap.get_tile_properties(
-            (self.x + self.width + (world.widthPixels * room.xRoom)) / tileSize,
-            ((self.y + (world.heightPixels * room.yRoom) - rate) / tileSize),
-            1)["collidable"]
+        topRight = room.gameMap.get_tile_properties(
+            (self.x + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
+            ((self.y + (room.pixelHeight * room.yRoom) - rate) / tileSize),
+            1)[IMPASSIVE_CODE]
 
         if topLeft == 'false' and topRight == 'false':
             self.y -= rate
 
-    def move_Down(self, rate, tileSize, world, room):
-        bottomLeft = world.gameMap.get_tile_properties(
-            (self.x + (world.widthPixels * room.xRoom)) / tileSize,
-            ((self.y + rate + self.height + (world.heightPixels * room.yRoom)) / tileSize),
-            1)["collidable"]
+    def move_Down(self, rate, tileSize, room):
+        bottomLeft = room.gameMap.get_tile_properties(
+            (self.x + (room.pixelWidth * room.xRoom)) / tileSize,
+            ((self.y + rate + self.height + (room.pixelHeight * room.yRoom)) / tileSize),
+            1)[IMPASSIVE_CODE]
 
-        bottomRight = world.gameMap.get_tile_properties(
-            (self.x + self.width + (world.widthPixels * room.xRoom)) / tileSize,
-            ((self.y + rate + self.height + (world.heightPixels * room.yRoom)) / tileSize),
-            1)["collidable"]
+        bottomRight = room.gameMap.get_tile_properties(
+            (self.x + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
+            ((self.y + rate + self.height + (room.pixelHeight * room.yRoom)) / tileSize),
+            1)[IMPASSIVE_CODE]
 
         if bottomLeft == 'false' and bottomRight == 'false':
             self.y += rate
 
-    def move_Left(self, rate, tileSize, world, room):
-        topLeft = world.gameMap.get_tile_properties(
-            (self.x - rate + (world.widthPixels * room.xRoom)) / tileSize,
-            (self.y + (world.heightPixels * room.yRoom)) / tileSize,
-            1)["collidable"]
+    def move_Left(self, rate, tileSize, room):
+        topLeft = room.gameMap.get_tile_properties(
+            (self.x - rate + (room.pixelWidth * room.xRoom)) / tileSize,
+            (self.y + (room.pixelHeight * room.yRoom)) / tileSize,
+            1)[IMPASSIVE_CODE]
 
-        bottomLeft = world.gameMap.get_tile_properties(
-            (self.x - rate + (world.widthPixels * room.xRoom)) / tileSize,
-            (self.y + self.height + (world.heightPixels * room.yRoom)) / tileSize,
-            1)["collidable"]
+        bottomLeft = room.gameMap.get_tile_properties(
+            (self.x - rate + (room.pixelWidth * room.xRoom)) / tileSize,
+            (self.y + self.height + (room.pixelHeight * room.yRoom)) / tileSize,
+            1)[IMPASSIVE_CODE]
 
         if topLeft == 'false' and bottomLeft == 'false':
             self.x -= rate
 
-    def move_Right(self, rate, tileSize, world, room):
-        topRight = world.gameMap.get_tile_properties(
-            (self.x + rate + self.width + (world.widthPixels * room.xRoom)) / tileSize,
-            (self.y + (world.heightPixels * room.yRoom)) / tileSize,
-            1)["collidable"]
+    def move_Right(self, rate, tileSize, room):
+        topRight = room.gameMap.get_tile_properties(
+            (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
+            (self.y + (room.pixelHeight * room.yRoom)) / tileSize,
+            1)[IMPASSIVE_CODE]
 
-        bottomRight = world.gameMap.get_tile_properties(
-            (self.x + rate + self.width + (world.widthPixels * room.xRoom)) / tileSize,
-            (self.y + self.height + (world.heightPixels * room.yRoom)) / tileSize,
-            1)["collidable"]
+        bottomRight = room.gameMap.get_tile_properties(
+            (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
+            (self.y + self.height + (room.pixelHeight * room.yRoom)) / tileSize,
+            1)[IMPASSIVE_CODE]
 
         if topRight == 'false' and bottomRight == 'false':
             self.x += rate
@@ -180,6 +182,8 @@ class Player:
         self.moveConductor.play()
         # calling play() while the animation objects are already playing is okay; in that case play() is a no-op
 
+        # TODO : change 'back_run', 'front_run' ... to global variables / make more dynamic
+
         if self.running:
             if self.direction == UP:
                 self.animObjs['back_run'].blit(world.surface, (self.x, self.y))
@@ -200,32 +204,32 @@ class Player:
             elif self.direction == RIGHT:
                 self.animObjs['right_walk'].blit(world.surface, (self.x, self.y))
 
-    def boundsCheck(self, world, room):
+    def boundsCheck(self, room):
         if self.x < 0:
             if room.xRoom > 0:  # load next screen in X direction
                 room.xRoom -= 1
-                world.loadMap(room)
-                self.x = world.widthPixels - self.width  # reset character position to other side
+                room.loadMap()
+                self.x = room.pixelWidth - self.width  # reset character position to other side
             else:  # else stop character movement
                 self.x = 0  # should never be reached
-        if self.x > world.widthPixels - self.width:
-            if room.xRoom < world.numRoomsX - 1:  # load next screen in X direction
+        if self.x > room.pixelWidth - self.width:
+            if room.xRoom < room.numRoomsX - 1:  # load next screen in X direction
                 room.xRoom += 1
-                world.loadMap(room)
+                room.loadMap()
                 self.x = 0
             else:
-                self.x = world.widthPixels - self.width
+                self.x = room.pixelWidth - self.width
         if self.y < 0:
             if room.yRoom > 0:  # load next screen in Y direction
                 room.yRoom -= 1
-                world.loadMap(room)
-                self.y = world.heightPixels - self.height
+                room.loadMap()
+                self.y = room.pixelHeight - self.height
             else:
                 self.y = 0
-        if self.y > world.heightPixels - self.height:
-            if room.yRoom < world.numRoomsY - 1:  # load next screen in Y direction
+        if self.y > room.pixelHeight - self.height:
+            if room.yRoom < room.numRoomsY - 1:  # load next screen in Y direction
                 room.yRoom += 1
-                world.loadMap(room)
+                room.loadMap()
                 self.y = 0
             else:
-                self.y = world.heightPixels - self.height
+                self.y = room.pixelHeight - self.height

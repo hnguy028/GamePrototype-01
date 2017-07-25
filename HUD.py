@@ -1,6 +1,6 @@
-from Loot_2D import *
+from GameClasses import *
 from constants import *
-from pyganim import *
+from includes import *
 
 class HUD:
     # initialize hud variables

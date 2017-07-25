@@ -1,5 +1,6 @@
-from includes import *
 from constants import *
+from includes import *
+
 
 # Window surface definition
 class WindowSurface:
@@ -9,51 +10,10 @@ class WindowSurface:
     # worldName : string name for tmx file name
     # spawn : object from tmx containing x,y spawn location for player
     def __init__(self, hudSize, roomWidth, roomHeight, worldName):
-        # calculate window size in pixels
-        self.widthPixels = TILESIZE * roomWidth  # in pixels
-        self.heightPixels = TILESIZE * roomHeight  # in pixels
-
-        self.windowWidth = TILESIZE * roomWidth
-        self.windowHeight = TILESIZE * roomHeight + hudSize
+        self.surfaceWidth = TILESIZE * roomWidth
+        self.surfaceHeight = TILESIZE * roomHeight + hudSize
 
         # create window
-        self.surface = pygame.display.set_mode((self.windowWidth, self.windowHeight), 0, TILESIZE)
+        self.surface = pygame.display.set_mode((self.surfaceWidth, self.surfaceHeight), 0, TILESIZE)
         pygame.display.set_caption(GAME_TITLE)
-        #pygame.display.set_icon()
-
-        # init map
-        self.worldName = worldName
-        self.gameMap = load_pygame('TileGameResources\%s.tmx' % worldName)
-
-        # number of rooms on the current tmx defined world
-        self.numRoomsX = self.gameMap.layers[0].width / roomWidth
-        self.numRoomsY = self.gameMap.layers[0].height / roomHeight
-
-        # Array holding the current map's tiles
-        self.mapTiles = []
-
-        self.playerSpawn = self.gameMap.get_object_by_name(SPAWN_CODE)  # defined in tmx meta
-
-        # hudSize in tiles
-        self.hudSize = hudSize
-
-    # xRoom, yRoom : current room position in grid (1-3)
-    # roomWidth, roomHeight : room size in tiles (20)
-    def loadMap(self, room):
-        # clear mapTiles
-        del self.mapTiles[:]
-
-        # load current tmx in the range of current frameBlocks
-        for yTile in range(room.height * room.yRoom, room.height * (room.yRoom + 1)):
-            for xTile in range(room.width * room.xRoom, room.width * (room.xRoom + 1)):
-                tile = self.gameMap.get_tile_image(xTile, yTile, 0)
-                self.mapTiles.append(tile)
-
-    # tile size : size of tiles in pixels (32)
-    # roomWidth, roomHeight : room size in tiles (20)
-    def drawMap(self, tileSize, roomWidth, roomHeight):
-        i = 0
-        for yTile in range(roomHeight):
-            for xTile in range(roomWidth):
-                self.surface.blit(self.mapTiles[i], (xTile * tileSize, yTile * tileSize))
-                i += 1
+        pygame.display.set_icon(pygame.image.load(GAME_ICON))
