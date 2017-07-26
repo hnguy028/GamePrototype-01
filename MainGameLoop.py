@@ -20,8 +20,8 @@ HUD = HUD()
 COIN = Coin1()
 ROOM.loadMap()
 
-cloud = pygame.image.load('resources/menu_sprites/cloud.jpg')
-cloud1 = pygame.transform.scale(cloud, (100,100))
+cloud = pygame.image.load('resources/menu_sprites/cloud02.png')
+cloud1 = pygame.transform.scale(cloud, (270,170)) # 544 : 350
 cloud1.set_alpha(128)
 cloud2 = pygame.transform.flip(cloud1,True,False)
 c1p = -50
@@ -34,7 +34,7 @@ running = True
 # Game loop
 while running:
     # game_state
-    if state.__eq__(State.GAME):
+    if state == State.GAME:
         # draw current room to screen
         ROOM.drawMap(WORLD.surface)
 
@@ -96,7 +96,7 @@ while running:
         HUD.drawRect(WORLD.surface)
         # create menu gui - player menu / controls
         # windowSurface.blit(instructionSurf, instructionRect)
-    elif state.__eq__(State.START_MENU):
+    elif state == State.START_MENU:
 
         pygame.display.set_icon(pygame.image.load(GAME_ICON))
 
@@ -118,17 +118,20 @@ while running:
         image = pygame.transform.scale(image, (TILESIZE*FRAMEWIDTH, TILESIZE*(FRAMEHEIGHT-2)))
 
         # Sky Color
-        pygame.draw.rect(WORLD.surface, (0, 200, 255),
-                         Rect((0, 0), (TILESIZE * FRAMEWIDTH, TILESIZE * FRAMEHEIGHT)))
+        skyimage = pygame.image.load('resources/menu_sprites/cloud_scenery.jpg')
+        skyimage = pygame.transform.scale(skyimage, (TILESIZE * FRAMEWIDTH, TILESIZE * (FRAMEHEIGHT - 4)))
+        WORLD.surface.blit(skyimage, (0,0))
+        #pygame.draw.rect(WORLD.surface, (0, 200, 255),
+                         #Rect((0, 0), (TILESIZE * FRAMEWIDTH, TILESIZE * FRAMEHEIGHT)))
         # Grass
         pygame.draw.rect(WORLD.surface, (34,139,34),
                          Rect((0, ((TILESIZE*FRAMEHEIGHT)-(TILESIZE * HUDSIZE_BOTTOM))), (TILESIZE * FRAMEWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
 
         # Cloud
-        blit_alpha(WORLD.surface,cloud1,(c1p,50),128)
-        blit_alpha(WORLD.surface, cloud2, (c2p, 125), 128)
-        #WORLD.surface.blit(cloud1, (c1p, 50))
-        #WORLD.surface.blit(cloud2, (c2p, 125))
+        #blit_alpha(WORLD.surface,cloud1,(c1p,50),128)
+        #blit_alpha(WORLD.surface, cloud2, (c2p, 125), 128)
+        WORLD.surface.blit(cloud1, (c1p, 50))
+        WORLD.surface.blit(cloud2, (c2p, 125))
         c1p += 2
         c2p -= 1.5
 
@@ -142,13 +145,13 @@ while running:
         WORLD.surface.blit(image, (0,0))
 
         # Character Selection
-        c1 = pygame.image.load('resources/characters/chrono/crono_front.gif')
+        c1 = pygame.image.load('resources/menu_sprites/shadow_char.png')
         c1 = pygame.transform.scale(c1, (50,100))
         testPos = TILESIZE * FRAMEWIDTH / 8
-        WORLD.surface.blit(c1, (testPos-25, 500))
-        WORLD.surface.blit(c1, ((testPos*3)-25, 500))
-        WORLD.surface.blit(c1, ((testPos*5)-25, 500))
-        WORLD.surface.blit(c1, ((testPos*7)-25, 500))
+        WORLD.surface.blit(c1, (testPos-25, 450))
+        WORLD.surface.blit(c1, ((testPos*3)-25, 450))
+        WORLD.surface.blit(c1, ((testPos*5)-25, 450))
+        WORLD.surface.blit(c1, ((testPos*7)-25, 450))
 
 
 

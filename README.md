@@ -2,14 +2,23 @@
 2D RPG game using pygame. Let's see where this goes.
 
 TODO
-Implement Main Menu
+(1) Implement Main Menu
+    - Move Main Menu creation code into class or function definition
     - 3 Layer Sprites
     - Front - Character Selection
+        * Make character position dynamically calculated
+        * Implement Character Selection
+    - Front - Additional Options
+        * Add Options Label Below Character Selection
     - Middle - Static Castle Sprite
     - Back - Moving Enviroment Background
-    * Use RNG to generate random transformation on a set number of clouds for the background
-        - size, speed, transparency, location etc
+        * Make Translations smoother
+        * Use RNG to generate random transformation on a set number of clouds for the background
+            - size, speed, transparency, location etc
+            - when scaling we need to keep the aspect ratio
 
+(2) Clear surface buffer at the beginning of every loop
+    - Look into python memory managment
 
 Implement Loading Screen
     - Display Percentage and Errors in loading
@@ -36,7 +45,7 @@ Implement Attack and Defend Sprite Motion
 Dynamic Character Collision Points in a List / Array
 Character Size Transformation
 
-Implement Window Resize (Possible just static and predefined sizes in options menu)
+Implement Window Resize (Possibly just static and predefined sizes in options menu)
 
 Bugs
 Collision Detection is a little off
