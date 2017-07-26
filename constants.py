@@ -1,14 +1,16 @@
 # Global Constants & Variable definition
 
-GAME_TITLE = "Loot 2D"
-GAME_ICON = "resources/menu_sprites/icon.png"
+GAME_TITLE = 'Loot 2D'
+GAME_ICON = 'resources/menu_sprites/icon.png'
 
-RESOURCE_DIRECTORY = "resources/"
+RESOURCE_DIRECTORY = 'resources/'
 
 
-CHARACTER_DIRECTORY = RESOURCE_DIRECTORY + "characters/"
-COLLECTABLES_DIRECTORY = RESOURCE_DIRECTORY + "collectables/"
-MAPS_DIRECTORY = RESOURCE_DIRECTORY + "maps/"
+CHARACTER_DIRECTORY = RESOURCE_DIRECTORY + 'characters/'
+COLLECTABLES_DIRECTORY = RESOURCE_DIRECTORY + 'collectables/'
+MAPS_DIRECTORY = RESOURCE_DIRECTORY + 'maps/'
+MAIN_MENU_DIRECTORY = RESOURCE_DIRECTORY + 'menu_sprites/'
+SAVE_DIRECTORY = RESOURCE_DIRECTORY + 'saves/'
 
 ########## Character Information
 CHARACTER_NAME = "link"

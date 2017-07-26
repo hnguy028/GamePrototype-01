@@ -3,22 +3,32 @@
 
 TODO
 (1) Implement Main Menu
-    - Move Main Menu creation code into class or function definition
-    - 3 Layer Sprites
-    - Front - Character Selection
-        * Make character position dynamically calculated
-        * Implement Character Selection
+    X Move Main Menu creation code into class or function definition
+    X 3 Layer Sprites
+    X Front - Character Selection
+        X Make character position dynamically calculated
+        X Implement Character Selection
+            X Need to handle if savefiles dont exist
     - Front - Additional Options
-        * Add Options Label Below Character Selection
-    - Middle - Static Castle Sprite
-    - Back - Moving Enviroment Background
-        * Make Translations smoother
-        * Use RNG to generate random transformation on a set number of clouds for the background
-            - size, speed, transparency, location etc
-            - when scaling we need to keep the aspect ratio
+        * Add Options Button (Should most likely be sprites)
+        * If character is chosen --> give option to [LoadGame | DeleteGame -> [Confirmation]]
+        * If blank character is chosen --> query [NewGame]
+    X Middle - Static Castle Sprite
+    X Back - Moving Enviroment Background
+        X Make Translations smoother
+        X Use RNG to generate random transformation on a set number of clouds for the background
+            X size, speed, transparency, location etc
+            X when scaling we need to keep the aspect ratio
 
-(2) Clear surface buffer at the beginning of every loop
-    - Look into python memory managment
+X Clear surface buffer at the beginning of every loop
+    X Look into python memory managment
+
+Implement Character Creation Page
+    - Transition from main menu to character creation
+
+Add Audio
+    - Sound effects
+    - Background Music
 
 Implement Loading Screen
     - Display Percentage and Errors in loading
@@ -50,3 +60,4 @@ Implement Window Resize (Possibly just static and predefined sizes in options me
 Bugs
 Collision Detection is a little off
 Maps are rendered with non visible tiles from the adjacent rooms
+Need to clean up variables and images that are not used

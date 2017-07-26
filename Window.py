@@ -9,9 +9,9 @@ class WindowSurface:
     # roomWidth, roomHeight : size of rooms in tiles
     # worldName : string name for tmx file name
     # spawn : object from tmx containing x,y spawn location for player
-    def __init__(self, hudSize, roomWidth, roomHeight, worldName):
+    def __init__(self, hudSize, roomWidth, roomHeight):
         self.surfaceWidth = TILESIZE * roomWidth
-        self.surfaceHeight = TILESIZE * roomHeight + hudSize
+        self.surfaceHeight = TILESIZE * roomHeight + TILESIZE * hudSize
 
         # create window
         self.surface = pygame.display.set_mode((self.surfaceWidth, self.surfaceHeight), 0, TILESIZE)

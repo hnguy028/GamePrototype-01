@@ -9,6 +9,7 @@ def checkPortal(player, room, world):
     # TODO : should work anyways, the for loop should handle null (need to test)
     portals = room.gameMap.get_layer_by_name("portals")
 
+    # if portal == None?
     for portal in portals:
         # check if player is within the bounds of the portal
         if (((player.x + (room.xRoom * room.pixelWidth)) >= portal.x)
@@ -41,3 +42,11 @@ def blit_alpha(target, source, location, opacity):
     temp.blit(source, (0, 0))
     temp.set_alpha(opacity)
     target.blit(temp, location)
+
+# calculates resizing of rectangle, while keeping aspect ratio
+def scale_aspect(width, height, x, y, maximum=True):
+    new_width = y * width / height
+    new_height = x * height / width
+    if maximum ^ (new_width >= x):
+        return new_width or 1, y
+    return x, new_height or 1
