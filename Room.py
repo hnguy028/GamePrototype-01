@@ -1,4 +1,3 @@
-from constants import *
 from includes import *
 
 # Room size definition

@@ -10,3 +10,6 @@ from pygame import *
 from pygame.locals import *
 from pytmx.util_pygame import load_pygame
 from abc import ABCMeta, abstractmethod
+
+from constants import *
+pygame.init()

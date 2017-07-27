@@ -1,13 +1,12 @@
 from GameClasses import *
-from includes import *
-from constants import *
-from functions import *
+from UI import *
 import copy
 
 class gameEngine:
 
     def __init__(self):
         # Init main menu variables
+        self.state = None
         self.frameLoaded = False
         self.mainMenuLoaded = False
         self.gameLoaded = False
@@ -18,10 +17,34 @@ class gameEngine:
         self.mm_character_selected = None
         self.mm_character_index = 0
 
+    def handleEvent(self, event):
+        if self.state == MainMenuState.MAIN:
+            if event.key == C_SELECT:
+                self.state = MainMenuState.OTHER
+            elif event.key == C_LEFT:
+                self.change_char(-1)
+            elif event.key == C_RIGHT:
+                self.change_char(1)
+            elif event.key == K_HOME:
+                self.state = MainMenuState.UI_PROMPT
+                self.ui.loadPrompt(UI_State.NEWGAME)
+        elif self.state == MainMenuState.UI_PROMPT:
+            res = self.ui.handleEvent(event)
+            if res == Confirmation_State.CONFIRM:
+                self.state = MainMenuState.OTHER
+                self.ui.state = UI_State.NONE
+            elif res == Confirmation_State.CANCEL:
+                self.state = MainMenuState.MAIN
+                self.ui.state = UI_State.NONE
+
+        return self.state == MainMenuState.OTHER
+
     def loadSurface(self):
         if not self.frameLoaded:
             self.frameLoaded = True
             self.WORLD = WindowSurface(HUDSIZE_BOTTOM, ROOMWIDTH, ROOMHEIGHT)
+            self.ui = UI(self.WORLD.surface)
+            self.state = MainMenuState.MAIN
 
     # Load Game State classes
     def loadGame(self):
@@ -40,25 +63,25 @@ class gameEngine:
 
             # load in castle image and scale to the frame
             self.mmCastle = pygame.transform.scale(
-                pygame.image.load(MAIN_MENU_DIRECTORY + 'castle.png'),
-                    (TILESIZE * FRAMEWIDTH,
-                     TILESIZE * (FRAMEHEIGHT - int(FRAMEHEIGHT * 0.1))))
+                pygame.image.load(imageLibrary.mainmenu_castle),
+                    (FRAMEPIXELWIDTH,
+                     FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.1)))
 
             # Main Menu Background Image
             self.mmBackground = pygame.transform.scale(
-                pygame.image.load(MAIN_MENU_DIRECTORY + 'cloud_scenery.jpg'),
-                    (TILESIZE * FRAMEWIDTH,
-                     TILESIZE * (FRAMEHEIGHT - int(FRAMEHEIGHT * 0.2))))
+                pygame.image.load(imageLibrary.mainmenu_background),
+                    (FRAMEPIXELWIDTH,
+                     FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.2)))
 
             # Background Floor Image
             self.mmBgFloor = pygame.transform.scale(
-                pygame.image.load(MAIN_MENU_DIRECTORY + 'grass.png'),
-                    (TILESIZE * FRAMEWIDTH,
-                     TILESIZE * (FRAMEHEIGHT - int(FRAMEHEIGHT * 0.6))))
+                pygame.image.load(imageLibrary.mainmenu_floor),
+                    (FRAMEPIXELWIDTH,
+                     FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.5)))
 
             # Locked Character Image
             self.mmLockedCharacter_Knight = pygame.transform.scale(
-                pygame.image.load(MAIN_MENU_DIRECTORY + 'shadow_char.png'),
+                pygame.image.load(imageLibrary.lockedCharacter),
                 (50, 100))
 
             for i in range(4):
@@ -66,7 +89,7 @@ class gameEngine:
                 self.mm_character_saves.append(GameSaves(i, self.mmLockedCharacter_Knight, ""))
 
             self.mm_character_selected = pygame.transform.scale(
-                pygame.image.load(MAIN_MENU_DIRECTORY + 'Knight01.png'),
+                pygame.image.load(imageLibrary.knight),
                 (50, 100))
 
             self.mm_character_loadout[0] = self.mm_character_selected
@@ -88,7 +111,7 @@ class gameEngine:
                     None # Do nothing
 
             # calculate the equal distance between each character position
-            char_margin = TILESIZE * FRAMEWIDTH / 8
+            char_margin = FRAMEPIXELWIDTH / 8
             posCorrection = self.mmLockedCharacter_Knight.get_width() / 2
             self.charPosition = [char_margin - posCorrection,
                                  (char_margin*3) - posCorrection,
@@ -96,7 +119,7 @@ class gameEngine:
                                  (char_margin*7) - posCorrection]
 
             # load cloud images
-            loaded_cloud = pygame.image.load(MAIN_MENU_DIRECTORY + 'cloud.png')
+            loaded_cloud = pygame.image.load(imageLibrary.mainmenu_cloud)
 
             # calculate aspect ratio
             aspect_ratio = scale_aspect(loaded_cloud.get_width(), loaded_cloud.get_height(), 270, 170, False)
@@ -125,23 +148,18 @@ class gameEngine:
                 # add the cloud to list of clouds to be drawn
                 self.mm_clouds.append(
                     Cloud(self.mmCloud01,
-                          [xpos, random.randrange(0, round(FRAMEHEIGHT*TILESIZE/4))],
+                          [xpos, random.randrange(0, round(FRAMEPIXELHEIGHT/4))],
                           speed))
-
-            self.mmOptions_Button = pygame.transform.scale(
-                pygame.image.load(MAIN_MENU_DIRECTORY + 'Options_Button.png'),
-                (50,
-                 100))
 
     def draw_mainmenu(self):
         # draw background image
         self.WORLD.surface.blit(self.mmBackground, (0, 0))
 
         # draw ground floor
-        self.WORLD.surface.blit(self.mmBgFloor, (0, (FRAMEHEIGHT*TILESIZE - self.mmBgFloor.get_height())))
+        self.WORLD.surface.blit(self.mmBgFloor, (0, (FRAMEPIXELHEIGHT - self.mmBgFloor.get_height())))
         #pygame.draw.rect(self.WORLD.surface, (34, 139, 34),
         #                 Rect((0, ((TILESIZE * FRAMEHEIGHT) - (TILESIZE * HUDSIZE_BOTTOM))),
-        #                      (TILESIZE * FRAMEWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
+        #                      (FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
 
         # draw clouds
         for c in self.mm_clouds:
@@ -155,7 +173,9 @@ class gameEngine:
             #self.WORLD.surface.blit(self.mmLockedCharacter_Knight, (self.charPosition[i], 450))
             self.WORLD.surface.blit(self.mm_character_loadout[i], (self.charPosition[i], 450))
 
-        # draw buttons
+        # draw prompt
+        if self.state == MainMenuState.UI_PROMPT:
+            self.ui.drawPrompt()
 
         # tick
         self.tick_mainmenu()
@@ -209,7 +229,7 @@ class Cloud:
 
     def bounds_check(self):
         if self.speed > 0:
-            if self.currPos[0] > FRAMEWIDTH * TILESIZE:
+            if self.currPos[0] > FRAMEPIXELWIDTH:
                 self.currPos = self.spawnPos
         elif self.speed < 0:
             if self.currPos[0] < -self.width:
@@ -240,26 +260,5 @@ class GameSaves:
             None
 
 class MainMenuState:
-    MAIN, EXISTING_SAVE_OPTIONS, LOAD_CONFIRM, SAVE_STATUS, DELETE_SAVE_CONFIRM, NEW_GAME_CONFIRM, OPTIONS, CREDITS = range(8)
-
-#######################################################################################################################
-#                                          Global Functions
-#######################################################################################################################
-
-# sureface, image, (x,y), alpha
-def blit_alpha(target, source, location, opacity):
-    x = location[0]
-    y = location[1]
-    temp = pygame.Surface((source.get_width(), source.get_height())).convert()
-    temp.blit(target, (-x, -y))
-    temp.blit(source, (0, 0))
-    temp.set_alpha(opacity)
-    target.blit(temp, location)
-
-# calculates resizing of rectangle, while keeping aspect ratio
-def scale_aspect(width, height, x, y, maximum=True):
-    new_width = y * width / height
-    new_height = x * height / width
-    if maximum ^ (new_width >= x):
-        return new_width or 1, y
-    return x, new_height or 1
+    # Other state means we are not in the main menu
+    MAIN, EXISTING_SAVE_OPTIONS, UI_PROMPT, SAVE_STATUS, OPTIONS, CREDITS, OTHER = range(7)

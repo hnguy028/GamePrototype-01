@@ -3,8 +3,6 @@ from GameClasses import *
 from gameEngine import *
 from Loot_2D import *
 
-pygame.init()
-
 # Clock cycle
 mainClock = pygame.time.Clock()
 
@@ -109,12 +107,13 @@ while running:
                 if event.key == K_ESCAPE:
                     pygame.quit()
                     sys.exit()
-                elif event.key == K_RETURN:
-                    state = State.GAME
-                elif event.key == K_LEFT:
-                    l.change_char(-1)
-                elif event.key == K_RIGHT:
-                    l.change_char(1)
+                elif l.state == MainMenuState.MAIN:
+                    if l.handleEvent(event):
+                        state = State.GAME
+                elif l.state == MainMenuState.UI_PROMPT:
+                    if l.handleEvent(event):
+                        state = State.GAME
+
             #elif event.type == KEYUP:
                 #PLAYER.handleKeyUp(event)
     else:
