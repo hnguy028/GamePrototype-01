@@ -128,6 +128,11 @@ class gameEngine:
                           [xpos, random.randrange(0, round(FRAMEHEIGHT*TILESIZE/4))],
                           speed))
 
+            self.mmOptions_Button = pygame.transform.scale(
+                pygame.image.load(MAIN_MENU_DIRECTORY + 'Options_Button.png'),
+                (50,
+                 100))
+
     def draw_mainmenu(self):
         # draw background image
         self.WORLD.surface.blit(self.mmBackground, (0, 0))
@@ -150,6 +155,8 @@ class gameEngine:
             #self.WORLD.surface.blit(self.mmLockedCharacter_Knight, (self.charPosition[i], 450))
             self.WORLD.surface.blit(self.mm_character_loadout[i], (self.charPosition[i], 450))
 
+        # draw buttons
+
         # tick
         self.tick_mainmenu()
 
@@ -168,6 +175,10 @@ class gameEngine:
 
         self.mainmenu_loaded = False
 
+    # Handle navigation of main menu ui
+    def navigate_mainmenu(self, input_direction):
+        None
+
     def change_char(self, num):
         new_index = self.mm_character_index + num
         if new_index >= 0 and new_index < 4:
@@ -181,7 +192,9 @@ class gameEngine:
         # or return code to load options menu?
         return None
 
-
+#######################################################################################################################
+#                                    Private Helper Classes for GameEngine
+#######################################################################################################################
 
 # Cloud class used to hold information on the sprites on the main menu
 class Cloud:
@@ -215,6 +228,7 @@ class GameSaves:
 
     def newGame(self):
         if self.newgame:
+            # make new savefile (from newgame file template)
             None
 
     def loadGame(self):
@@ -224,3 +238,28 @@ class GameSaves:
     def deleteGame(self):
         if not self.newgame:
             None
+
+class MainMenuState:
+    MAIN, EXISTING_SAVE_OPTIONS, LOAD_CONFIRM, SAVE_STATUS, DELETE_SAVE_CONFIRM, NEW_GAME_CONFIRM, OPTIONS, CREDITS = range(8)
+
+#######################################################################################################################
+#                                          Global Functions
+#######################################################################################################################
+
+# sureface, image, (x,y), alpha
+def blit_alpha(target, source, location, opacity):
+    x = location[0]
+    y = location[1]
+    temp = pygame.Surface((source.get_width(), source.get_height())).convert()
+    temp.blit(target, (-x, -y))
+    temp.blit(source, (0, 0))
+    temp.set_alpha(opacity)
+    target.blit(temp, location)
+
+# calculates resizing of rectangle, while keeping aspect ratio
+def scale_aspect(width, height, x, y, maximum=True):
+    new_width = y * width / height
+    new_height = x * height / width
+    if maximum ^ (new_width >= x):
+        return new_width or 1, y
+    return x, new_height or 1
