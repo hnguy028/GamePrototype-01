@@ -42,13 +42,19 @@ class gameEngine:
             self.mmCastle = pygame.transform.scale(
                 pygame.image.load(MAIN_MENU_DIRECTORY + 'castle.png'),
                     (TILESIZE * FRAMEWIDTH,
-                     TILESIZE * (FRAMEHEIGHT - round(FRAMEHEIGHT * 0.1))))
+                     TILESIZE * (FRAMEHEIGHT - int(FRAMEHEIGHT * 0.1))))
 
             # Main Menu Background Image
             self.mmBackground = pygame.transform.scale(
                 pygame.image.load(MAIN_MENU_DIRECTORY + 'cloud_scenery.jpg'),
                     (TILESIZE * FRAMEWIDTH,
-                     TILESIZE * (FRAMEHEIGHT - round(FRAMEHEIGHT * 0.2))))
+                     TILESIZE * (FRAMEHEIGHT - int(FRAMEHEIGHT * 0.2))))
+
+            # Background Floor Image
+            self.mmBgFloor = pygame.transform.scale(
+                pygame.image.load(MAIN_MENU_DIRECTORY + 'grass.png'),
+                    (TILESIZE * FRAMEWIDTH,
+                     TILESIZE * (FRAMEHEIGHT - int(FRAMEHEIGHT * 0.6))))
 
             # Locked Character Image
             self.mmLockedCharacter_Knight = pygame.transform.scale(
@@ -78,7 +84,7 @@ class gameEngine:
                     self.mm_character_saves[i] = GameSaves(i, loaded_character, SAVE_DIRECTORY + 'savefile_0' + str(i), False)
 
                     file.close()
-                except FileNotFoundError:
+                except Exception:
                     None # Do nothing
 
             # calculate the equal distance between each character position
@@ -90,15 +96,15 @@ class gameEngine:
                                  (char_margin*7) - posCorrection]
 
             # load cloud images
-            loaded_cloud = pygame.image.load(MAIN_MENU_DIRECTORY + 'cloud02.png')
+            loaded_cloud = pygame.image.load(MAIN_MENU_DIRECTORY + 'cloud.png')
 
             # calculate aspect ratio
             aspect_ratio = scale_aspect(loaded_cloud.get_width(), loaded_cloud.get_height(), 270, 170, False)
 
             # scale image
             self.mmCloud01 = pygame.transform.scale(
-                pygame.image.load(MAIN_MENU_DIRECTORY + 'cloud02.png'),
-                (round(aspect_ratio[0]),round(aspect_ratio[1])))
+                loaded_cloud,
+                (int(aspect_ratio[0]),int(aspect_ratio[1])))
 
             mmCloudWidth = self.mmCloud01.get_width()
 
@@ -127,9 +133,10 @@ class gameEngine:
         self.WORLD.surface.blit(self.mmBackground, (0, 0))
 
         # draw ground floor
-        pygame.draw.rect(self.WORLD.surface, (34, 139, 34),
-                         Rect((0, ((TILESIZE * FRAMEHEIGHT) - (TILESIZE * HUDSIZE_BOTTOM))),
-                              (TILESIZE * FRAMEWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
+        self.WORLD.surface.blit(self.mmBgFloor, (0, (FRAMEHEIGHT*TILESIZE - self.mmBgFloor.get_height())))
+        #pygame.draw.rect(self.WORLD.surface, (34, 139, 34),
+        #                 Rect((0, ((TILESIZE * FRAMEHEIGHT) - (TILESIZE * HUDSIZE_BOTTOM))),
+        #                      (TILESIZE * FRAMEWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
 
         # draw clouds
         for c in self.mm_clouds:
