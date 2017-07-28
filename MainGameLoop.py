@@ -41,10 +41,7 @@ while running:
                 pygame.quit()
                 sys.exit()
             elif event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    pygame.quit()
-                    sys.exit()
-                elif event.key == K_p:
+                if event.key == K_p:
                     state = State.START_MENU
 
                 PLAYER.handleKeyDown(event)
@@ -105,12 +102,14 @@ while running:
                 sys.exit()
             elif event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
-                    pygame.quit()
-                    sys.exit()
+                    None
                 elif l.state == MainMenuState.MAIN:
                     if l.handleEvent(event):
                         state = State.GAME
                 elif l.state == MainMenuState.UI_PROMPT:
+                    if l.handleEvent(event):
+                        state = State.GAME
+                elif not l.state == MainMenuState.OTHER:
                     if l.handleEvent(event):
                         state = State.GAME
 
