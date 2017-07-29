@@ -351,3 +351,8 @@ while True:
 
     pygame.display.update()
     mainClock.tick(30) # Feel free to experiment with any FPS setting.
+
+    # Draw rectangle
+    # pygame.draw.rect(self.WORLD.surface, (34, 139, 34),
+    #                 Rect((0, ((TILESIZE * FRAMEHEIGHT) - (TILESIZE * HUDSIZE_BOTTOM))),
+    #                      (FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM)))

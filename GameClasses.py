@@ -5,4 +5,5 @@ from Player import *
 from Room import *
 from Window import *
 
+from Sprite import *
 from State import *

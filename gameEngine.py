@@ -11,10 +11,15 @@ class gameEngine:
         self.mainMenuLoaded = False
         self.gameLoaded = False
 
+        # MainMenuUI Variables
+        # dictionary conatining lists of sprites to be drawn
+        self.mm_ui_list = {}
+        # indices used to keep track of selected option
+        self.mm_ui_keyIndex = 0
+        self.mm_ui_listIndex = 0
+
         self.mm_clouds = []
-        self.mm_character_loadout = []
-        self.mm_character_saves = []
-        self.mm_character_selected = None
+        self.mm_game_saves = []
         self.mm_selection = Selection.CHARACTER00
 
     def handleEvent(self, event):
@@ -22,14 +27,16 @@ class gameEngine:
         if self.state == MainMenuState.MAIN:
 
             if event.key == C_SELECT:
-
+                print(self.mm_selection)
                 if self.mm_selection <= Selection.CHARACTER03:
                     # newgame, load options
                     None
                 elif self.mm_selection == Selection.CONTROL_SETTINGS:
-                    None
+                    self.state = MainMenuState.CONTROLS
+                    self.ui.loadControlSettings()
                 elif self.mm_selection == Selection.OPTIONS:
-                    None
+                    self.state = MainMenuState.OPTIONS
+                    self.ui.loadOptions()
                 elif self.mm_selection == Selection.CREDITS:
                     # roll credits
                     self.state = MainMenuState.CREDITS
@@ -37,28 +44,11 @@ class gameEngine:
                     self.credit_music = audioLibrary.load(audioDirectory.mainmenu_music)
                     self.credit_music.play()
 
-            elif event.key == C_UP:
-                self.update_selection(-4)
-
-            elif event.key == C_DOWN:
-                self.update_selection(4)
-
-            elif event.key == C_LEFT:
-                self.update_selection(-1)
-
-            elif event.key == C_RIGHT:
-                self.update_selection(1)
-
-            elif event.key == K_HOME:
-                self.state = MainMenuState.UI_PROMPT
-                self.ui.loadPrompt(UI_State.NEWGAME)
-
-            elif event.key == K_DELETE:
-                self.state = MainMenuState.OPTIONS
-                self.ui.loadOptions()
+            elif event.key in [C_UP, C_DOWN, C_LEFT, C_RIGHT]:
+                self.update_selection(event)
 
         elif self.state == MainMenuState.UI_PROMPT:
-            res = self.ui.handleEvent(event)
+            res = self.ui.handleEvent(event, self.state)
             if res == Confirmation_State.CONFIRM:
                 self.state = MainMenuState.OTHER
                 self.ui.state = UI_State.NONE
@@ -66,6 +56,10 @@ class gameEngine:
             elif res == Confirmation_State.CANCEL:
                 self.state = MainMenuState.MAIN
                 self.ui.state = UI_State.NONE
+
+        elif self.state == MainMenuState.CONTROLS:
+            if event.key == C_SELECT:
+                self.state = MainMenuState.MAIN
 
         elif self.state == MainMenuState.OPTIONS:
             if event.key == C_SELECT:
@@ -101,22 +95,17 @@ class gameEngine:
             self.mainMenuLoaded = True
 
             # load in castle image and scale to the frame
-            self.mmCastle = pygame.transform.scale(
-                pygame.image.load(imageDirectory.mainmenu_castle),
-                    (FRAMEPIXELWIDTH,
-                     FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.1)))
+            self.mmCastle = Sprite(
+                imageLibrary.load(imageDirectory.mainmenu_castle, FRAMEPIXELWIDTH, int(FRAMEPIXELHEIGHT * 0.9)))
 
             # Main Menu Background Image
-            self.mmBackground = pygame.transform.scale(
-                pygame.image.load(imageDirectory.mainmenu_background),
-                    (FRAMEPIXELWIDTH,
-                     FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.2)))
+            self.mmBackground = Sprite(
+                imageLibrary.load(imageDirectory.mainmenu_background, FRAMEPIXELWIDTH, FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.2)))
 
             # Background Floor Image
-            self.mmBgFloor = pygame.transform.scale(
-                pygame.image.load(imageDirectory.mainmenu_floor),
-                    (FRAMEPIXELWIDTH,
-                     FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.5)))
+            self.mmBgFloor = Sprite(
+                imageLibrary.load(imageDirectory.mainmenu_floor, FRAMEPIXELWIDTH, int(FRAMEPIXELHEIGHT * 0.5)),
+                (0, (FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.5))))
 
             # Locked Character Image
             self.mmLockedCharacter_Knight = pygame.transform.scale(
@@ -124,14 +113,11 @@ class gameEngine:
                 (50, 100))
 
             for i in range(4):
-                self.mm_character_loadout.append(self.mmLockedCharacter_Knight)
-                self.mm_character_saves.append(GameSaves(i, self.mmLockedCharacter_Knight, ""))
+                self.mm_game_saves.append(GameSaves(i, self.mmLockedCharacter_Knight, SAVE_DIRECTORY + 'savefile_0' + str(i)))
 
             self.mm_character_selected = pygame.transform.scale(
                 pygame.image.load(imageDirectory.knight),
                 (50, 100))
-
-            self.mm_character_loadout[0] = self.mm_character_selected
 
             # Load Character from file if it exists
             for i in range(4):
@@ -143,19 +129,26 @@ class gameEngine:
                         pygame.image.load(MAIN_MENU_DIRECTORY + char_name),
                         (50, 100))
 
-                    self.mm_character_saves[i] = GameSaves(i, loaded_character, SAVE_DIRECTORY + 'savefile_0' + str(i), False)
+                    self.mm_game_saves[i] = GameSaves(i, loaded_character, SAVE_DIRECTORY + 'savefile_0' + str(i), False)
 
                     savefile.close()
                 except Exception:
-                    None # Do nothing
+                    None # Do Nothing
 
             # calculate the equal distance between each character position
             char_margin = FRAMEPIXELWIDTH / 8
             posCorrection = self.mmLockedCharacter_Knight.get_width() / 2
-            self.charPosition = [char_margin - posCorrection,
-                                 (char_margin*3) - posCorrection,
-                                 (char_margin*5) - posCorrection,
-                                 (char_margin*7) - posCorrection]
+            charXPosition = [char_margin - posCorrection,
+                            (char_margin*3) - posCorrection,
+                            (char_margin*5) - posCorrection,
+                            (char_margin*7) - posCorrection]
+            charYPosition = 450
+
+            # set character 00 as default selected
+            self.mm_ui_list["0"] = [Sprite(self.mm_character_selected, (charXPosition[0], charYPosition))]
+            # load the rest of the chracters into ui list
+            for i in range(1,4):
+                self.mm_ui_list["0"].append(Sprite(self.mm_game_saves[i].surface,(charXPosition[i], charYPosition)))
 
             # load cloud images (cant use imageLibrary)
             loaded_cloud = pygame.image.load(MAIN_MENU_DIRECTORY + "cloud.png")
@@ -177,7 +170,7 @@ class gameEngine:
                 if speed == 0:
                     speed += 1
 
-                xpos = random.randrange(mmCloudWidth, mmCloudWidth+50)
+                xpos = random.randrange(mmCloudWidth, mmCloudWidth*3)
 
                 if speed < 0:
                     xpos += (FRAMEWIDTH * TILESIZE)
@@ -190,96 +183,104 @@ class gameEngine:
                           [xpos, random.randrange(0, int(FRAMEPIXELHEIGHT/4))],
                           speed))
 
-            button_template = imageLibrary.load(imageDirectory.creditsButton)
-            button_ratio = scale_aspect(button_template.get_width(), button_template.get_height(),
-                                        (FRAMEPIXELWIDTH * .3), 50)
+            button_template = imageLibrary.load(imageDirectory.blankButton, 100, 100, True)
+            button_ratio = [button_template.get_width(), button_template.get_height()]
 
             # Controls Settings Button
-            #self.options_button = imageLibrary.load(imageDirectory.optionsButton,
-            #                                        int(button_ratio[0]),
-            #                                        int(button_ratio[1]))
+            self.controls_button = imageLibrary.load(imageDirectory.controlSettingsButton,
+                                                    button_ratio[0], button_ratio[1])
 
             # Options Button
             self.options_button = imageLibrary.load(imageDirectory.optionsButton,
-                                                int(button_ratio[0]),
-                                                int(button_ratio[1]))
+                                                    button_ratio[0], button_ratio[1])
 
             # Credits Button
             self.credits_button = imageLibrary.load(imageDirectory.creditsButton,
-                                                    int(button_ratio[0]),
-                                                    int(button_ratio[1]))
+                                                    button_ratio[0], button_ratio[1])
 
+            # Add Buttons to user interface list
+            # char pos, char height, padding
+            buttonPosY = charYPosition + self.mmLockedCharacter_Knight.get_height() + 10
+            buttonPosX = button_template.get_width() + 10
+
+            self.mm_ui_list["1"] = []
+            self.mm_ui_list["1"].append(Sprite(self.controls_button, (FRAMEPIXELWIDTH - buttonPosX * 3, buttonPosY)))
+            self.mm_ui_list["1"].append(Sprite(self.options_button, (FRAMEPIXELWIDTH - buttonPosX * 2, buttonPosY)))
+            self.mm_ui_list["1"].append(Sprite(self.credits_button, (FRAMEPIXELWIDTH - buttonPosX, buttonPosY)))
+
+
+            # Load and play bg music
             self.mm_music = audioLibrary.load(audioDirectory.mainmenu_music)
             self.mm_music.play(-1)
 
     def draw_mainmenu(self):
-        if self.state < MainMenuState.CREDITS:
+        if self.state <= MainMenuState.UI_PROMPT:
             # draw background image
-            self.WORLD.surface.blit(self.mmBackground, (0, 0))
+            self.mmBackground.draw(self.WORLD.surface)
 
             # draw ground floor
-            self.WORLD.surface.blit(self.mmBgFloor, (0, (FRAMEPIXELHEIGHT - self.mmBgFloor.get_height())))
-            #pygame.draw.rect(self.WORLD.surface, (34, 139, 34),
-            #                 Rect((0, ((TILESIZE * FRAMEHEIGHT) - (TILESIZE * HUDSIZE_BOTTOM))),
-            #                      (FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
+            self.mmBgFloor.draw(self.WORLD.surface)
 
             # draw clouds
             for c in self.mm_clouds:
                 self.WORLD.surface.blit(c.surface, c.currPos)
 
             # draw castle
-            self.WORLD.surface.blit(self.mmCastle, (0, 0))
+            self.mmCastle.draw(self.WORLD.surface)
 
-            # draw characters
-            for i in range(4):
-                #self.WORLD.surface.blit(self.mmLockedCharacter_Knight, (self.charPosition[i], 450))
-                self.WORLD.surface.blit(self.mm_character_loadout[i], (self.charPosition[i], 450))
+            # load cursor position to the selected option
+            selected_sprite = self.mm_ui_list[str(self.mm_ui_keyIndex)][self.mm_ui_listIndex]
+            cursor_x = selected_sprite.pos[0] + selected_sprite.image.get_width() // 2
+            cursor_y = selected_sprite.pos[1] + selected_sprite.image.get_height() // 2
+            self.mm_ui_list["-1"] = [Sprite(self.ui.cursor, (cursor_x, cursor_y))]
 
-            # draw controls, options, and credit buttons
-
+            # draw user interface
+            for key in self.mm_ui_list:
+                for sprite in self.mm_ui_list[key]:
+                    self.WORLD.surface.blit(sprite.image, sprite.pos)
 
             # draw prompt
             if self.state == MainMenuState.UI_PROMPT:
                 self.ui.drawPrompt()
-            elif self.state == MainMenuState.OPTIONS:
-                self.ui.drawOptions()
 
             # tick
             self.tick_mainmenu()
+        elif self.state == MainMenuState.CONTROLS:
+            self.ui.drawControlSettings()
+        elif self.state == MainMenuState.OPTIONS:
+            self.ui.drawOptions()
         elif self.state == MainMenuState.CREDITS:
-            self.WORLD.surface.fill((50, 250, 50, 0))
+            self.WORLD.surface.fill((0, 0, 0, 0))
 
     def tick_mainmenu(self):
         for c in self.mm_clouds:
             c.move()
             c.bounds_check()
 
+    # Handle navigation of main menu ui
+    def update_selection(self, event):
+        if event.key == C_UP:
+            self.mm_ui_keyIndex = max(0, self.mm_ui_keyIndex - 1)
+        elif event.key == C_DOWN:
+            self.mm_ui_keyIndex = min(1, self.mm_ui_keyIndex + 1)
+            self.mm_ui_listIndex = min(self.mm_ui_listIndex, len(self.mm_ui_list[str(self.mm_ui_keyIndex)])-1)
+        elif event.key == C_LEFT:
+            self.mm_ui_listIndex = max(0, self.mm_ui_listIndex - 1)
+        elif event.key == C_RIGHT:
+            self.mm_ui_listIndex = min(len(self.mm_ui_list[str(self.mm_ui_keyIndex)]) - 1, self.mm_ui_listIndex + 1)
+
+        selection_offset = 0 if self.mm_ui_keyIndex == 0 else 4
+        self.mm_selection = selection_offset + self.mm_ui_listIndex
+
+    # Should only be called when moving to game load state
     def release_mainmenu(self):
         del self.mmBackground
-        del self.mmBackground
         del self.mmLockedCharacter_Knight
-        del self.charPosition
         del self.mm_clouds
         del self.mm_character_loadout
+        del self.mm_music
 
         self.mainmenu_loaded = False
-
-    # Handle navigation of main menu ui
-    def update_selection(self, step):
-        if step > 0:
-            new_index = min(self.mm_selection + step,7)
-        else:
-            new_index = max(self.mm_selection + step, 0)
-
-        if new_index in range(4) and self.mm_selection in range(4):
-            self.mm_character_loadout[new_index] = self.mm_character_selected
-            self.mm_character_loadout[self.mm_selection] = self.mm_character_saves[self.mm_selection].surface
-            self.mm_selection = new_index
-
-        if 0 <= Selection.CHARACTER03:
-           None
-
-
 
 #######################################################################################################################
 #                                    Private Helper Classes for GameEngine

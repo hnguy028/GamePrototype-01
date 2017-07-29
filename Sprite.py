@@ -1,7 +1,11 @@
-# https://www.youtube.com/watch?v=Eh8pMZgl9K4
-class Sprite:
-    # def __init__( pygame.sprite.Sprite ):
-    def __init__(self, img, pos):
+from includes import *
 
-        self.image = img
+class Sprite( pygame.sprite.Sprite ):
+
+    def __init__(self, image, pos=(0,0)):
+        super(Sprite, self).__init__()
+        self.image = image
         self.pos = pos
+
+    def draw(self, surface):
+        surface.blit(self.image, self.pos)

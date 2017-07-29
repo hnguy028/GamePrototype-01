@@ -15,38 +15,49 @@ class textDef:
 #######################################################################################################################
 class imageDirectory:
 
-    mainmenu_background = MAIN_MENU_DIRECTORY + "cloud_scenery.jpg"
-    mainmenu_floor = MAIN_MENU_DIRECTORY + "grass.png"
+    # Cursors
+    cursor = UI_CURSOR_DIRECTORY + "cursor01.png"
+
+    # Main Menu Images
     mainmenu_castle = MAIN_MENU_DIRECTORY + "castle.png"
     mainmenu_cloud = MAIN_MENU_DIRECTORY + "cloud.png"
+    mainmenu_background = MAIN_MENU_DIRECTORY + "cloud_scenery.jpg"
+    mainmenu_floor = MAIN_MENU_DIRECTORY + "grass.png"
+    lockedCharacter = MAIN_MENU_DIRECTORY + "locked_knight.png"
+    knight = MAIN_MENU_DIRECTORY + "knight01.png"
 
-    lockedCharacter = MAIN_MENU_DIRECTORY + "shadow_char.png"
-    knight = MAIN_MENU_DIRECTORY + "Knight01.png"
+    # Window Frames
+    promptFrame = UI_COMPONENTS_DIRECTORY + "Grey_Frame.png"
 
-    promptFrame = MAIN_MENU_DIRECTORY + "testbg.png"
-    selectHover = MAIN_MENU_DIRECTORY + "Hover.png"
-    optionsButton = MAIN_MENU_DIRECTORY + "Options_Button.png"
-    creditsButton = MAIN_MENU_DIRECTORY + "Credits_Button.png"
-    deleteButton = MAIN_MENU_DIRECTORY + "Delete_Button.png"
-    newGameButton = MAIN_MENU_DIRECTORY + "NewGame_Button.png"
-    loadButton = MAIN_MENU_DIRECTORY + "LoadGame_Button.png"
-    yesButton = MAIN_MENU_DIRECTORY + "Yes_Button.png"
-    noButton = MAIN_MENU_DIRECTORY + "No_Button.png"
+    # Buttons
+    selectHover = UI_COMPONENTS_DIRECTORY + "Hover.png"
+    blankButton = UI_COMPONENTS_DIRECTORY + "Blank_Button.png"
+    controlSettingsButton = UI_COMPONENTS_DIRECTORY + "Controls_Button.png"
+    optionsButton = UI_COMPONENTS_DIRECTORY + "Options_Button.png"
+    creditsButton = UI_COMPONENTS_DIRECTORY + "Credits_Button.png"
+    deleteButton = UI_COMPONENTS_DIRECTORY + "Delete_Button.png"
+    newGameButton = UI_COMPONENTS_DIRECTORY + "NewGame_Button.png"
+    loadButton = UI_COMPONENTS_DIRECTORY + "Load_Button.png"
+    confirmButton = UI_COMPONENTS_DIRECTORY + "Confirm_Button.png"
+    cancelButton = UI_COMPONENTS_DIRECTORY + "Cancel_Button.png"
 
 class imageLibrary:
 
     def __init__(self):
         self.imageDict = {}
 
-    def load(self, imgfile, width=1, height=1, maximize=True):
+    def load(self, imgfile, width=10, height=10, aspect=False, maximize=True):
         if imgfile in self.imageDict:
             return self.imageDict[imgfile]
         else:
             # load cloud images
             pre_surface = pygame.image.load(imgfile)
 
-            # calculate aspect ratio
-            aspect_ratio = scale_aspect(pre_surface.get_width(), pre_surface.get_height(), width, height, maximize)
+            aspect_ratio = [width, height]
+
+            if aspect:
+                # calculate aspect ratio
+                aspect_ratio = scale_aspect(pre_surface.get_width(), pre_surface.get_height(), width, height, maximize)
 
             self.imageDict[imgfile] = pygame.transform.scale(
                 pre_surface,
