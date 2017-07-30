@@ -18,6 +18,9 @@ UI_COMPONENTS_DIRECTORY = UI_DIRECTORY + 'components/'
 UI_CURSOR_DIRECTORY = UI_DIRECTORY + 'cursor/'
 
 
+########## Game Information
+FPS = 30
+
 ########## Character Information
 CHARACTER_NAME = "link"
 CHAR_WALKRATE = 10
@@ -57,6 +60,5 @@ ROOMHEIGHT = 15
 HUDSIZE_TOP = 1
 HUDSIZE_BOTTOM = 4
 
-#
 MAX_ALPHA = 255
 MIN_ALPHA = 0

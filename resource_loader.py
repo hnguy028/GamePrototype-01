@@ -74,6 +74,7 @@ class imageLibrary:
 #######################################################################################################################
 class audioDirectory:
     mainmenu_music = AUDIO_DIRECTORY + "Journey_Soundtrack_Apotheosis.wav"
+    credit_music = AUDIO_DIRECTORY + "TroyBoi_-_On_My_Own_feat_Nefera_.wav"
 
 
 class audioLibrary:
@@ -100,6 +101,19 @@ class audioLibrary:
 #######################################################################################################################
 class tmxDirectory:
     None
+
+
+# TMX object codes
+class tmxCodes:
+    SPAWN_CODE = 'SpawnPoint'
+    IMPASSIVE_CODE = 'collidable'
+    COLLECTABLE_CODE = 'collectables'
+
+    DRAWN_LAYERS = 2
+
+    META_LAYER = 2
+    STRUCTURES_LAYER = 1
+    GROUND_LAYER = 0
 
 
 #######################################################################################################################

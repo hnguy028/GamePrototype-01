@@ -1,7 +1,5 @@
-from constants import *
-
 from includes import *
-
+from resource_loader import *
 
 class Player:
     def __init__(self, room, spawn, character, health, magic, coins, direction):
@@ -46,6 +44,8 @@ class Player:
 
         # TODO : might need to move conductor to the game loop
         self.moveConductor = pyganim.PygConductor(self.animObjs)
+
+
 
     # handles if key has been pushed down, taking a reference to event
     def handleKeyDown(self, e):
@@ -110,12 +110,12 @@ class Player:
         topLeft = room.gameMap.get_tile_properties(
             (self.x + (room.pixelWidth * room.xRoom)) / tileSize,
             ((self.y + (room.pixelHeight * room.yRoom) - rate) / tileSize),
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         topRight = room.gameMap.get_tile_properties(
             (self.x + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
             ((self.y + (room.pixelHeight * room.yRoom) - rate) / tileSize),
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         if topLeft == 'false' and topRight == 'false':
             self.y -= rate
@@ -124,12 +124,12 @@ class Player:
         bottomLeft = room.gameMap.get_tile_properties(
             (self.x + (room.pixelWidth * room.xRoom)) / tileSize,
             ((self.y + rate + self.height + (room.pixelHeight * room.yRoom)) / tileSize),
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         bottomRight = room.gameMap.get_tile_properties(
             (self.x + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
             ((self.y + rate + self.height + (room.pixelHeight * room.yRoom)) / tileSize),
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         if bottomLeft == 'false' and bottomRight == 'false':
             self.y += rate
@@ -138,12 +138,12 @@ class Player:
         topLeft = room.gameMap.get_tile_properties(
             (self.x - rate + (room.pixelWidth * room.xRoom)) / tileSize,
             (self.y + (room.pixelHeight * room.yRoom)) / tileSize,
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         bottomLeft = room.gameMap.get_tile_properties(
             (self.x - rate + (room.pixelWidth * room.xRoom)) / tileSize,
             (self.y + self.height + (room.pixelHeight * room.yRoom)) / tileSize,
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         if topLeft == 'false' and bottomLeft == 'false':
             self.x -= rate
@@ -152,12 +152,12 @@ class Player:
         topRight = room.gameMap.get_tile_properties(
             (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
             (self.y + (room.pixelHeight * room.yRoom)) / tileSize,
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         bottomRight = room.gameMap.get_tile_properties(
             (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
             (self.y + self.height + (room.pixelHeight * room.yRoom)) / tileSize,
-            1)[IMPASSIVE_CODE]
+            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
         if topRight == 'false' and bottomRight == 'false':
             self.x += rate

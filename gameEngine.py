@@ -1,83 +1,138 @@
 from GameClasses import *
 from UI import *
+## TODO remove
+from Loot_2D import *
 import copy
 
 class gameEngine:
 
     def __init__(self):
-        # Init main menu variables
-        self.state = None
+        # Init gameEngine Variables
+
+        # gameEngine state
+        self.state = State.START_MENU
+        self.mainMenuState = None
+
+        # Handelers on which resources are loaded
         self.frameLoaded = False
         self.mainMenuLoaded = False
         self.gameLoaded = False
 
-        # MainMenuUI Variables
-        # dictionary conatining lists of sprites to be drawn
-        self.mm_ui_list = {}
-        # indices used to keep track of selected option
-        self.mm_ui_keyIndex = 0
-        self.mm_ui_listIndex = 0
-
-        self.mm_clouds = []
-        self.mm_game_saves = []
-        self.mm_selection = Selection.CHARACTER00
+        self.game_saves = []
 
     def handleEvent(self, event):
+        if self.state == State.INITIAL_LOAD:
+            None
+        elif self.state == State.START_MENU:
+            if self.handleMainMenuEvent(event):
+                self.state = State.GAME
+        elif self.state == State.GAME:
+            if event.key == C_DELETE:
+                # NOT being accessed for some reason
+                self.state = State.START_MENU
+            self.handleGameEvent(event)
 
-        if self.state == MainMenuState.MAIN:
+    def handleMainMenuEvent(self, event):
 
+        # if main menu or confirmation prompt
+        if self.mainMenuState <= MainMenuState.UI_PROMPT:
+
+            if self.mainMenuState == MainMenuState.MAIN:
+
+                if event.key == C_SELECT:
+                    if self.mm_selection <= Selection.CHARACTER03:
+                        character_index = self.mm_selection
+                        # check if the character selected has a stored save
+                        if not self.game_saves[character_index].newgame:
+                            self.ui.loadPrompt(UI_State.LOAD)
+                            self.mainMenuState = MainMenuState.UI_PROMPT
+                        else:
+                            self.ui.loadPrompt(UI_State.NEWGAME)
+                            self.mainMenuState = MainMenuState.UI_PROMPT
+
+                    elif self.mm_selection == Selection.CONTROL_SETTINGS:
+                        self.mainMenuState = MainMenuState.CONTROLS
+                        self.ui.loadControlSettings()
+                    elif self.mm_selection == Selection.OPTIONS:
+                        self.mainMenuState = MainMenuState.OPTIONS
+                        self.ui.loadOptions()
+                    elif self.mm_selection == Selection.CREDITS:
+                        # roll credits
+                        self.mainMenuState = MainMenuState.CREDITS
+                        self.mm_music.stop()
+                        self.credit_music = audioLibrary.load(audioDirectory.credit_music)
+                        self.credit_music.play()
+
+                # navigate the main menu options
+                elif event.key in [C_UP, C_DOWN, C_LEFT, C_RIGHT]:
+                    self.update_selection(event)
+
+                # character deletion
+                elif self.mm_selection <= Selection.CHARACTER03 and event.key == C_DELETE:
+                    character_index = self.mm_selection
+
+                    # if game save exists
+                    if not self.game_saves[character_index].newgame:
+                        self.ui.loadPrompt(UI_State.DELETE)
+                        self.mainMenuState = MainMenuState.UI_PROMPT
+
+            # UI_PROMOPT State
+            else:
+                # get prompt confirmation
+                confirmation = self.ui.handleEvent(event)
+
+                if confirmation == Confirmation_State.CONFIRM:
+
+                    if self.ui.state == UI_State.LOAD:
+                        self.mainMenuState = MainMenuState.OTHER
+                        self.ui.state = UI_State.NONE
+                        self.mm_music.stop()
+
+                    elif self.ui.state == UI_State.NEWGAME:
+                        #self.mainMenuState = MainMenuState.OTHER
+                        self.ui.state = UI_State.NONE
+
+                    elif self.ui.state == UI_State.DELETE:
+                        #self.mainMenuState = MainMenuState.OTHER
+                        self.ui.state = UI_State.NONE
+
+                elif confirmation == Confirmation_State.CANCEL:
+                    self.mainMenuState = MainMenuState.MAIN
+                    self.ui.state = UI_State.NONE
+
+        elif self.mainMenuState == MainMenuState.CONTROLS:
             if event.key == C_SELECT:
-                print(self.mm_selection)
-                if self.mm_selection <= Selection.CHARACTER03:
-                    # newgame, load options
-                    None
-                elif self.mm_selection == Selection.CONTROL_SETTINGS:
-                    self.state = MainMenuState.CONTROLS
-                    self.ui.loadControlSettings()
-                elif self.mm_selection == Selection.OPTIONS:
-                    self.state = MainMenuState.OPTIONS
-                    self.ui.loadOptions()
-                elif self.mm_selection == Selection.CREDITS:
-                    # roll credits
-                    self.state = MainMenuState.CREDITS
-                    self.mm_music.stop()
-                    self.credit_music = audioLibrary.load(audioDirectory.mainmenu_music)
-                    self.credit_music.play()
+                self.mainMenuState = MainMenuState.MAIN
 
-            elif event.key in [C_UP, C_DOWN, C_LEFT, C_RIGHT]:
-                self.update_selection(event)
-
-        elif self.state == MainMenuState.UI_PROMPT:
-            res = self.ui.handleEvent(event, self.state)
-            if res == Confirmation_State.CONFIRM:
-                self.state = MainMenuState.OTHER
-                self.ui.state = UI_State.NONE
-
-            elif res == Confirmation_State.CANCEL:
-                self.state = MainMenuState.MAIN
-                self.ui.state = UI_State.NONE
-
-        elif self.state == MainMenuState.CONTROLS:
+        elif self.mainMenuState == MainMenuState.OPTIONS:
             if event.key == C_SELECT:
-                self.state = MainMenuState.MAIN
+                self.mainMenuState = MainMenuState.MAIN
 
-        elif self.state == MainMenuState.OPTIONS:
-            if event.key == C_SELECT:
-                self.state = MainMenuState.MAIN
-
-        elif self.state == MainMenuState.CREDITS:
+        elif self.mainMenuState == MainMenuState.CREDITS:
             if event.type == KEYDOWN:
-                self.state = MainMenuState.MAIN
+                self.mainMenuState = MainMenuState.MAIN
+                self.credit_music.stop()
+                self.mm_music.play(-1)
 
         # if state is set to other then we can break out of the main menu states
-        return self.state == MainMenuState.OTHER
+        return self.mainMenuState == MainMenuState.OTHER
 
+    def handleGameEvent(self, event):
+
+        if event.type == KEYDOWN:
+            self.PLAYER.handleKeyDown(event)
+        elif event.type == KEYUP:
+            self.PLAYER.handleKeyUp(event)
+
+        #self.drawGame()
+
+    # loads window frame
     def loadSurface(self):
         if not self.frameLoaded:
             self.frameLoaded = True
             self.WORLD = WindowSurface(HUDSIZE_BOTTOM, ROOMWIDTH, ROOMHEIGHT)
             self.ui = UI(self.WORLD.surface)
-            self.state = MainMenuState.MAIN
+            self.mainMenuState = MainMenuState.MAIN
 
     # Load Game State classes
     def loadGame(self):
@@ -89,9 +144,69 @@ class gameEngine:
 
             self.ROOM.loadMap()
 
+            # TODO : relocate coin1
+            self.COIN = Coin1()
+
+    def drawGame(self):
+        # draw current room to screen
+        self.ROOM.drawMap(self.WORLD.surface)
+
+        self.COIN.getCoin(self.ROOM)
+        self.COIN.drawCoin(self.WORLD.surface)
+        self.COIN.removeCoin(self.PLAYER.x + self.PLAYER.width/2, self.PLAYER.y + self.PLAYER.height/2)
+
+        if self.PLAYER.moveUp or self.PLAYER.moveDown or self.PLAYER.moveLeft or self.PLAYER.moveRight:
+
+            # if in motion, then draw animation
+            self.PLAYER.walkRunMotion(self.WORLD)
+
+            currRate = 0
+
+            if self.PLAYER.running:
+                currRate = self.PLAYER.runRate
+            else:
+                currRate = self.PLAYER.walkRate
+
+            if self.PLAYER.moveUp:
+                self.PLAYER.move_Up(currRate, TILESIZE, self.ROOM)
+            if self.PLAYER.moveDown:
+                self.PLAYER.move_Down(currRate, TILESIZE, self.ROOM)
+            if self.PLAYER.moveLeft:
+                self.PLAYER.move_Left(currRate, TILESIZE, self.ROOM)
+            if self.PLAYER.moveRight:
+                self.PLAYER.move_Right(currRate, TILESIZE, self.ROOM)
+
+        else:
+            self.PLAYER.idle(self.WORLD)
+
+        # make sure the player does move off the screen
+        self.PLAYER.boundsCheck(self.ROOM)
+
+        # check if the player has stepped into a portal object
+        checkPortal(self.PLAYER, self.ROOM, self.WORLD)
+
+        #       coinx, coiny, coinq = getCoin()
+        #        world.loadMap()
+
+        # TODO : add gui
+        self.HUD.drawRect(self.WORLD.surface)
+        # create menu gui - player menu / controls
+        # windowSurface.blit(instructionSurf, instructionRect)
+
     # load main menu state classes and images
     def load_mainmenu(self):
         if not self.mainMenuLoaded:
+            # MainMenuUI Variables
+
+            # dictionary conatining lists of sprites to be drawn
+            self.mm_ui_list = {}
+            # indices used to keep track of selected option
+            self.mm_ui_keyIndex = 0
+            self.mm_ui_listIndex = 0
+
+            self.mm_clouds = []
+            self.mm_selection = Selection.CHARACTER00
+
             self.mainMenuLoaded = True
 
             # load in castle image and scale to the frame
@@ -113,7 +228,7 @@ class gameEngine:
                 (50, 100))
 
             for i in range(4):
-                self.mm_game_saves.append(GameSaves(i, self.mmLockedCharacter_Knight, SAVE_DIRECTORY + 'savefile_0' + str(i)))
+                self.game_saves.append(GameSaves(i, self.mmLockedCharacter_Knight, SAVE_DIRECTORY + 'savefile_0' + str(i)))
 
             self.mm_character_selected = pygame.transform.scale(
                 pygame.image.load(imageDirectory.knight),
@@ -129,7 +244,7 @@ class gameEngine:
                         pygame.image.load(MAIN_MENU_DIRECTORY + char_name),
                         (50, 100))
 
-                    self.mm_game_saves[i] = GameSaves(i, loaded_character, SAVE_DIRECTORY + 'savefile_0' + str(i), False)
+                    self.game_saves[i] = GameSaves(i, loaded_character, SAVE_DIRECTORY + 'savefile_0' + str(i), False)
 
                     savefile.close()
                 except Exception:
@@ -148,7 +263,7 @@ class gameEngine:
             self.mm_ui_list["0"] = [Sprite(self.mm_character_selected, (charXPosition[0], charYPosition))]
             # load the rest of the chracters into ui list
             for i in range(1,4):
-                self.mm_ui_list["0"].append(Sprite(self.mm_game_saves[i].surface,(charXPosition[i], charYPosition)))
+                self.mm_ui_list["0"].append(Sprite(self.game_saves[i].surface,(charXPosition[i], charYPosition)))
 
             # load cloud images (cant use imageLibrary)
             loaded_cloud = pygame.image.load(MAIN_MENU_DIRECTORY + "cloud.png")
@@ -214,7 +329,7 @@ class gameEngine:
             self.mm_music.play(-1)
 
     def draw_mainmenu(self):
-        if self.state <= MainMenuState.UI_PROMPT:
+        if self.mainMenuState <= MainMenuState.UI_PROMPT:
             # draw background image
             self.mmBackground.draw(self.WORLD.surface)
 
@@ -234,22 +349,26 @@ class gameEngine:
             cursor_y = selected_sprite.pos[1] + selected_sprite.image.get_height() // 2
             self.mm_ui_list["-1"] = [Sprite(self.ui.cursor, (cursor_x, cursor_y))]
 
+            # remove cursor if prompt is displayed
+            if self.mainMenuState == MainMenuState.UI_PROMPT:
+                self.mm_ui_list["-1"] = []
+
             # draw user interface
             for key in self.mm_ui_list:
                 for sprite in self.mm_ui_list[key]:
                     self.WORLD.surface.blit(sprite.image, sprite.pos)
 
             # draw prompt
-            if self.state == MainMenuState.UI_PROMPT:
+            if self.mainMenuState == MainMenuState.UI_PROMPT:
                 self.ui.drawPrompt()
 
             # tick
             self.tick_mainmenu()
-        elif self.state == MainMenuState.CONTROLS:
+        elif self.mainMenuState == MainMenuState.CONTROLS:
             self.ui.drawControlSettings()
-        elif self.state == MainMenuState.OPTIONS:
+        elif self.mainMenuState == MainMenuState.OPTIONS:
             self.ui.drawOptions()
-        elif self.state == MainMenuState.CREDITS:
+        elif self.mainMenuState == MainMenuState.CREDITS:
             self.WORLD.surface.fill((0, 0, 0, 0))
 
     def tick_mainmenu(self):
@@ -285,6 +404,10 @@ class gameEngine:
 #######################################################################################################################
 #                                    Private Helper Classes for GameEngine
 #######################################################################################################################
+
+# Game State enum
+class State:
+    INITIAL_LOAD, START_MENU, GAME = range(3)
 
 # Cloud class used to hold information on the sprites on the main menu
 class Cloud:

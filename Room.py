@@ -1,4 +1,4 @@
-from includes import *
+from resource_loader import *
 
 # Room size definition
 class RoomSurface:
@@ -20,34 +20,41 @@ class RoomSurface:
         self.numRoomsX = self.gameMap.layers[0].width / self.tileWidth
         self.numRoomsY = self.gameMap.layers[0].height / self.tileHeight
 
-        self.playerSpawn = self.gameMap.get_object_by_name(SPAWN_CODE)  # defined in tmx meta
+        self.playerSpawn = self.gameMap.get_object_by_name(tmxCodes.SPAWN_CODE)  # defined in tmx meta
 
         self.xRoom = int(self.playerSpawn.x // (TILESIZE * self.tileWidth))
         self.yRoom = int(self.playerSpawn.y // (TILESIZE * self.tileHeight))
 
+        # dictionary of layers to be drawn
+        self.tileLayers = {}
+
         # array to hold the tiles of the current map
-        self.mapTiles = []
+        for i in range(tmxCodes.DRAWN_LAYERS):
+            self.tileLayers[str(i)] = []
 
     # xRoom, yRoom : current room position in grid (1-3)
     # roomWidth, roomHeight : room size in tiles (20)
     def loadMap(self):
         # clear mapTiles
-        del self.mapTiles[:]
+        for layer in range(tmxCodes.DRAWN_LAYERS):
+            del self.tileLayers[str(layer)][:]
+            self.tileLayers[str(layer)] = []
 
-        # load current tmx in the range of current frameBlocks
-        for yTile in range(self.tileHeight * self.yRoom, self.tileHeight * (self.yRoom + 1)):
-            for xTile in range(self.tileWidth * self.xRoom, self.tileWidth * (self.xRoom + 1)):
-                tile = self.gameMap.get_tile_image(xTile, yTile, 0)
-                self.mapTiles.append(tile)
+        for layer in range(tmxCodes.DRAWN_LAYERS):
+            # load current tmx in the range of current frameBlocks
+            for yTile in range(self.tileHeight * self.yRoom, self.tileHeight * (self.yRoom + 1)):
+                for xTile in range(self.tileWidth * self.xRoom, self.tileWidth * (self.xRoom + 1)):
+                    self.tileLayers[str(layer)].append(self.gameMap.get_tile_image(xTile, yTile, layer))
 
     # tile size : size of tiles in pixels (32)
     # roomWidth, roomHeight : room size in tiles (20)
     def drawMap(self, surface):
-        i = 0
-        for yTile in range(ROOMHEIGHT):
-            for xTile in range(ROOMWIDTH):
-                surface.blit(self.mapTiles[i], (xTile * TILESIZE, yTile * TILESIZE))
-                i += 1
+        for layer in range(tmxCodes.DRAWN_LAYERS):
+            i = 0
+            for yTile in range(ROOMHEIGHT):
+                for xTile in range(ROOMWIDTH):
+                    surface.blit(self.tileLayers[str(layer)][i], (xTile * TILESIZE, yTile * TILESIZE))
+                    i += 1
 
 
 # init collectable booleans

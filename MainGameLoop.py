@@ -1,13 +1,10 @@
-from functions import *
-from GameClasses import *
 from gameEngine import *
 from Loot_2D import *
 
 # Clock cycle
 mainClock = pygame.time.Clock()
 
-# Game state
-state = State.START_MENU
+# Game status
 running = True
 
 # Instantiate game loader
@@ -18,21 +15,10 @@ l.loadSurface()
 # Game loop
 while running:
     # game_state
-    if state == State.GAME:
+    if l.state == State.GAME:
         if not l.gameLoaded:
             l.loadGame()
-            WORLD = l.WORLD
-            ROOM = l.ROOM
-            PLAYER = l.PLAYER
-            HUD = l.HUD
-            COIN = Coin1()
 
-        # draw current room to screen
-        ROOM.drawMap(WORLD.surface)
-
-        COIN.getCoin(ROOM)
-        COIN.drawCoin(WORLD.surface)
-        COIN.removeCoin(PLAYER.x + PLAYER.width/2, PLAYER.y + PLAYER.height/2)
 
         for event in pygame.event.get():  # event handling loop
 
@@ -40,57 +26,17 @@ while running:
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-            elif event.type == KEYDOWN:
-                if event.key == K_p:
-                    state = State.START_MENU
-
-                PLAYER.handleKeyDown(event)
-
-            elif event.type == KEYUP:
-                PLAYER.handleKeyUp(event)
-
-        if PLAYER.moveUp or PLAYER.moveDown or PLAYER.moveLeft or PLAYER.moveRight:
-            # if in motion, then draw animation
-            PLAYER.walkRunMotion(WORLD)
-
-            curRate = 0
-
-            if PLAYER.running:
-                curRate = PLAYER.runRate
             else:
-                curRate = PLAYER.walkRate
+                l.handleGameEvent(event)
 
-            if PLAYER.moveUp:
-                PLAYER.move_Up(curRate, TILESIZE, ROOM)
-            if PLAYER.moveDown:
-                PLAYER.move_Down(curRate, TILESIZE, ROOM)
-            if PLAYER.moveLeft:
-                PLAYER.move_Left(curRate, TILESIZE, ROOM)
-            if PLAYER.moveRight:
-                PLAYER.move_Right(curRate, TILESIZE, ROOM)
+        l.drawGame()
 
-        else:
-            PLAYER.idle(WORLD)
 
-        # make sure the player does move off the screen
-        PLAYER.boundsCheck(ROOM)
+    elif l.state == State.START_MENU:
+        # load main menu
+        l.load_mainmenu()
 
-        # check if the player has stepped into a portal object
-        checkPortal(PLAYER, ROOM, WORLD)
-
-        #       coinx, coiny, coinq = getCoin()
-        #        world.loadMap()
-
-        # TODO : add gui
-        HUD.drawRect(WORLD.surface)
-        # create menu gui - player menu / controls
-        # windowSurface.blit(instructionSurf, instructionRect)
-    elif state == State.START_MENU:
-        # Check if main menu is already loaded
-        if not l.mainMenuLoaded:
-            l.load_mainmenu()
-
-        # Draw main menu
+        # draw main menu
         l.draw_mainmenu()
 
         # event handling loop
@@ -101,20 +47,7 @@ while running:
                 pygame.quit()
                 sys.exit()
             elif event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    None
-                elif l.state == MainMenuState.MAIN:
-                    if l.handleEvent(event):
-                        state = State.GAME
-                elif l.state == MainMenuState.UI_PROMPT:
-                    if l.handleEvent(event):
-                        state = State.GAME
-                elif not l.state == MainMenuState.OTHER:
-                    if l.handleEvent(event):
-                        state = State.GAME
-
-            #elif event.type == KEYUP:
-                #PLAYER.handleKeyUp(event)
+                l.handleEvent(event)
     else:
         print("State Error")
         pygame.quit()
@@ -123,9 +56,12 @@ while running:
 
     # Update display
     pygame.display.update()
-    mainClock.tick(30)  # fps / clock speed
+    mainClock.tick(FPS)  # fps / clock speed
 
     # END WHILE LOOP
 
 # Add desctructor
 l.releaseMainMenu()
+
+pygame.quit()
+sys.exit()

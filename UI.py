@@ -12,7 +12,7 @@ class UI:
         # frame variables
         self.frameWidth = int(FRAMEPIXELWIDTH * .9)
         self.frameHorizontalPadding = (FRAMEPIXELWIDTH - self.frameWidth) // 2
-        self.frameHeight = int(FRAMEPIXELHEIGHT * 0.5)
+        self.frameHeight = int(FRAMEPIXELHEIGHT * 0.4)
 
         # load UI sprites
         # Cursor
@@ -24,32 +24,28 @@ class UI:
                                               self.frameHeight)
 
         button_template = pygame.image.load(imageDirectory.blankButton)
-        button_ratio = scale_aspect(button_template.get_width(), button_template.get_height(), (FRAMEPIXELWIDTH * .3), 50)
+        self.button_ratio = scale_aspect(button_template.get_width(), button_template.get_height(), (FRAMEPIXELWIDTH * .3), 50)
 
         # Confirm Button
         self.confirm_button = imageLibrary.load(imageDirectory.confirmButton,
-                                                   int(button_ratio[0]),
-                                                   int(button_ratio[1]))
+                                                   int(self.button_ratio[0]),
+                                                   int(self.button_ratio[1]))
         # No Button
         self.cancel_button = imageLibrary.load(imageDirectory.cancelButton,
-                                                   int(button_ratio[0]),
-                                                   int(button_ratio[1]))
+                                                   int(self.button_ratio[0]),
+                                                   int(self.button_ratio[1]))
         # NewGame
         self.newgame_button = imageLibrary.load(imageDirectory.newGameButton,
-                                                   int(button_ratio[0]),
-                                                   int(button_ratio[1]))
+                                                   int(self.button_ratio[0]),
+                                                   int(self.button_ratio[1]))
         # Load
         self.loadgame_button = imageLibrary.load(imageDirectory.loadButton,
-                                                   int(button_ratio[0]),
-                                                   int(button_ratio[1]))
+                                                   int(self.button_ratio[0]),
+                                                   int(self.button_ratio[1]))
         # Delete
         self.deletegame_button = imageLibrary.load(imageDirectory.deleteButton,
-                                                   int(button_ratio[0]),
-                                                   int(button_ratio[1]))
-        # Delete
-        self.selector_image = imageLibrary.load(imageDirectory.selectHover,
-                                                   int(button_ratio[0]),
-                                                   int(button_ratio[1]))
+                                                   int(self.button_ratio[0]),
+                                                   int(self.button_ratio[1]))
 
         #self.deletegame_button = pygame.transform.scale(
          #   pygame.image.load(imageDirectory.deleteButton),
@@ -83,7 +79,7 @@ class UI:
         self.promptOffsetY = (self.prompt_frame.get_height() - len(self.promptLines) * (textDef.font_size + 1)) // 4
         self.prompt_buttonX_pos = [int(self.prompt_frame.get_width()*0.1),
                        self.prompt_frame.get_width() - self.cancel_button.get_width() - int(self.prompt_frame.get_width()*0.1)]
-        self.prompt_buttonY_pos = self.prompt_frame.get_height() - (self.confirm_button.get_height())
+        self.prompt_buttonY_pos = self.prompt_frame.get_height() - int((self.button_ratio[1] + self.promptSurface.get_height() *.1))
 
     def drawPrompt(self):
         # draw frame background image
@@ -103,14 +99,14 @@ class UI:
 
         # draw the selected option
         if self.prompt_index == Confirmation_State.CONFIRM:
-            self.promptSurface.blit(self.cursor, (self.prompt_buttonX_pos[0] + self.confirm_button.get_width(),
-                                                  self.prompt_buttonY_pos + self.confirm_button.get_height()))
+            self.promptSurface.blit(self.cursor, (self.prompt_buttonX_pos[0] + self.confirm_button.get_width() // 2,
+                                                  self.prompt_buttonY_pos + self.confirm_button.get_height() // 2))
         elif self.prompt_index == Confirmation_State.CANCEL:
-            self.promptSurface.blit(self.cursor, (self.prompt_buttonX_pos[1] + self.cancel_button.get_width(),
-                                                  self.prompt_buttonY_pos + self.cancel_button.get_height()))
+            self.promptSurface.blit(self.cursor, (self.prompt_buttonX_pos[1] + self.cancel_button.get_width() // 2,
+                                                  self.prompt_buttonY_pos + self.cancel_button.get_height() // 2))
 
-        # draw prompt window to frame (10% width padding, and 40% from the top)
-        self.frame_surface.blit(self.promptSurface, (self.frameHorizontalPadding, int(FRAMEPIXELHEIGHT * 0.4)))
+        # draw prompt window to frame (10% width padding, and 30% from the top)
+        self.frame_surface.blit(self.promptSurface, (self.frameHorizontalPadding, int(FRAMEPIXELHEIGHT * 0.3)))
 
     def loadOptions(self):
         self.optionSurface = pygame.Surface((int(FRAMEPIXELWIDTH * .95), int(FRAMEPIXELHEIGHT * .95)))
@@ -134,7 +130,7 @@ class UI:
         text = textDef.font.render("Control Settings", False, (0, 0, 0))
         self.controlSurface.blit(text, (10, 10))
 
-    def handleEvent(self, event, gameEngineState):
+    def handleEvent(self, event):
         if event.key == C_SELECT:
             return self.prompt_index
         elif event.key == C_LEFT:
@@ -143,7 +139,6 @@ class UI:
             self.prompt_index = Confirmation_State.CANCEL
 
         return Confirmation_State.IDLE
-
 
 class MainMenuState:
     # Other state means we are not in the main menu
