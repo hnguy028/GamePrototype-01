@@ -24,4 +24,7 @@ class Slot:
         surface.blit(self.surface, self.pos)
 
         # draw item image to slot
-        #self.item.drawIcon(self.surface, (self.posX, self.posY))
+        if not self.isEmpty:
+            self.item.drawIcon(self.surface, (self.posX, self.posY))
+
+            # draw stack number to corner of the slot if > 0
