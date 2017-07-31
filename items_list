@@ -1,0 +1,6 @@
+Bronze_Sword
+{"type":"weapon", "damage":2, "value":5}
+Health_Potion_01
+{"type":"potion", "stat_effect":"health", "restore_value":50, "value":2}
+Mana_Potion_01
+{"type":"potion", "stat_effect":"mana", "restore_value":50, "value":2}

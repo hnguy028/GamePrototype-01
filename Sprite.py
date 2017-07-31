@@ -7,5 +7,11 @@ class Sprite( pygame.sprite.Sprite ):
         self.image = image
         self.pos = pos
 
-    def draw(self, surface):
-        surface.blit(self.image, self.pos)
+    def draw(self, surface, pos=(-1,-1)):
+        if pos == (-1,-1):
+            surface.blit(self.image, self.pos)
+        else:
+            surface.blit(self.image, pos)
+
+    def drawIcon(self, surface, pos, width, height):
+        surface.blit(pygame.transform.scale(self.image, (width, height)), pos)

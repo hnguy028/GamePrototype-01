@@ -26,6 +26,8 @@ CHARACTER_NAME = "link"
 CHAR_WALKRATE = 10
 CHAR_RUNRATE = 20
 
+######### Inventory Defaults
+INITIAL_INVENTORY_SIZE = 24
 
 # Character orientation variables
 UP = 'up'
@@ -45,9 +47,14 @@ COLLECTABLE_CODE = 'collectables'
 # Tile size in pixels
 TILESIZE = 32
 
+
+# Size of the hud in (32 x 32) tiles
+HUDSIZE_TOP = 1
+HUDSIZE_BOTTOM = 4
+
 # Size of the window frame in (32 x 32) tiles
 FRAMEWIDTH = 15
-FRAMEHEIGHT = 19
+FRAMEHEIGHT = 15 + HUDSIZE_BOTTOM
 
 FRAMEPIXELWIDTH = FRAMEWIDTH * TILESIZE
 FRAMEPIXELHEIGHT = FRAMEHEIGHT * TILESIZE
@@ -55,10 +62,6 @@ FRAMEPIXELHEIGHT = FRAMEHEIGHT * TILESIZE
 # Size of the room frame in (32 x 32) tiles
 ROOMWIDTH = 15
 ROOMHEIGHT = 15
-
-# Size of the hud in (32 x 32) tiles
-HUDSIZE_TOP = 1
-HUDSIZE_BOTTOM = 4
 
 MAX_ALPHA = 255
 MIN_ALPHA = 0

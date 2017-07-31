@@ -9,10 +9,10 @@ TODO
         X Make character position dynamically calculated
         X Implement Character Selection
             X Need to handle if savefiles dont exist
-    - Front - Additional Options
-        * Add Options Button (Should most likely be sprites)
-        * If character is chosen --> give option to [LoadGame | DeleteGame -> [Confirmation]]
-        * If blank character is chosen --> query [NewGame]
+    X Front - Additional Options
+        X Add Options Button (Should most likely be sprites)
+        X If character is chosen --> give option to [LoadGame | DeleteGame -> [Confirmation]]
+        X If blank character is chosen --> query [NewGame]
     X Middle - Static Castle Sprite
     X Back - Moving Enviroment Background
         X Make Translations smoother
@@ -23,8 +23,13 @@ TODO
 X Clear surface buffer at the beginning of every loop
     X Look into python memory managment
 
+Implement Basic Inventory Interface
+    - Backpack / Held Items
+
 Implement Character Creation Page
     - Transition from main menu to character creation
+
+Implement a Better Collision Detection Method
 
 Add Audio
     - Sound effects
@@ -36,9 +41,6 @@ Implement Loading Screen
 Implement Heads Up Display
     - HEALTH, MP
     - Wallet (Currency count)
-
-Implement Basic Inventory Interface
-    - Backpack / Held Items
 
 Implement Quick Use Slots
     - Abilities and Actions

@@ -28,6 +28,7 @@ class imageDirectory:
 
     # Window Frames
     promptFrame = UI_COMPONENTS_DIRECTORY + "Grey_Frame.png"
+    inventoryFrame = UI_COMPONENTS_DIRECTORY + "Inventroy_Frame.png"
 
     # Buttons
     selectHover = UI_COMPONENTS_DIRECTORY + "Hover.png"

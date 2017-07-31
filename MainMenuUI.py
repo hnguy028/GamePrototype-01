@@ -1,4 +1,3 @@
-from functions import *
 from resource_loader import *
 from Controls import *
 

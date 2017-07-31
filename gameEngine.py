@@ -1,5 +1,5 @@
 from GameClasses import *
-from UI import *
+from MainMenuUI import *
 ## TODO remove
 from Loot_2D import *
 import copy
@@ -118,80 +118,92 @@ class gameEngine:
         return self.mainMenuState == MainMenuState.OTHER
 
     def handleGameEvent(self, event):
+        if self.game_state == GameState.WORLD:
+            if event.type == KEYDOWN:
+                if event.key == C_INVENTORY:
+                    self.game_state = GameState.INVENTORY
+                else:
+                    self.player.handleKeyDown(event)
+            elif event.type == KEYUP:
+                self.player.handleKeyUp(event)
+        else:
+            if event.type == KEYDOWN:
+                if event.key == C_INVENTORY:
+                    self.game_state = GameState.WORLD
+        #elif event.type == KEYUP:
 
-        if event.type == KEYDOWN:
-            self.PLAYER.handleKeyDown(event)
-        elif event.type == KEYUP:
-            self.PLAYER.handleKeyUp(event)
-
-        #self.drawGame()
 
     # loads window frame
     def loadSurface(self):
         if not self.frameLoaded:
             self.frameLoaded = True
-            self.WORLD = WindowSurface(HUDSIZE_BOTTOM, ROOMWIDTH, ROOMHEIGHT)
-            self.ui = UI(self.WORLD.surface)
+            self.world = WindowSurface(HUDSIZE_BOTTOM, ROOMWIDTH, ROOMHEIGHT)
+            self.ui = UI(self.world.surface)
             self.mainMenuState = MainMenuState.MAIN
 
     # Load Game State classes
     def loadGame(self):
         if not self.gameLoaded:
             self.gameLoaded = True
-            self.ROOM = RoomSurface("desert_world2")
-            self.PLAYER = Player(self.ROOM, self.ROOM.playerSpawn, CHARACTER_NAME, 100, 100, 100, DOWN)
-            self.HUD = HUD()
+            self.game_state = GameState.WORLD
+            self.room = RoomSurface("desert_world2")
+            self.inventory = Inventory(self.world.surface)
+            self.player = Player(self.room, self.room.playerSpawn, CHARACTER_NAME, 100, 100, 100, DOWN)
+            self.hud = HUD()
 
-            self.ROOM.loadMap()
+            self.room.loadMap()
 
             # TODO : relocate coin1
             self.COIN = Coin1()
 
     def drawGame(self):
-        # draw current room to screen
-        self.ROOM.drawMap(self.WORLD.surface)
+        if self.game_state == GameState.WORLD:
+            # draw current room to screen
+            self.room.drawMap(self.world.surface)
 
-        self.COIN.getCoin(self.ROOM)
-        self.COIN.drawCoin(self.WORLD.surface)
-        self.COIN.removeCoin(self.PLAYER.x + self.PLAYER.width/2, self.PLAYER.y + self.PLAYER.height/2)
+            self.COIN.getCoin(self.room)
+            self.COIN.drawCoin(self.world.surface)
+            self.COIN.removeCoin(self.player.x + self.player.width/2, self.player.y + self.player.height/2)
 
-        if self.PLAYER.moveUp or self.PLAYER.moveDown or self.PLAYER.moveLeft or self.PLAYER.moveRight:
+            if self.player.moveUp or self.player.moveDown or self.player.moveLeft or self.player.moveRight:
 
-            # if in motion, then draw animation
-            self.PLAYER.walkRunMotion(self.WORLD)
+                # if in motion, then draw animation
+                self.player.walkRunMotion(self.world)
 
-            currRate = 0
+                currRate = 0
 
-            if self.PLAYER.running:
-                currRate = self.PLAYER.runRate
+                if self.player.running:
+                    currRate = self.player.runRate
+                else:
+                    currRate = self.player.walkRate
+
+                if self.player.moveUp:
+                    self.player.move_Up(currRate, TILESIZE, self.room)
+                if self.player.moveDown:
+                    self.player.move_Down(currRate, TILESIZE, self.room)
+                if self.player.moveLeft:
+                    self.player.move_Left(currRate, TILESIZE, self.room)
+                if self.player.moveRight:
+                    self.player.move_Right(currRate, TILESIZE, self.room)
+
             else:
-                currRate = self.PLAYER.walkRate
+                self.player.idle(self.world)
 
-            if self.PLAYER.moveUp:
-                self.PLAYER.move_Up(currRate, TILESIZE, self.ROOM)
-            if self.PLAYER.moveDown:
-                self.PLAYER.move_Down(currRate, TILESIZE, self.ROOM)
-            if self.PLAYER.moveLeft:
-                self.PLAYER.move_Left(currRate, TILESIZE, self.ROOM)
-            if self.PLAYER.moveRight:
-                self.PLAYER.move_Right(currRate, TILESIZE, self.ROOM)
+            # make sure the player does move off the screen
+            self.player.boundsCheck(self.room)
 
-        else:
-            self.PLAYER.idle(self.WORLD)
+            # check if the player has stepped into a portal object
+            checkPortal(self.player, self.room, self.world)
 
-        # make sure the player does move off the screen
-        self.PLAYER.boundsCheck(self.ROOM)
+            #       coinx, coiny, coinq = getCoin()
+            #        world.loadMap()
 
-        # check if the player has stepped into a portal object
-        checkPortal(self.PLAYER, self.ROOM, self.WORLD)
-
-        #       coinx, coiny, coinq = getCoin()
-        #        world.loadMap()
-
-        # TODO : add gui
-        self.HUD.drawRect(self.WORLD.surface)
-        # create menu gui - player menu / controls
-        # windowSurface.blit(instructionSurf, instructionRect)
+            # TODO : add gui
+            self.hud.drawRect(self.world.surface)
+            # create menu gui - player menu / controls
+            # windowSurface.blit(instructionSurf, instructionRect)
+        elif self.game_state == GameState.INVENTORY:
+            self.inventory.draw()
 
     # load main menu state classes and images
     def load_mainmenu(self):
@@ -331,32 +343,32 @@ class gameEngine:
     def draw_mainmenu(self):
         if self.mainMenuState <= MainMenuState.UI_PROMPT:
             # draw background image
-            self.mmBackground.draw(self.WORLD.surface)
+            self.mmBackground.draw(self.world.surface)
 
             # draw ground floor
-            self.mmBgFloor.draw(self.WORLD.surface)
+            self.mmBgFloor.draw(self.world.surface)
 
             # draw clouds
             for c in self.mm_clouds:
-                self.WORLD.surface.blit(c.surface, c.currPos)
+                self.world.surface.blit(c.surface, c.currPos)
 
             # draw castle
-            self.mmCastle.draw(self.WORLD.surface)
+            self.mmCastle.draw(self.world.surface)
 
             # load cursor position to the selected option
             selected_sprite = self.mm_ui_list[str(self.mm_ui_keyIndex)][self.mm_ui_listIndex]
             cursor_x = selected_sprite.pos[0] + selected_sprite.image.get_width() // 2
             cursor_y = selected_sprite.pos[1] + selected_sprite.image.get_height() // 2
-            self.mm_ui_list["-1"] = [Sprite(self.ui.cursor, (cursor_x, cursor_y))]
-
-            # remove cursor if prompt is displayed
-            if self.mainMenuState == MainMenuState.UI_PROMPT:
-                self.mm_ui_list["-1"] = []
+            mm_ui_cursor = Sprite(self.ui.cursor, (cursor_x, cursor_y))
 
             # draw user interface
             for key in self.mm_ui_list:
                 for sprite in self.mm_ui_list[key]:
-                    self.WORLD.surface.blit(sprite.image, sprite.pos)
+                    self.world.surface.blit(sprite.image, sprite.pos)
+
+            # remove cursor if prompt is displayed
+            if not self.mainMenuState == MainMenuState.UI_PROMPT:
+                mm_ui_cursor.draw(self.world.surface)
 
             # draw prompt
             if self.mainMenuState == MainMenuState.UI_PROMPT:
@@ -369,7 +381,7 @@ class gameEngine:
         elif self.mainMenuState == MainMenuState.OPTIONS:
             self.ui.drawOptions()
         elif self.mainMenuState == MainMenuState.CREDITS:
-            self.WORLD.surface.fill((0, 0, 0, 0))
+            self.world.surface.fill((0, 0, 0, 0))
 
     def tick_mainmenu(self):
         for c in self.mm_clouds:
@@ -408,6 +420,9 @@ class gameEngine:
 # Game State enum
 class State:
     INITIAL_LOAD, START_MENU, GAME = range(3)
+
+class GameState:
+    NULL, WORLD, PAUSE, INVENTORY = range(4)
 
 # Cloud class used to hold information on the sprites on the main menu
 class Cloud:
