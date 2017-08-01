@@ -6,6 +6,21 @@ from functions import *
 class fontDirectory:
     freesansbold = FONT_DIRECTORY + "freesansbold.ttf"
 
+class fontLibrary:
+    def __init__(self):
+        self.fontDict = {}
+        self.staticFonts = {}
+
+    def loadStatic(self, font, fontsize=20):
+        if not font in self.staticFonts:
+            self.staticFonts[font] = pygame.font.Font(font,fontsize)
+        return self.staticFonts[font]
+
+    def load(self, font, fontsize):
+        self.fontDict[font] = pygame.font.Font(font, fontsize)
+        return self.fontDict[font]
+
+
 class textDef:
     font = pygame.font.Font(fontDirectory.freesansbold,20)
     font_size = font.get_height()
@@ -135,3 +150,4 @@ class tmxCodes:
 #######################################################################################################################
 imageLibrary = imageLibrary()
 audioLibrary = audioLibrary()
+fontLibrary = fontLibrary()

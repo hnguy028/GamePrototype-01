@@ -68,7 +68,8 @@ class Equipment:
             for slot in list:
                 slot.draw(self.surface)
 
-
+    def move(self, x, y, left, down):
+        None
 
 
 

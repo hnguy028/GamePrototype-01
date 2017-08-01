@@ -11,6 +11,8 @@ running = True
 l = gameEngine()
 l.loadSurface()
 
+# TODO : implement initial loading screen (ie for basic fonts, images, audio etc)
+fontLibrary.loadStatic(fontDirectory.freesansbold, 10)
 
 # Game loop
 while running:

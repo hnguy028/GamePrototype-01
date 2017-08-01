@@ -138,6 +138,17 @@ class gameEngine:
                     self.inventory.remove(self.testItem.name)
                 elif event.key == K_BACKSPACE:
                     self.inventory.equipment.equip(Item("head_gear",imageDirectory.head_gear_test, "head_gear"))
+                elif event.key == C_UP:
+                    self.inventory.moveCursor(0,-1)
+                elif event.key == C_DOWN:
+                    self.inventory.moveCursor(0, 1)
+                elif event.key == C_LEFT:
+                    self.inventory.moveCursor(-1, 0)
+                elif event.key == C_RIGHT:
+                    self.inventory.moveCursor(1, 0)
+                elif event.key == K_x:
+                    self.inventory.selectSlot()
+
         #elif event.type == KEYUP:
 
 
