@@ -1,22 +1,17 @@
-from includes import *
-from constants import *
 from resource_loader import *
 from Sprite import *
 
 class Item:
 
-    def __init__(self, name, type):
+    def __init__(self, name, spritefile, type, width=-1, height=-1):
         self.name = name
         self.type = type
-        self.stack = 0
-        self.sprite = None
+        self.spritefile = spritefile
+        self.sprite = Sprite(imageLibrary.load(self.spritefile, width, height))
 
     # draw icon image in the inventory page
-    def drawIcon(self, surface, pos, width, height):
-        self.sprite.drawIcon(surface, pos, width, height)
-
-    def draw(self, surface, x, y):
-        self.sprite.draw(surface, (x, y))
+    def draw(self, surface, width, height, pos):
+        self.sprite.drawIcon(surface, width, height, pos)
 
 class Weapon(Item):
 
@@ -25,7 +20,7 @@ class Weapon(Item):
 
 
 #######################################################################################################################
-#                                          In-game Item Definitions
+#                                          Item Definitions
 #######################################################################################################################
 class ItemDirectory:
 
@@ -37,8 +32,11 @@ class ItemDirectory:
     class Weapons:
         sword = "sword"
 
-    class Items:
-        blue_gem = "blue_gem"
+class ItemTypes:
+    potion = "potion"
+
+class CurrencyTypes:
+    None
 
 # Here we define item properties and place them into a map
 class ItemDictionary:

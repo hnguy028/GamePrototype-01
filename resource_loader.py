@@ -27,8 +27,9 @@ class imageDirectory:
     knight = MAIN_MENU_DIRECTORY + "knight01.png"
 
     # Window Frames
-    promptFrame = UI_COMPONENTS_DIRECTORY + "Grey_Frame.png"
-    inventoryFrame = UI_COMPONENTS_DIRECTORY + "Inventroy_Frame.png"
+    promptFrame = UI_COMPONENTS_DIRECTORY + "Prompt_Frame.png"
+    inventoryFrame = UI_COMPONENTS_DIRECTORY + "Frame01.png"
+    slotIcon = UI_COMPONENTS_DIRECTORY + "Slot01.png"
 
     # Buttons
     selectHover = UI_COMPONENTS_DIRECTORY + "Hover.png"
@@ -42,29 +43,40 @@ class imageDirectory:
     confirmButton = UI_COMPONENTS_DIRECTORY + "Confirm_Button.png"
     cancelButton = UI_COMPONENTS_DIRECTORY + "Cancel_Button.png"
 
+    # Items
+    health_potion = COLLECTABLES_DIRECTORY + "health_potion.png"
+
 class imageLibrary:
 
     def __init__(self):
         self.imageDict = {}
+        self.staticImages = {}
 
-    def load(self, imgfile, width=10, height=10, aspect=False, maximize=True):
-        if imgfile in self.imageDict:
-            return self.imageDict[imgfile]
+    def load(self, imgfile, width=-1, height=-1, aspect=False, maximize=True):
+        if not imgfile in self.imageDict:
+            self.imageDict[imgfile] = pygame.image.load(imgfile)
+
+        if width==-1 or height == -1:
+            width = self.imageDict[imgfile].get_width()
+            height = self.imageDict[imgfile].get_height()
+
+        aspect_ratio = [width, height]
+
+        if aspect:
+            # calculate aspect ratio
+            aspect_ratio = scale_aspect(self.imageDict[imgfile].get_width(), self.imageDict[imgfile].get_height(),
+                                        width, height, maximize)
+
+        return pygame.transform.scale(
+            self.imageDict[imgfile],
+            (int(aspect_ratio[0]),int(aspect_ratio[1])))
+
+    def staticLoad(self, imgfile, width=0, height=0, aspect=False, maximize=True):
+        if imgfile in self.staticImages:
+            return self.staticImages[imgfile]
         else:
-            # load cloud images
-            pre_surface = pygame.image.load(imgfile)
-
-            aspect_ratio = [width, height]
-
-            if aspect:
-                # calculate aspect ratio
-                aspect_ratio = scale_aspect(pre_surface.get_width(), pre_surface.get_height(), width, height, maximize)
-
-            self.imageDict[imgfile] = pygame.transform.scale(
-                pre_surface,
-                (int(aspect_ratio[0]),int(aspect_ratio[1])))
-
-            return self.imageDict[imgfile]
+            self.staticImages[imgfile] = pygame.transform.scale(pygame.image.load(imgfile), (width, height))
+            return self.staticImages[imgfile]
 
     def unload(self, imgfile):
         if imgfile in self.imageDict:

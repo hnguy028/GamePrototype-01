@@ -130,6 +130,12 @@ class gameEngine:
             if event.type == KEYDOWN:
                 if event.key == C_INVENTORY:
                     self.game_state = GameState.WORLD
+                elif event.key == K_HOME:
+                    self.testItem = Item("health_potion",imageDirectory.health_potion, "potion")
+                    self.testItem.sprite = Sprite(imageLibrary.load(imageDirectory.health_potion, self.inventory.icon_width, self.inventory.icon_height))
+                    self.inventory.add(self.testItem)
+                elif event.key == K_DELETE:
+                    self.inventory.remove(self.testItem.name)
         #elif event.type == KEYUP:
 
 
@@ -148,7 +154,7 @@ class gameEngine:
             self.game_state = GameState.WORLD
             self.room = RoomSurface("desert_world2")
             self.inventory = Inventory(self.world.surface)
-            self.player = Player(self.room, self.room.playerSpawn, CHARACTER_NAME, 100, 100, 100, DOWN)
+            self.player = Player(self.room, self.inventory, self.room.playerSpawn, CHARACTER_NAME, 100, 100, DOWN)
             self.hud = HUD()
 
             self.room.loadMap()
@@ -205,6 +211,7 @@ class gameEngine:
         elif self.game_state == GameState.INVENTORY:
             self.inventory.draw()
 
+
     # load main menu state classes and images
     def load_mainmenu(self):
         if not self.mainMenuLoaded:
@@ -223,21 +230,19 @@ class gameEngine:
 
             # load in castle image and scale to the frame
             self.mmCastle = Sprite(
-                imageLibrary.load(imageDirectory.mainmenu_castle, FRAMEPIXELWIDTH, int(FRAMEPIXELHEIGHT * 0.9)))
+                imageLibrary.staticLoad(imageDirectory.mainmenu_castle, FRAMEPIXELWIDTH, int(FRAMEPIXELHEIGHT * 0.9)))
 
             # Main Menu Background Image
             self.mmBackground = Sprite(
-                imageLibrary.load(imageDirectory.mainmenu_background, FRAMEPIXELWIDTH, FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.2)))
+                imageLibrary.staticLoad(imageDirectory.mainmenu_background, FRAMEPIXELWIDTH, FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.2)))
 
             # Background Floor Image
             self.mmBgFloor = Sprite(
-                imageLibrary.load(imageDirectory.mainmenu_floor, FRAMEPIXELWIDTH, int(FRAMEPIXELHEIGHT * 0.5)),
+                imageLibrary.staticLoad(imageDirectory.mainmenu_floor, FRAMEPIXELWIDTH, int(FRAMEPIXELHEIGHT * 0.5)),
                 (0, (FRAMEPIXELHEIGHT - int(FRAMEPIXELHEIGHT * 0.5))))
 
             # Locked Character Image
-            self.mmLockedCharacter_Knight = pygame.transform.scale(
-                pygame.image.load(imageDirectory.lockedCharacter),
-                (50, 100))
+            self.mmLockedCharacter_Knight = imageLibrary.load(imageDirectory.lockedCharacter, 50, 100)
 
             for i in range(4):
                 self.game_saves.append(GameSaves(i, self.mmLockedCharacter_Knight, SAVE_DIRECTORY + 'savefile_0' + str(i)))

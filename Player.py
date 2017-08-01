@@ -2,7 +2,7 @@ from includes import *
 from resource_loader import *
 
 class Player:
-    def __init__(self, room, spawn, character, health, magic, coins, direction):
+    def __init__(self, room, inventory, spawn, character, health, magic, direction):
         # player images
         self.front_facing = pygame.image.load(CHARACTER_DIRECTORY + '%s/char_front.png' % character)
         self.back_facing = pygame.image.load(CHARACTER_DIRECTORY + '%s/char_back.png' % character)
@@ -21,7 +21,8 @@ class Player:
         # player stats
         self.health = health
         self.magic = magic
-        self.coins = coins
+
+        self.inventory = inventory
 
         self.walkRate = CHAR_WALKRATE
         self.runRate = CHAR_RUNRATE

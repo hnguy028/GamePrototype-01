@@ -13,5 +13,5 @@ class Sprite( pygame.sprite.Sprite ):
         else:
             surface.blit(self.image, pos)
 
-    def drawIcon(self, surface, pos, width, height):
+    def drawIcon(self, surface, width, height, pos=(0,0)):
         surface.blit(pygame.transform.scale(self.image, (width, height)), pos)

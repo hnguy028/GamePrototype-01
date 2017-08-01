@@ -18,7 +18,7 @@ class UI:
         self.cursor = imageLibrary.load(imageDirectory.cursor, 30, 30, True)
 
         # Alert Frame
-        self.prompt_frame = imageLibrary.load(imageDirectory.promptFrame,
+        self.prompt_frame = imageLibrary.staticLoad(imageDirectory.promptFrame,
                                               self.frameWidth,
                                               self.frameHeight)
 
