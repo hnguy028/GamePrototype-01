@@ -44,6 +44,7 @@ class imageDirectory:
     cancelButton = UI_COMPONENTS_DIRECTORY + "Cancel_Button.png"
 
     # Items
+    head_gear_test = COLLECTABLES_DIRECTORY + "head.png"
     health_potion = COLLECTABLES_DIRECTORY + "health_potion.png"
 
 class imageLibrary:

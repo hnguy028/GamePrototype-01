@@ -21,6 +21,17 @@ class Slot:
 
         self.background = image
 
+    def add(self, item):
+        self.item = item
+        self.isEmpty = False
+
+    def remove(self):
+        rtnItem = self.item, self.itemStack
+        self.item = None
+        self.isEmpty = True
+        self.itemStack = 0
+        return rtnItem
+
     def draw(self, surface):
         # draw slot to inventory grid
         surface.blit(self.surface, self.pos)

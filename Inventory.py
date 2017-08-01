@@ -1,10 +1,10 @@
-from Slot import *
+from Equipment import *
 
 class Inventory:
 
     def __init__(self, frame_surface):
         self.frame = frame_surface
-        self.capacity = INITIAL_INVENTORY_SIZE
+        self.capacity = 40
         self.filledSlots = 0
 
         # size of slots shown to the user at a time (2 x 2 tiles)
@@ -25,8 +25,8 @@ class Inventory:
         self.surface = pygame.Surface((FRAMEPIXELWIDTH, FRAMEPIXELHEIGHT))
         self.surface.set_alpha(MAX_ALPHA)
 
-        self.gridtoframe_padding = 20
-        self.inventory_grid = pygame.Surface((FRAMEPIXELWIDTH - self.gridtoframe_padding, (FRAMEPIXELHEIGHT // 2) - self.gridtoframe_padding))
+        self.gridtoframe_padding = 5
+        self.inventory_grid = pygame.Surface((FRAMEPIXELWIDTH - self.gridtoframe_padding, FRAMEPIXELHEIGHT - 200))
         self.inventory_grid.fill((144, 144, 144))
         self.inventory_grid.set_alpha(MAX_ALPHA)
 
@@ -34,7 +34,12 @@ class Inventory:
         self.icon_height = self.icon_width
         self.slot_icon = imageLibrary.load(imageDirectory.slotIcon, self.icon_width, self.icon_height)
 
+        # load inventory
         self.load()
+
+        # initialize and load equipment
+        self.equipment = Equipment(FRAMEPIXELWIDTH - self.gridtoframe_padding, self.icon_height*2 + self.slotPadding*3 ,
+                                   self.slot_icon, self.icon_width, self.icon_height, self.slotPadding)
 
     # load in inventory images
     def load(self):
@@ -44,7 +49,7 @@ class Inventory:
                               FRAMEPIXELHEIGHT))
 
         # load itemList with empty slots
-        num_rows = (self.capacity % self.slotWidth) + 1
+        num_rows = (self.capacity // self.slotWidth) + 1
         num_cols = self.slotWidth
         index = 0
         for i in range(num_rows):
@@ -58,6 +63,10 @@ class Inventory:
                     index += 1
                 else:
                     break
+
+    def scroll(self):
+        None
+        #self.inventory_grid.scroll(0, self.slotHeight + self.slotPadding)
 
     def draw(self):
         # draw inventory surface to frame
@@ -82,6 +91,8 @@ class Inventory:
                     # draw greyed out square
                 index += 1
 
+        # draw equipment
+        self.equipment.draw(self.surface, (self.gridtoframe_padding // 2, FRAMEPIXELHEIGHT - (self.icon_height*2 + self.slotPadding*3 + self.gridtoframe_padding)))
 
     def increaseInventory(self, amount):
         # update capacity
@@ -118,8 +129,8 @@ class Inventory:
 
         name = itemName if item==None else item.name
 
-        for list in reversed(xrange(len(self.itemList))):
-            for slot in reversed(xrange(min(len(self.itemList[list]), self.slotWidth))):
+        for list in reversed(range(len(self.itemList))):
+            for slot in reversed(range(min(len(self.itemList[list]), self.slotWidth))):
                 if not self.itemList[list][slot].isEmpty:
                     if self.itemList[list][slot].item.name == name:
                         # self.itemList[list][slot].itemStack = max(0, self.itemList[list][slot].itemStack - amount)

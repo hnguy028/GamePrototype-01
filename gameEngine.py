@@ -136,6 +136,8 @@ class gameEngine:
                     self.inventory.add(self.testItem)
                 elif event.key == K_DELETE:
                     self.inventory.remove(self.testItem.name)
+                elif event.key == K_BACKSPACE:
+                    self.inventory.equipment.equip(Item("head_gear",imageDirectory.head_gear_test, "head_gear"))
         #elif event.type == KEYUP:
 
 
@@ -152,6 +154,7 @@ class gameEngine:
         if not self.gameLoaded:
             self.gameLoaded = True
             self.game_state = GameState.WORLD
+
             self.room = RoomSurface("desert_world2")
             self.inventory = Inventory(self.world.surface)
             self.player = Player(self.room, self.inventory, self.room.playerSpawn, CHARACTER_NAME, 100, 100, DOWN)
