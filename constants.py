@@ -28,6 +28,8 @@ CHAR_RUNRATE = 20
 
 ######### Inventory Defaults
 INITIAL_INVENTORY_SIZE = 13
+DEFAULT_INV_GRID_WIDTH = 5
+DEFAULT_INV_GRID_HEIGHT = 3
 
 # Character orientation variables
 UP = 'up'

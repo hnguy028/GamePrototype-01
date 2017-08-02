@@ -2,12 +2,13 @@ from Item import *
 
 class Slot:
 
-    def __init__(self, image, xIndex, yIndex, width, height, pos):
+    def __init__(self, image, xIndex, yIndex, width, height, pos, type=None):
         self.isEmpty = True
         self.item = None
         self.itemStack = 0
         self.hover = False
         self.isSelected = False
+        self.type = type
 
         self.invIndexX = xIndex
         self.invIndexY = yIndex
