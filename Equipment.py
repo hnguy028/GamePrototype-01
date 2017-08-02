@@ -11,17 +11,8 @@ class Equipment:
 
         self.surface = pygame.Surface((self.width, self.height))
 
-        self.head_gear = None
-        self.chest_gear = None
-        self.leg_gear = None
-        self.feet_gear = None
-
-        self.left_hand = None
-        self.right_hand = None
-
-        self.accessory1 = None
-        self.accessory2 = None
-
+        self.equipmentKeys = ["left_hand", "accessory1", "accessory2", "right_hand", "head_gear", "chest_gear", "waist_gear", "leg_gear", "feet_gear"]
+        self.equipmentMap = {}
         self.equipmentMatrix = []
 
         self.slot_icon = slot_icon
@@ -69,7 +60,12 @@ class Equipment:
                 slot.draw(self.surface)
 
     def move(self, x, y, left, down):
-        None
+        # TODO : this function does not necessarily switch cells when difference in size > 2
+        res_x = min(len(self.equipmentMatrix[y]) - 1, x + left) if left > 0 else max(0, x + left)
+        res_y = y
 
+        if not down == 0:
+            res_y = min(max(0, y + down), len(self.equipmentMatrix) - 1)
+            res_x = min(len(self.equipmentMatrix[res_y]) - 1, max(0, res_x))
 
-
+        return res_x, res_y

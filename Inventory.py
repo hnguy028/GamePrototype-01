@@ -4,7 +4,7 @@ class Inventory:
 
     def __init__(self, frame_surface):
         self.frame = frame_surface
-        self.capacity = 40
+        self.capacity = 13
         self.filledSlots = 0
 
         # size of slots shown to the user at a time (2 x 2 tiles)
@@ -50,7 +50,7 @@ class Inventory:
         self.cursor_x = 0
         self.cursor_y = 0
         self.hoverSlot = None
-        self.cursor_panel = 0
+        self.cursor_panel = InventoryPanel.INVENTORY
         self.cursor_image = imageLibrary.load(imageDirectory.cursor, 30, 30, True)
 
 
@@ -122,10 +122,15 @@ class Inventory:
             self.cursor_x = min(self.slotWidth - 1, self.cursor_x + left) if left > 0 else max(0, self.cursor_x + left)
 
             # check if we can scroll
-            # TODO : if last row is uneven, it will cause an error
-            self.cursor_y = min(self.slotHeight - 1, self.cursor_y + down) if down > 0 else max(0, self.cursor_y + down)
+
+            if down < 0:
+                self.cursor_y = max(0, self.cursor_y + down)
+            elif down > 0:
+                self.cursor_y = min(self.slotHeight - 1, self.cursor_y + down)
+                self.cursor_x = min(len(self.itemList[self.cursor_y] ) - 1, self.cursor_x)
+
         elif self.cursor_panel == InventoryPanel.EQUIPMENT:
-            None
+            self.cursor_x, self.cursor_y = self.equipment.move(self.cursor_x, self.cursor_y, left, down)
 
 
     def scroll(self):
@@ -139,7 +144,10 @@ class Inventory:
 
     def selectSlot(self):
         if self.selectedSlot == None:
-            self.selectedSlot = self.itemList[self.cursor_y][self.cursor_x]
+            if self.cursor_panel == InventoryPanel.INVENTORY:
+                self.selectedSlot = self.itemList[self.cursor_y][self.cursor_x]
+            elif self.cursor_panel == InventoryPanel.EQUIPMENT:
+                self.selectedSlot = self.equipment.equipmentMatrix  [self.cursor_y][self.cursor_x]
         else:
             item = self.selectedSlot.item
             self.selectedSlot.swap(self.itemList[self.cursor_y][self.cursor_x])

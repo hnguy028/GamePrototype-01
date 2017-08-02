@@ -148,7 +148,11 @@ class gameEngine:
                     self.inventory.moveCursor(1, 0)
                 elif event.key == K_x:
                     self.inventory.selectSlot()
-
+                elif event.key == K_TAB:
+                    if self.inventory.cursor_panel == InventoryPanel.INVENTORY:
+                        self.inventory.cursor_panel = InventoryPanel.EQUIPMENT
+                    else:
+                        self.inventory.cursor_panel = InventoryPanel.INVENTORY
         #elif event.type == KEYUP:
 
 
