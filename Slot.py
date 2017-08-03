@@ -54,9 +54,13 @@ class Slot:
     def split(self, slot, amount):
         None
 
-    def draw(self, surface):
+    def draw(self, surface, pos=(-1,-1)):
+        draw_pos = pos
+        if pos==(-1,-1):
+            draw_pos = self.pos
+
         # draw slot to inventory grid
-        surface.blit(self.surface, self.pos)
+        surface.blit(self.surface, draw_pos)
 
         # draw background image
         self.surface.blit(self.background, (0, 0))

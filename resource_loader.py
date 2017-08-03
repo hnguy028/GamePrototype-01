@@ -1,3 +1,4 @@
+from Types import *
 from functions import *
 
 #######################################################################################################################
@@ -62,6 +63,7 @@ class imageDirectory:
 
     # Items
     head_gear_test = COLLECTABLES_DIRECTORY + "head.png"
+    weapon_test = COLLECTABLES_DIRECTORY + "sword.png"
     health_potion = COLLECTABLES_DIRECTORY + "health_potion.png"
 
 class imageLibrary:
@@ -146,6 +148,16 @@ class tmxCodes:
     STRUCTURES_LAYER = 1
     GROUND_LAYER = 0
 
+#######################################################################################################################
+#                                              Item Loader
+#######################################################################################################################
+class ItemDictionary:
+
+    def __init__(self):
+        self.items["bronze_sword"]
+
+    def getValue(self, itemname):
+        return self.items[itemname]
 
 #######################################################################################################################
 #                                          Initialize Loader Objects

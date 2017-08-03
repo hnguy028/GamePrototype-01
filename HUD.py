@@ -1,26 +1,39 @@
-from constants import *
-from includes import *
+from Player import *
+from Inventory_Wallet import *
 
 class HUD:
     # initialize hud variables
-    def __init__(self):
-        self.test = None
+    def __init__(self, width, height, pos, player, inventory):
+        self.width = width
+        self.height = height
+        self.pos = pos
 
-        # window
+        # store references to player and inventory
+        self.player = player
+        self.inventory = inventory
+
+        self.surface = pygame.Surface((width, height))
 
     def initHUD(self):
         print("Init HUD")
 
-    # draws the HUD to window
-    # x,y  : top left corner from which to draw the HUD
-    # height, width : size in # of tiles, to draw the hud
-    def drawHUD(self, x, y, height, width):
-        i = 0
-        for yTile in range(height):
-            for xTile in range(width):
-                self.surface.blit(self.mapTiles[i], (xTile * TILESIZE, yTile * TILESIZE))
-                i += 1
+    def draw(self, surface):
+        # draw hud to frame
+        surface.blit(self.surface, (self.pos))
 
-    def drawRect(self, surface):
-        pygame.draw.rect(surface, (230, 50, 50),
-                         Rect((0, TILESIZE * ROOMHEIGHT), (TILESIZE * ROOMWIDTH, TILESIZE * HUDSIZE_BOTTOM)))
+        # draw hud background
+        self.surface.fill((144, 144, 144))
+
+        text_padding = 10
+
+        line = textDef.font.render("Health: " + str(self.player.health), False, (0, 0, 0, 0))
+        self.surface.blit(line, (text_padding, text_padding))
+
+        line = textDef.font.render("MP: " + str(self.player.magic), False, (0, 0, 0, 0))
+        self.surface.blit(line, (text_padding, text_padding * 2 + line.get_height()))
+
+        line = textDef.font.render("Gold: "  + str(self.inventory.wallet.getCurrency(Currency_Gold)), False, (0, 0, 0, 0))
+        self.surface.blit(line, (self.width - (line.get_width() + text_padding), text_padding))
+
+        slot = self.inventory.getEquiped()
+        slot.draw(self.surface, (self.width - (slot.width + text_padding), line.get_height() + text_padding * 2))

@@ -38,6 +38,8 @@ class Coin1:
             for coin in self.colLayer:
                 if coin.name == "coin" and coin.visible and isNear(x, coin.x, y, coin.y, 20):
                     coin.visible = False
+                    return True
+        return False
 
 # TOBE removed OR implemented
 def isNear(x, x2, y, y2, d):

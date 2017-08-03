@@ -1,6 +1,8 @@
 from Inventory_Equipment import *
 from Inventory_Backpack import *
+from Inventory_Wallet import *
 from Controls import *
+from resource_loader import *
 
 class Inventory:
 
@@ -49,6 +51,9 @@ class Inventory:
                                             (self.gridtoframe_padding // 2, FRAMEPIXELHEIGHT - (
                                             self.icon_height * 2 + self.slotPadding * 3 + self.gridtoframe_padding)))
 
+        self.wallet = InventoryWallet(FRAMEPIXELWIDTH - self.gridtoframe_padding, 300,
+                                      (self.gridtoframe_padding // 2, self.gridtoframe_padding // 2))
+
         # reference to the selected slot, to either move, equip, or swap
         self.selectedSlot = None
 
@@ -56,9 +61,12 @@ class Inventory:
         self.cursor_x = 0
         self.cursor_y = 0
         self.hoverSlot = None
-        
-        self.inventory_panels = [[InventoryPanel.OVERVIEW_TAB, InventoryPanel.ITEMS_TAB, InventoryPanel.POWERS_TAB],
-                                 [InventoryPanel.BACKPACK], [InventoryPanel.EQUIPED]]
+
+
+        tab_panels = [InventoryPanel.OVERVIEW_TAB, InventoryPanel.ITEMS_TAB, InventoryPanel.MAGIC_TAB]
+        self.inventory_panels = [[tab_panels, [InventoryPanel.PANEL01]],
+                                 [tab_panels, [InventoryPanel.PANEL01], [InventoryPanel.PANEL02]],
+                                 [tab_panels, []]]
 
         self.current_tab = InventoryTabs.ITEMS
         self.panel_focused = False
@@ -98,14 +106,20 @@ class Inventory:
 
         # draw the respective panels
         if self.current_tab == InventoryTabs.OVERVIEW:
-            None
+            # draw contents of wallet
+            self.wallet.draw(self.surface)
+
+            # draw inventory capacities
+
+            # draw equiped items and powers
+
         elif self.current_tab == InventoryTabs.ITEMS:
             # draw inventory grid to inventory surface
             self.backpack.draw(self.surface)
 
             # draw equipment
             self.equipment.draw(self.surface)
-        elif self.current_tab == InventoryTabs.POWERS:
+        elif self.current_tab == InventoryTabs.MAGIC:
             None
 
     def handleEvent(self, event):
@@ -129,11 +143,11 @@ class Inventory:
             elif event.key == C_ESCAPE:
                 self.panel_focused = False
                 if self.current_tab == InventoryTabs.OVERVIEW:
-                    None
+                    self.wallet.unfocus()
                 elif self.current_tab == InventoryTabs.ITEMS:
                     self.backpack.unfocus()
                     self.equipment.unfocus()
-                elif self.current_tab == InventoryTabs.POWERS:
+                elif self.current_tab == InventoryTabs.MAGIC:
                     None
         else:
             self.navigateInventory(event)
@@ -142,29 +156,31 @@ class Inventory:
         if not self.panel_focused:
             if event.key == C_UP:
                 self.cursor_y = max(0, self.cursor_y - 1)
-                self.cursor_x = max(0, min(self.cursor_x, len(self.inventory_panels[self.cursor_y]) - 1))
+                self.cursor_x = max(0, min(self.cursor_x, len(self.inventory_panels[self.current_tab][self.cursor_y]) - 1))
             elif event.key == C_DOWN:
                 self.cursor_y = min(len(self.inventory_panels) - 1, self.cursor_y + 1)
-                self.cursor_x = max(0, min(self.cursor_x, len(self.inventory_panels[self.cursor_y]) - 1))
+                self.cursor_x = max(0, min(self.cursor_x, len(self.inventory_panels[self.current_tab][self.cursor_y]) - 1))
             elif event.key == C_LEFT:
                 self.cursor_x = max(0, self.cursor_x - 1)
             elif event.key == C_RIGHT:
-                self.cursor_x = min(len(self.inventory_panels[self.cursor_y]) - 1, self.cursor_x + 1)
+                self.cursor_x = min(len(self.inventory_panels[self.current_tab][self.cursor_y]) - 1, self.cursor_x + 1)
             elif event.key == K_x:
                 if self.cursor_y == 0:
-                    # TODO : implement better ?
-                    self.current_tab = self.inventory_panels[self.cursor_y][self.cursor_x]
-                    self.cursor_x, self.cursor_y = 0, 1
+                    # TODO : implement better ? (self.cursor xy should be set to panels if they exist)
+                    self.current_tab = self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x]
+                    self.cursor_x, self.cursor_y = 0, 1 if len(self.inventory_panels[self.current_tab]) >= 2 else 0
                 else:
                     self.panel_focused = True
                     if self.current_tab == InventoryTabs.OVERVIEW:
+                        # TODO
+                        self.panel_focused = False
                         None
                     elif self.current_tab == InventoryTabs.ITEMS:
-                        if self.inventory_panels[self.cursor_y][self.cursor_x] == InventoryPanel.BACKPACK:
+                        if self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL01:
                             self.backpack.isFocused = self.panel_focused
-                        elif self.inventory_panels[self.cursor_y][self.cursor_x] == InventoryPanel.EQUIPED:
+                        elif self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL02:
                             self.equipment.isFocused = self.panel_focused
-                    elif self.current_tab == InventoryTabs.POWERS:
+                    elif self.current_tab == InventoryTabs.MAGIC:
                         None
             elif event.key == C_ESCAPE:
                 None
@@ -174,13 +190,12 @@ class Inventory:
             if self.current_tab == InventoryTabs.OVERVIEW:
                 None
             elif self.current_tab == InventoryTabs.ITEMS:
-                if self.inventory_panels[self.cursor_y][self.cursor_x] == InventoryPanel.BACKPACK:
+                if self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL01:
                     self.backpack.moveCursor(left, down)
-                elif self.inventory_panels[self.cursor_y][self.cursor_x] == InventoryPanel.EQUIPED:
+                elif self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL02:
                     self.equipment.moveCursor(left, down)
-            elif self.current_tab == InventoryTabs.POWERS:
+            elif self.current_tab == InventoryTabs.MAGIC:
                 None
-
 
     def changeTabs(self, tab):
         self.current_tab = tab
@@ -191,7 +206,7 @@ class Inventory:
     def selectSlot(self):
         self.backpack.selectSlot()
 
-    def add(self, item):
+    def add(self, item, type):
         return self.backpack.add(item)
 
     def remove(self, itemName=None, item=None, amount=1):
@@ -202,9 +217,13 @@ class Inventory:
             if self.selectedSlot.remove(amount):
                 del self.itemMap[self.selectedSlot.item.name]
 
+    # Getter methods mainly for the hud to get equiped items
+    def getEquiped(self):
+        return self.equipment.equipmentMap["left_hand"]
+
 class InventoryTabs:
     size = 3
-    OVERVIEW, ITEMS, POWERS = range(size)
+    OVERVIEW, ITEMS, MAGIC = range(size)
 
 class InventoryPanel:
-    OVERVIEW_TAB, ITEMS_TAB, POWERS_TAB, BACKPACK, EQUIPED = range(5)
+    OVERVIEW_TAB, ITEMS_TAB, MAGIC_TAB, PANEL01, PANEL02, PANEL03 = range(6)

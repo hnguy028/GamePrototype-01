@@ -133,12 +133,12 @@ class gameEngine:
                 elif event.key == K_HOME:
                     self.testItem = Item("health_potion",imageDirectory.health_potion, "potion")
                     self.testItem.sprite = Sprite(imageLibrary.load(imageDirectory.health_potion, self.inventory.icon_width, self.inventory.icon_height))
-                    self.inventory.add(self.testItem)
+                    self.inventory.add(self.testItem, "")
 
                 elif event.key == K_DELETE:
                     self.inventory.remove(self.testItem.name)
                 elif event.key == K_BACKSPACE:
-                    self.inventory.equipment.equip(Item("head_gear",imageDirectory.head_gear_test, "head_gear"))
+                    self.inventory.equipment.equip(Item("left_hand",imageDirectory.weapon_test, "left_hand"))
                 elif event.key == K_TAB:
                     if self.inventory.cursor_panel == InventoryPanel.INVENTORY:
                         self.inventory.cursor_panel = InventoryPanel.EQUIPMENT
@@ -166,8 +166,8 @@ class gameEngine:
             self.room = RoomSurface("desert_world2")
             self.inventory = Inventory(self.world.surface)
             self.player = Player(self.room, self.inventory, self.room.playerSpawn, CHARACTER_NAME, 100, 100, DOWN)
-            self.hud = HUD()
 
+            self.hud = HUD(FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM, (0, ROOMHEIGHT * TILESIZE), self.player, self.inventory)
             self.room.loadMap()
 
             # TODO : relocate coin1
@@ -180,7 +180,8 @@ class gameEngine:
 
             self.COIN.getCoin(self.room)
             self.COIN.drawCoin(self.world.surface)
-            self.COIN.removeCoin(self.player.x + self.player.width/2, self.player.y + self.player.height/2)
+            if self.COIN.removeCoin(self.player.x + self.player.width/2, self.player.y + self.player.height/2):
+                self.inventory.wallet.add("Gold", 5)
 
             if self.player.moveUp or self.player.moveDown or self.player.moveLeft or self.player.moveRight:
 
@@ -216,7 +217,8 @@ class gameEngine:
             #        world.loadMap()
 
             # TODO : add gui
-            self.hud.drawRect(self.world.surface)
+            self.hud.draw(self.world.surface)
+            #self.hud.drawRect(self.world.surface)
             # create menu gui - player menu / controls
             # windowSurface.blit(instructionSurf, instructionRect)
         elif self.game_state == GameState.INVENTORY:

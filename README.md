@@ -25,7 +25,7 @@ X Clear surface buffer at the beginning of every loop
 
 Implement Basic Inventory Interface
     Inventory (set static size)
-        - Add currency counter
+        X Add currency counter
         - Inventory.add method needs to be able to handle all item/currency/power types
         - Implement panel navigation with cursor sprite
         - Implement equiping item from backpack (depending on types)
@@ -44,6 +44,7 @@ Item Types
     - coins and potions will be the only other item types
         * should still implement a dynamic item heiarchy so it can be easily changed
 
+Implement a map page (and minimap?)
 
 Implement Character Creation Page
     - Transition from main menu to character creation

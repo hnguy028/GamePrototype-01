@@ -35,6 +35,8 @@ class InventoryEquipment:
 
     # load empty slots into equipment matrix
     def load(self):
+        type_index = 0
+
         for i in range(self.numRows):
             self.equipmentMatrix.append([])
             col_padding = (self.width - (self.numRomItems[i] * self.icon_width)) // (self.numRomItems[i] + 1)
@@ -42,12 +44,15 @@ class InventoryEquipment:
                 self.equipmentMatrix[i].append(Slot(self.slot_icon,
                                              i, j,
                                              self.icon_width, self.icon_height,
-                                             ( (col_padding * (j+1)) + (self.icon_width * j),(self.slot_padding * (i+1)) + (self.icon_height * i))))
+                                             ( (col_padding * (j+1)) + (self.icon_width * j),(self.slot_padding * (i+1)) + (self.icon_height * i)),
+                                                    self.equipmentKeys[i]))
+
+                self.equipmentMap[self.equipmentKeys[type_index]] = self.equipmentMatrix[i][j]
+                type_index += 1
 
 
     def equip(self, item):
-        self.head_gear = item
-        self.equipmentMatrix[1][0].add(item)
+        self.equipmentMap[item.type].add(item)
 
         # if an object already exists in the designated slot, then swap
         # and return the object to inventory
