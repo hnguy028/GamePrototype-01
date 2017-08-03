@@ -5,6 +5,7 @@ from functions import *
 #######################################################################################################################
 class fontDirectory:
     freesansbold = FONT_DIRECTORY + "freesansbold.ttf"
+    allura_regular = FONT_DIRECTORY + "Allura-Regular.ttf"
 
 class fontLibrary:
     def __init__(self):
