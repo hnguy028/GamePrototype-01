@@ -32,6 +32,7 @@ class imageDirectory:
 
     # Cursors
     cursor = UI_CURSOR_DIRECTORY + "cursor01.png"
+    inventory_cursor = UI_CURSOR_DIRECTORY + "cursor05.png"
 
     # Main Menu Images
     mainmenu_castle = MAIN_MENU_DIRECTORY + "castle.png"

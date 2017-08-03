@@ -73,6 +73,8 @@ class Inventory:
                               FRAMEPIXELWIDTH,
                               FRAMEPIXELHEIGHT))
 
+        self.inventory_cursor = Sprite(imageLibrary.load(imageDirectory.inventory_cursor, 20, 20))
+
     def draw(self):
         # draw inventory surface to frame
         self.frame.blit(self.surface, (0, 0))
@@ -86,9 +88,13 @@ class Inventory:
         # draw tabs surface background
         self.tabs_surface.fill((144, 144, 144))
 
+        # grab current panel
+        cur_panel = self.inventory_panels[self.cursor_y][self.cursor_x]
+
         # draw the inventory tabs
         for tab in self.tab_images:
             tab.draw(self.tabs_surface)
+
 
         # draw the respective panels
         if self.current_tab == InventoryTabs.OVERVIEW:
@@ -101,13 +107,6 @@ class Inventory:
             self.equipment.draw(self.surface)
         elif self.current_tab == InventoryTabs.POWERS:
             None
-
-        text1 = textDef.font.render("Overview", False, (0, 0, 0, 0))
-        text2 = textDef.font.render("Items", False, (0, 0, 0, 0))
-        text3 = textDef.font.render("Powers", False, (0, 0, 0, 0))
-        self.surface.blit(text1, (25, 25))
-        self.surface.blit(text2, (75, 25))
-        self.surface.blit(text3, (125, 25))
 
     def handleEvent(self, event):
         if self.panel_focused:

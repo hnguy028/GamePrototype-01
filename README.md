@@ -24,7 +24,26 @@ X Clear surface buffer at the beginning of every loop
     X Look into python memory managment
 
 Implement Basic Inventory Interface
-    - Backpack / Held Items
+    Inventory (set static size)
+        - Add currency counter
+        - Inventory.add method needs to be able to handle all item/currency/power types
+        - Implement panel navigation with cursor sprite
+        - Implement equiping item from backpack (depending on types)
+            * Equiping item from backpack needs to check if backpack space is required
+            * Same with unequiping
+        - Implement backpack scrolling
+        - Implement equipment slot type lock
+    Inventory Overview Page
+        - Display currency (implement coin for now)
+        - Implement toggle between inventory tabs
+
+Item Types
+    - determine how to implement item type heiarchy
+    - gear will be upgraded (in terms of stats)
+    - imlpement weapon types
+    - coins and potions will be the only other item types
+        * should still implement a dynamic item heiarchy so it can be easily changed
+
 
 Implement Character Creation Page
     - Transition from main menu to character creation
