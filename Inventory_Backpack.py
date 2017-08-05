@@ -172,10 +172,10 @@ class InventoryBackpack:
     def releaseSelect(self):
         self.selectedSlot = None
 
-    def add(self, item):
+    def add(self, item, amount=1):
         # check if item is already in backpack
         if item.name in self.itemMap:
-           self.itemMap[item.name].itemStack += 1
+           self.itemMap[item.name].itemStack += amount
            return True
 
         # check if theres room to add new item
@@ -183,11 +183,12 @@ class InventoryBackpack:
 
             self.filledSlots += 1
 
+            # find the next empty slot to place the item
             for list in range(len(self.itemList)):
                 # min check -> incase we wish to add a horizontal scroll in the future
                 for slot in range(0, min(len(self.itemList[list]), self.slotWidth)):
                     if self.itemList[list][slot].isEmpty:
-                        self.itemList[list][slot].add(item)
+                        self.itemList[list][slot].add(item, amount)
                         self.itemMap[item.name] = self.itemList[list][slot]
                         return True
         return False

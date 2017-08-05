@@ -3,14 +3,14 @@ from Inventory_Wallet import *
 
 class HUD:
     # initialize hud variables
-    def __init__(self, width, height, pos, player, inventory):
+    def __init__(self, width, height, pos, player):
         self.width = width
         self.height = height
         self.pos = pos
 
         # store references to player and inventory
         self.player = player
-        self.inventory = inventory
+        self.inventory = player.inventory
 
         self.surface = pygame.Surface((width, height))
 
@@ -31,6 +31,9 @@ class HUD:
 
         line = textDef.font.render("MP: " + str(self.player.magic), False, (0, 0, 0, 0))
         self.surface.blit(line, (text_padding, text_padding * 2 + line.get_height()))
+
+        line = textDef.font.render("Exp: " + str(self.player.experience) + " / 100", False, (0, 0, 0, 0))
+        self.surface.blit(line, (text_padding, text_padding * 3 + line.get_height() * 2))
 
         line = textDef.font.render("Gold: "  + str(self.inventory.wallet.getCurrency(Currency_Gold)), False, (0, 0, 0, 0))
         self.surface.blit(line, (self.width - (line.get_width() + text_padding), text_padding))

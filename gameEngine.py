@@ -148,7 +148,6 @@ class gameEngine:
                     self.inventory.handleEvent(event)
         #elif event.type == KEYUP:
 
-
     # loads window frame
     def loadSurface(self):
         if not self.frameLoaded:
@@ -167,7 +166,7 @@ class gameEngine:
             self.inventory = Inventory(self.world.surface)
             self.player = Player(self.room, self.inventory, self.room.playerSpawn, CHARACTER_NAME, 100, 100, DOWN)
 
-            self.hud = HUD(FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM, (0, ROOMHEIGHT * TILESIZE), self.player, self.inventory)
+            self.hud = HUD(FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM, (0, ROOMHEIGHT * TILESIZE), self.player)
             self.room.loadMap()
 
             # TODO : relocate coin1

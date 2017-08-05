@@ -43,7 +43,7 @@ Item Types
     - imlpement weapon types
     - coins and potions will be the only other item types
         * should still implement a dynamic item heiarchy so it can be easily changed
-
+x
 Implement a map page (and minimap?)
 
 Implement Character Creation Page

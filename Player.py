@@ -21,6 +21,7 @@ class Player:
         # player stats
         self.health = health
         self.magic = magic
+        self.experience = 0
 
         self.inventory = inventory
 
@@ -106,6 +107,15 @@ class Player:
                 self.direction = UP
             if self.moveDown:
                 self.direction = DOWN
+        elif e.key == K_l:
+            self.check_collide()
+
+    def check_collide(self, rate, room):
+        pytmx.TiledObjectGroup.
+        return room.gameMap.get_tile_properties(
+            (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / TILESIZE,
+            (self.y + (room.pixelHeight * room.yRoom)) / TILESIZE,
+            tmxCodes.STRUCTURES_LAYER)
 
     def move_Up(self, rate, tileSize, room):
         topLeft = room.gameMap.get_tile_properties(
@@ -234,3 +244,8 @@ class Player:
                 self.y = 0
             else:
                 self.y = room.pixelHeight - self.height
+
+    def apply_item(self, item):
+        if item.type == "potion":
+            self.health = max()
+

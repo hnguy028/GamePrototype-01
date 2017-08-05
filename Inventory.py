@@ -66,7 +66,7 @@ class Inventory:
         tab_panels = [InventoryPanel.OVERVIEW_TAB, InventoryPanel.ITEMS_TAB, InventoryPanel.MAGIC_TAB]
         self.inventory_panels = [[tab_panels, [InventoryPanel.PANEL01]],
                                  [tab_panels, [InventoryPanel.PANEL01], [InventoryPanel.PANEL02]],
-                                 [tab_panels, []]]
+                                 [tab_panels, [InventoryPanel.PANEL01]]]
 
         self.current_tab = InventoryTabs.ITEMS
         self.panel_focused = False
@@ -95,9 +95,6 @@ class Inventory:
 
         # draw tabs surface background
         self.tabs_surface.fill((144, 144, 144))
-
-        # grab current panel
-        cur_panel = self.inventory_panels[self.cursor_y][self.cursor_x]
 
         # draw the inventory tabs
         for tab in self.tab_images:
@@ -206,7 +203,7 @@ class Inventory:
     def selectSlot(self):
         self.backpack.selectSlot()
 
-    def add(self, item, type):
+    def add(self, item, type, amount=1):
         return self.backpack.add(item)
 
     def remove(self, itemName=None, item=None, amount=1):

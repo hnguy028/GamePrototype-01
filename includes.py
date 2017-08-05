@@ -6,9 +6,10 @@ import time
 import math
 import pyganim
 import random
+import pytmx
 from pygame import *
 from pygame.locals import *
-from pytmx.util_pygame import load_pygame
+from pytmx.util_pygame import *
 from abc import ABCMeta, abstractmethod
 
 from constants import *
