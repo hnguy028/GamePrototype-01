@@ -43,13 +43,14 @@ Item Types
     - imlpement weapon types
     - coins and potions will be the only other item types
         * should still implement a dynamic item heiarchy so it can be easily changed
-x
+
 Implement a map page (and minimap?)
 
 Implement Character Creation Page
     - Transition from main menu to character creation
 
 Implement a Better Collision Detection Method
+    - Using tmx object layer instead of tile meta class layer for collision surface
 
 Add Audio
     - Sound effects
@@ -80,6 +81,7 @@ Character Size Transformation
 Implement Window Resize (Possibly just static and predefined sizes in options menu)
 
 Bugs
-Collision Detection is a little off
+Collision Detection is a little off -- revamp entire collision system
 Maps are rendered with non visible tiles from the adjacent rooms
 Need to clean up variables and images that are not used
+Player class methods don't require reference to a world object ??? (only a surface to draw on?)

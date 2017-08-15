@@ -1,5 +1,6 @@
 from includes import *
 from resource_loader import *
+from Controls import *
 
 class Player:
     def __init__(self, room, inventory, spawn, character, health, magic, direction):
@@ -46,8 +47,7 @@ class Player:
 
         # TODO : might need to move conductor to the game loop
         self.moveConductor = pyganim.PygConductor(self.animObjs)
-
-
+        self.attackConductor = False
 
     # handles if key has been pushed down, taking a reference to event
     def handleKeyDown(self, e):
@@ -76,6 +76,11 @@ class Player:
             self.moveLeft = False
             if not self.moveUp and not self.moveDown:
                 self.direction = RIGHT
+        elif e.key == C_ATTACK:
+            if not self.attackConductor:
+                self.attack(None)
+            else:
+                self.stopAttack()
 
     def handleKeyUp(self, e):
         if e.key in (K_LSHIFT, K_RSHIFT):
@@ -111,7 +116,7 @@ class Player:
             self.check_collide()
 
     def check_collide(self, rate, room):
-        pytmx.TiledObjectGroup.
+        #pytmx.TiledObjectGroup.
         return room.gameMap.get_tile_properties(
             (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / TILESIZE,
             (self.y + (room.pixelHeight * room.yRoom)) / TILESIZE,
@@ -187,6 +192,9 @@ class Player:
         elif self.direction == RIGHT:
             world.surface.blit(self.right_facing, (self.x, self.y))
 
+        if self.attackConductor:
+            animationLibrary.boltAnim.blit(world.surface, (self.x+10, self.y-50))
+
     def walkRunMotion(self, world):
 
         # draw the correct walking/running sprite from the animation object
@@ -214,6 +222,19 @@ class Player:
                 self.animObjs['left_walk'].blit(world.surface, (self.x, self.y))
             elif self.direction == RIGHT:
                 self.animObjs['right_walk'].blit(world.surface, (self.x, self.y))
+
+    def attack(self, world):
+        animationLibrary.boltAnim.play()
+        self.attackConductor = True
+        # find player center
+        # attack radius/distance from player
+        # attack direction
+        # collision detection with any object within radius
+        pass
+
+    def stopAttack(self):
+        animationLibrary.boltAnim.stop()
+        self.attackConductor = False
 
     def boundsCheck(self, room):
         if self.x < 0:
@@ -247,5 +268,5 @@ class Player:
 
     def apply_item(self, item):
         if item.type == "potion":
-            self.health = max()
+            self.health = max(100,10)
 
