@@ -47,7 +47,7 @@ class Player:
 
         # TODO : might need to move conductor to the game loop
         self.moveConductor = pyganim.PygConductor(self.animObjs)
-        self.attackConductor = False
+        self.attackConductor = None
 
     # handles if key has been pushed down, taking a reference to event
     def handleKeyDown(self, e):
@@ -193,7 +193,7 @@ class Player:
             world.surface.blit(self.right_facing, (self.x, self.y))
 
         if self.attackConductor:
-            animationLibrary.boltAnim.blit(world.surface, (self.x+10, self.y-50))
+            self.attackConductor.blit(world.surface, (self.x+10, self.y-50))
 
     def walkRunMotion(self, world):
 
@@ -223,9 +223,11 @@ class Player:
             elif self.direction == RIGHT:
                 self.animObjs['right_walk'].blit(world.surface, (self.x, self.y))
 
-    def attack(self, world):
-        animationLibrary.boltAnim.play()
-        self.attackConductor = True
+    def attack(self, world, attack=None):
+        if attack == None:
+            self.attackConductor = animationLibrary.boltAnim
+
+        self.attackConductor.play()
         # find player center
         # attack radius/distance from player
         # attack direction
@@ -233,8 +235,8 @@ class Player:
         pass
 
     def stopAttack(self):
-        animationLibrary.boltAnim.stop()
-        self.attackConductor = False
+        self.attackConductor.stop()
+        self.attackConductor = None
 
     def boundsCheck(self, room):
         if self.x < 0:
