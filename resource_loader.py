@@ -138,7 +138,7 @@ class tmxDirectory:
 
 # TMX object codes
 class tmxCodes:
-    SPAWN_CODE = 'SpawnPoint'
+    SPAWN_CODE = 'spawn_point'
     IMPASSIVE_CODE = 'collidable'
     COLLECTABLE_CODE = 'collectables'
 

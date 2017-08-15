@@ -17,7 +17,7 @@ def checkPortal(player, room, world):
 
             room.gameMap = load_pygame(MAPS_DIRECTORY + '%s.tmx' % portal.worldName)
 
-            room.playerSpawn = room.gameMap.get_object_by_name("SpawnPoint")
+            room.playerSpawn = room.gameMap.get_object_by_name("spawn_point")
 
             room.xRoom = int(room.playerSpawn.x // room.pixelWidth)
             room.yRoom = int(room.playerSpawn.y // room.pixelHeight)

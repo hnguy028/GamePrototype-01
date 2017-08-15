@@ -27,7 +27,7 @@ Implement Basic Inventory Interface
     Inventory (set static size)
         X Add currency counter
         - Inventory.add method needs to be able to handle all item/currency/power types
-        - Implement panel navigation with cursor sprite
+        X Implement panel navigation with cursor sprite
         - Implement equiping item from backpack (depending on types)
             * Equiping item from backpack needs to check if backpack space is required
             * Same with unequiping
@@ -43,7 +43,7 @@ Item Types
     - imlpement weapon types
     - coins and potions will be the only other item types
         * should still implement a dynamic item heiarchy so it can be easily changed
-x
+
 Implement a map page (and minimap?)
 
 Implement Character Creation Page

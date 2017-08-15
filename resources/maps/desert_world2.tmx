@@ -42,7 +42,7 @@
    </objectgroup>
   </tile>
  </tileset>
- <layer name="base" width="60" height="60" visible="0">
+ <layer name="base" width="60" height="60">
   <data encoding="csv">
 51,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,53,
 59,70,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,71,61,
@@ -243,14 +243,14 @@
     <property name="worldName" value="desert_world1"/>
    </properties>
   </object>
-  <object id="8" name="Portal" x="1499" y="1497" width="44" height="37">
+  <object id="8" name="portal" x="1499" y="1497" width="44" height="37">
    <properties>
     <property name="worldName" value="hidden_room"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="poi">
-  <object id="9" name="SpawnPoint" x="1515.45" y="1569.64" width="16" height="16"/>
+ <objectgroup name="poi" visible="0">
+  <object id="9" name="spawn_point" x="1515.45" y="1569.64" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="event_triggers"/>
 </map>

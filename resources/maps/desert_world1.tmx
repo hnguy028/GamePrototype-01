@@ -22,7 +22,7 @@
  <tileset firstgid="131" name="temp_sprites" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="261" columns="9">
   <image source="temp_sprites.png" width="304" height="984"/>
  </tileset>
- <layer name="base" width="60" height="60" visible="0">
+ <layer name="base" width="60" height="60">
   <data encoding="csv">
 101,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,112,102,
 111,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,111,
@@ -214,15 +214,15 @@
 49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49
 </data>
  </layer>
- <objectgroup name="portals" visible="0">
-  <object id="7" name="Portal" x="1730.45" y="1663.39" width="126" height="64">
+ <objectgroup name="portals">
+  <object id="7" name="portal" x="1730.45" y="1663.39" width="126" height="64">
    <properties>
     <property name="worldName" value="desert_world2"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="poi">
-  <object id="3" name="SpawnPoint" x="290" y="228" width="32" height="32"/>
+  <object id="3" name="spawn_point" x="290" y="228" width="32" height="32"/>
   <object id="5" name="Next" x="1727.27" y="1663.64" width="124.242" height="63.6364" visible="0"/>
  </objectgroup>
  <objectgroup name="event_triggers"/>

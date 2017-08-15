@@ -111,7 +111,7 @@ class Player:
             self.check_collide()
 
     def check_collide(self, rate, room):
-        pytmx.TiledObjectGroup.
+        #pytmx.TiledObjectGroup.
         return room.gameMap.get_tile_properties(
             (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / TILESIZE,
             (self.y + (room.pixelHeight * room.yRoom)) / TILESIZE,
