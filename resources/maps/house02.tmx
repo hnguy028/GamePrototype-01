@@ -82,7 +82,7 @@
  <objectgroup name="portals">
   <object id="12" name="portal" x="191" y="435.667" width="96" height="42.6667">
    <properties>
-    <property name="worldName" value="desert_world2"/>
+    <property name="worldName" value="town"/>
    </properties>
   </object>
  </objectgroup>
@@ -91,8 +91,10 @@
  </objectgroup>
  <objectgroup name="event_triggers"/>
  <objectgroup name="collectables">
-  <object id="7" name="coin" x="162.667" y="208.666" width="15" height="15"/>
-  <object id="8" name="coin" x="232.667" y="209" width="15" height="15"/>
-  <object id="10" name="coin" x="303.333" y="207.333" width="15" height="15"/>
+  <object id="8" name="item" x="232.667" y="209" width="15" height="15">
+   <properties>
+    <property name="filename" value="health_potion"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

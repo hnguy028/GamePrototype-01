@@ -85,3 +85,4 @@ Collision Detection is a little off -- revamp entire collision system
 Maps are rendered with non visible tiles from the adjacent rooms
 Need to clean up variables and images that are not used
 Player class methods don't require reference to a world object ??? (only a surface to draw on?)
+Updates are a little laggy --> need to speed up game loop

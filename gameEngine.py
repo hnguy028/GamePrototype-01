@@ -162,7 +162,7 @@ class gameEngine:
             self.gameLoaded = True
             self.game_state = GameState.WORLD
 
-            self.room = RoomSurface("desert_world2")
+            self.room = RoomSurface("town")
             self.inventory = Inventory(self.world.surface)
             self.player = Player(self.room, self.inventory, self.room.playerSpawn, CHARACTER_NAME, 100, 100, DOWN)
 
