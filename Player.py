@@ -272,3 +272,5 @@ class Player:
         if item.type == "potion":
             self.health = max(100,10)
 
+    def collision_check(self):
+        pass

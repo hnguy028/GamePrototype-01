@@ -29,13 +29,19 @@ Implement Basic Inventory Interface
         - Inventory.add method needs to be able to handle all item/currency/power types
         X Implement panel navigation with cursor sprite
         - Implement equiping item from backpack (depending on types)
-            * Equiping item from backpack needs to check if backpack space is required
-            * Same with unequiping
+            X Equiping item from backpack needs to check if backpack space is required
+            X Same with unequiping
         - Implement backpack scrolling
         - Implement equipment slot type lock
     Inventory Overview Page
-        - Display currency (implement coin for now)
-        - Implement toggle between inventory tabs
+        X Display currency (implement coin for now)
+        X Implement toggle between inventory tabs
+
+Collision Detection
+    - From Room class def
+    - print(self.tileLayers[str(layer)][i].get_at((25,25)))
+    - it is possible to extract the rgb color of a tile
+    - (could use the alpha???? instead)
 
 Item Types
     - determine how to implement item type heiarchy

@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7c773617-5454-480b-a811-eb6763d84b93" name="Default" comment="created main gameloop">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inventory.py" afterPath="$PROJECT_DIR$/Inventory.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inventory_Backpack.py" afterPath="$PROJECT_DIR$/Inventory_Backpack.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inventory_Equipment.py" afterPath="$PROJECT_DIR$/Inventory_Equipment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Slot.py" afterPath="$PROJECT_DIR$/Slot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameEngine.py" afterPath="$PROJECT_DIR$/gameEngine.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource_loader.py" afterPath="$PROJECT_DIR$/resource_loader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Player.py" afterPath="$PROJECT_DIR$/Player.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,14 +19,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="resource_loader.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resource_loader.py">
+      <file leaf-file-name="Inventory.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inventory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="66" column="53" lean-forward="false" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
-              <folding>
-                <marker date="1502982551916" expanded="true" signature="5621:5640" ph="..." />
-              </folding>
+            <state relative-caret-position="476">
+              <caret line="32" column="72" lean-forward="false" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -38,8 +32,8 @@
       <file leaf-file-name="Player.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Player.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="229" column="35" lean-forward="false" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
+            <state relative-caret-position="1258">
+              <caret line="234" column="12" lean-forward="true" selection-start-line="234" selection-start-column="12" selection-end-line="234" selection-end-column="12" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -47,21 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Inventory.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Inventory.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3077">
-              <caret line="185" column="68" lean-forward="false" selection-start-line="185" selection-start-column="68" selection-end-line="185" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Item.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Item.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+            <state relative-caret-position="238">
+              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -90,28 +74,30 @@
       <file leaf-file-name="Slot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Slot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
+            <state relative-caret-position="417">
+              <caret line="79" column="23" lean-forward="false" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions.py">
+      <file leaf-file-name="Room.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Room.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="349">
+              <caret line="55" column="102" lean-forward="false" selection-start-line="55" selection-start-column="102" selection-end-line="55" selection-end-column="102" />
+              <folding>
+                <marker date="1502996699419" expanded="true" signature="2358:2380" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainGameLoop.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MainGameLoop.py">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="543">
+              <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -207,7 +193,6 @@
         <option value="$PROJECT_DIR$/resources/saves/savefile_01" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/font_loader.py" />
-        <option value="$PROJECT_DIR$/Room.py" />
         <option value="$PROJECT_DIR$/functions.py" />
         <option value="$PROJECT_DIR$/includes.py" />
         <option value="$PROJECT_DIR$/Controls.py" />
@@ -226,15 +211,16 @@
         <option value="$PROJECT_DIR$/GameClasses.py" />
         <option value="$PROJECT_DIR$/Item.py" />
         <option value="$PROJECT_DIR$/Types.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/constants.py" />
-        <option value="$PROJECT_DIR$/Player.py" />
         <option value="$PROJECT_DIR$/Slot.py" />
         <option value="$PROJECT_DIR$/Inventory_Equipment.py" />
         <option value="$PROJECT_DIR$/resource_loader.py" />
         <option value="$PROJECT_DIR$/gameEngine.py" />
         <option value="$PROJECT_DIR$/Inventory_Backpack.py" />
         <option value="$PROJECT_DIR$/Inventory.py" />
+        <option value="$PROJECT_DIR$/Player.py" />
+        <option value="$PROJECT_DIR$/Room.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -344,23 +330,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="creation01" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Loot_2D" />
-      <option name="SCRIPT_NAME" value="C:\Users\hinguyen\Git\Loot_2D\trash.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="mainGameLoop" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -408,6 +377,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Loot_2D" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Inventory.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Room" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Loot_2D" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Room.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -548,18 +534,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.creation02" />
-      <item index="1" class="java.lang.String" itemvalue="Python.creation01" />
-      <item index="2" class="java.lang.String" itemvalue="Python.mainGameLoop" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Player" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Inventory" />
+      <item index="1" class="java.lang.String" itemvalue="Python.mainGameLoop" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Player" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Inventory" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Room" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.mainGameLoop" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Inventory" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Player" />
-        <item index="3" class="java.lang.String" itemvalue="Python.creation02" />
-        <item index="4" class="java.lang.String" itemvalue="Python.creation01" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Room" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Inventory" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Player" />
+        <item index="4" class="java.lang.String" itemvalue="Python.creation02" />
       </list>
     </recent_temporary>
   </component>
@@ -585,7 +571,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.50317967" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34447005" sideWeight="0.49682036" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2718894" sideWeight="0.49682036" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -676,6 +662,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1502996699419" expanded="true" signature="2358:2380" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -811,13 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pytmx/pytmx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="394" column="9" lean-forward="true" selection-start-line="394" selection-start-column="9" selection-end-line="394" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Window.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -843,6 +825,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -854,25 +837,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Room.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MainMenuUI.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="86" column="66" lean-forward="false" selection-start-line="86" selection-start-column="66" selection-end-line="86" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,16 +865,6 @@
         <state relative-caret-position="442">
           <caret line="27" column="37" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="229" column="35" lean-forward="false" selection-start-line="229" selection-start-column="35" selection-end-line="229" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -936,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Item.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gameEngine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -955,14 +905,6 @@
             <element signature="e#16978#17058#0" expanded="false" />
             <element signature="e#17927#18119#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Slot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -984,8 +926,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Inventory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3077">
-          <caret line="185" column="68" lean-forward="false" selection-start-line="185" selection-start-column="68" selection-end-line="185" selection-end-column="68" />
+        <state relative-caret-position="476">
+          <caret line="32" column="72" lean-forward="false" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Slot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="79" column="23" lean-forward="false" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Item.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pytmx/pytmx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="403" column="36" lean-forward="false" selection-start-line="403" selection-start-column="36" selection-end-line="403" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Room.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="55" column="102" lean-forward="false" selection-start-line="55" selection-start-column="102" selection-end-line="55" selection-end-column="102" />
+          <folding>
+            <marker date="1502996699419" expanded="true" signature="2358:2380" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="234" column="12" lean-forward="true" selection-start-line="234" selection-start-column="12" selection-end-line="234" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="43" column="39" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
           <folding />
         </state>
       </provider>
