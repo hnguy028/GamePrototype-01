@@ -64,6 +64,7 @@ class imageDirectory:
     # Items
     head_gear_test = COLLECTABLES_DIRECTORY + "head.png"
     weapon_test = COLLECTABLES_DIRECTORY + "sword.png"
+    weapon_test02 = COLLECTABLES_DIRECTORY + "sword01.png"
     health_potion = COLLECTABLES_DIRECTORY + "health_potion.png"
 
 class imageLibrary:

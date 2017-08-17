@@ -51,19 +51,31 @@ class InventoryEquipment:
                 type_index += 1
 
 
-    def equip(self, item):
-        self.equipmentMap[item.type].add(item)
+    # amount is intended to change only for ammunition
+    def equip(self, item, amount=1):
+        if self.equipmentMap[item.type].isEmpty:
+            # if nothing is equip add to designated item slot
+            self.equipmentMap[item.type].add(item)
 
-        # if an object already exists in the designated slot, then swap
-        # and return the object to inventory
-        return
+            return None, None
+        else:
+            # if an object already exists in the designated slot, then swap
+            rtn_item, rtn_amount = self.equipmentMap[item.type].swap_item(item, amount)
+
+            # retun the item to inventory
+            return rtn_item, rtn_amount
+
+    def equip_slot(self, slot):
+        if not slot.isEmpty:
+            self.equipmentMap[slot.item.type].swap(slot)
+
+    def unequip(self):
+        # removes and returns the item, and number of items in the slot
+        return self.equipmentMatrix[self.cursor_x][self.cursor_y].remove(-1)
 
     def unfocus(self):
         self.isFocused = False
         self.selectedSlot = None
-
-    def unequip(self, x, y):
-        return self.equipmentMatrix[x][y].remove()
 
     def draw(self, surface, pos=(-1,-1)):
         drawPos = pos
@@ -95,3 +107,5 @@ class InventoryEquipment:
 
         self.cursor_x = min(len(self.equipmentMatrix[self.cursor_y]) - 1, self.cursor_x + left) if left > 0 else max(0, self.cursor_x + left)
         self.cursor_y = min(len(self.equipmentMatrix) - 1, self.cursor_y + down) if down > 0 else max(0, self.cursor_y + down)
+
+        self.hoverCursor()

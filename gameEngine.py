@@ -133,12 +133,13 @@ class gameEngine:
                 elif event.key == K_HOME:
                     self.testItem = Item("health_potion",imageDirectory.health_potion, "potion")
                     self.testItem.sprite = Sprite(imageLibrary.load(imageDirectory.health_potion, self.inventory.icon_width, self.inventory.icon_height))
-                    self.inventory.add(self.testItem, "")
+                    self.inventory.add(self.testItem, "potion")
 
                 elif event.key == K_DELETE:
                     self.inventory.remove(self.testItem.name)
                 elif event.key == K_BACKSPACE:
-                    self.inventory.equipment.equip(Item("left_hand",imageDirectory.weapon_test, "left_hand"))
+                    self.inventory.add(Item("sword",imageDirectory.weapon_test, "left_hand"), "left_hand")
+                    self.inventory.add(Item("sword01", imageDirectory.weapon_test02, "left_hand"), "left_hand")
                 elif event.key == K_TAB:
                     if self.inventory.cursor_panel == InventoryPanel.INVENTORY:
                         self.inventory.cursor_panel = InventoryPanel.EQUIPMENT

@@ -119,6 +119,9 @@ class Inventory:
         elif self.current_tab == InventoryTabs.MAGIC:
             None
 
+        # draw the panel or tab currently selected
+        # if focused then dont draw the selected option
+
     def handleEvent(self, event):
         if self.panel_focused:
             if event.key == C_UP:
@@ -133,10 +136,37 @@ class Inventory:
                 self.selectSlot()
             elif event.key == K_j:
                 # equip
-                # remove 1 instance from backpack
-                # equip to equipment
-                # if the item returned is not empty then add it back to the inventory
-                None
+                if self.selectedSlot:
+
+                    if self.current_tab == InventoryTabs.OVERVIEW:
+                        pass
+                    elif self.current_tab == InventoryTabs.ITEMS:
+                        if self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL01:
+                            # inventory
+
+                            # check if the equiped item is not in inventory, and if we can add it to inventory
+                            if not self.equipment.equipmentMap[self.selectedSlot.item.type].isEmpty:
+                                if not self.backpack.can_add(self.equipment.equipmentMap[self.selectedSlot.item.type].item):
+                                    return
+
+                            rtn_item, rtn_amount = self.equipment.equip(self.selectedSlot.item)
+                            self.backpack.remove(item=self.selectedSlot.item)
+                            self.backpack.releaseSelect()
+                            self.selectedSlot = None
+
+                            if rtn_item:
+                                self.backpack.add(rtn_item, rtn_amount)
+
+                        elif self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL02:
+                            # equipment
+                            if self.backpack.can_add(self.selectedSlot.item):
+                                rtn_item, rtn_amount = self.equipment.unequip()
+                                self.backpack.add(rtn_item, rtn_amount)
+                                self.selectedSlot = None
+                    elif self.current_tab == InventoryTabs.MAGIC:
+                        # handles equiping and unequiping spells
+                        pass
+
             elif event.key == C_ESCAPE:
                 self.panel_focused = False
                 if self.current_tab == InventoryTabs.OVERVIEW:
@@ -201,11 +231,24 @@ class Inventory:
         self.backpack.increaseCapacity()
 
     def selectSlot(self):
-        self.backpack.selectSlot()
+        # check which panel, and tab we are in
+        if self.current_tab == InventoryTabs.OVERVIEW:
+            pass
+        elif self.current_tab == InventoryTabs.ITEMS:
+            if self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL01:
+                # inventory
+                self.selectedSlot = self.backpack.selectSlot()
+            elif self.inventory_panels[self.current_tab][self.cursor_y][self.cursor_x] == InventoryPanel.PANEL02:
+                # equipment
+                self.selectedSlot = self.equipment.hoverSlot
+        elif self.current_tab == InventoryTabs.MAGIC:
+            pass
 
+    # add item to backpack
     def add(self, item, type, amount=1):
         return self.backpack.add(item)
 
+    # TODO : remove from backpack or equipment???
     def remove(self, itemName=None, item=None, amount=1):
         return self.backpack.remove(itemName, item, amount)
 

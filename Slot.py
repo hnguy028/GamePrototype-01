@@ -33,6 +33,9 @@ class Slot:
             self.itemStack += amount
 
     def remove(self, amount=1):
+        rtn_stack = self.itemStack if amount<0 or self.itemStack-amount<0 else amount
+        rtn_item = self.item
+
         self.itemStack -= amount
 
         if amount < 0 or self.itemStack <= 0:
@@ -40,7 +43,7 @@ class Slot:
             self.isEmpty = True
             self.itemStack = 0
 
-        return self.itemStack == 0
+        return rtn_item, rtn_stack
 
     # swaps item between slots, if input slot is empty then move current item there
     def swap(self, slot):
@@ -49,6 +52,13 @@ class Slot:
             slot.itemStack, self.itemStack = self.itemStack, slot.itemStack
             slot.item, self.item = self.item, slot.item
 
+    # adds item with amount to slot, return the item previously in the slot
+    def swap_item(self, item, amount=1):
+        if not self.isEmpty:
+            rtn_stack, rtn_item = amount, item
+            self.itemStack, rtn_stack = rtn_stack, self.itemStack
+            self.item, rtn_item = rtn_item, self.item
+            return rtn_item, rtn_stack
 
     # TODO : split a stack in 2 into input slot
     def split(self, slot, amount):

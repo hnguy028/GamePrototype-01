@@ -111,6 +111,8 @@ class InventoryBackpack:
             self.cursor_y = min(self.slotHeight - 1, self.cursor_y + down)
             self.cursor_x = min(len(self.itemList[self.cursor_y] ) - 1, self.cursor_x)
 
+        self.hoverCursor()
+
     # TODO : slots are fixed so this wont work
     def scroll(self, down):
         if down < 0:
@@ -153,6 +155,7 @@ class InventoryBackpack:
         if self.selectedSlot == None:
             if not self.itemList[self.cursor_y][self.cursor_x].isEmpty:
                 self.selectedSlot = self.itemList[self.cursor_y][self.cursor_x]
+                return self.selectedSlot
         else:
             item = self.selectedSlot.item
             self.selectedSlot.swap(self.itemList[self.cursor_y][self.cursor_x])
@@ -164,9 +167,10 @@ class InventoryBackpack:
 
             self.releaseSelect()
 
-    def equip(self, equipment):
-        if not self.itemList[self.cursor_y][self.cursor_x].isEmpty:
-            equipment.equip()
+            return None
+
+    def can_add(self, item):
+        return (item.name in self.itemMap) or self.filledSlots < self.capacity
 
 
     def releaseSelect(self):
@@ -201,7 +205,8 @@ class InventoryBackpack:
             return False
 
         if name in self.itemMap:
-            if self.itemMap[name].remove(amount):
+            rtn_item, rtn_amount = self.itemMap[name].remove(amount)
+            if self.itemMap[name].isEmpty:
                 del self.itemMap[name]
 
             return True
