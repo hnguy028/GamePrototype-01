@@ -56,6 +56,11 @@ class RoomSurface:
                     surface.blit(self.tileLayers[str(layer)][i], (xTile * TILESIZE, yTile * TILESIZE))
                     i += 1
 
+    # return the surface of the tile at (x, y) of the collision/meta layer
+    def get_tile(self, x, y):
+        return self.tileLayers[tmxCodes.META_LAYER][x * y]
+
+
 
 # init collectable booleans
 # self.collectables = Collectables()

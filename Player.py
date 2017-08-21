@@ -242,6 +242,7 @@ class Player:
         self.attackConductor.stop()
         self.attackConductor = None
 
+    # check if player has move beyond the frame
     def boundsCheck(self, room):
         if self.x < 0:
             if room.xRoom > 0:  # load next screen in X direction
@@ -277,16 +278,22 @@ class Player:
             self.health = max(100,10)
 
     # check collision with the given x,y coordinates
-    def collision_check(self, x=0, y=0):
+    def collision_check(self, room, x=0, y=0):
         for point in self.handler_points:
-            if self.point_collision_check(point.x + x, point.y + y):
+            if self.point_collision_check(room, point.x + x, point.y + y):
                 # return the object collided with
                 pass
         return None
 
     # check if the given point collides with another entity
-    def point_collision_check(self, x, y):
-        pass
+    def point_collision_check(self, room, x, y):
+        # need to calculate the number of pixels into the tile
+        x,y = x % 32, y % 32
+        # round up ?
+        tile_x, tile_y = x // 32, y // 32
+
+        # check if rgb is close to green or red
+        return room.get_tile(tile_x, tile_y).get_at(x, y)
 
 class _Point:
     def __init__(self, p):
