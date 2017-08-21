@@ -13,6 +13,10 @@ class Player:
         # player's x,y coordinates on the current map/room
         self.x = spawn.x % room.pixelWidth
         self.y = spawn.y % room.pixelHeight
+
+        # list of points relative to the player, used to check for collision
+        self.handler_points = []
+
         self.direction = direction  # initial stance
         self.running = self.moveUp = self.moveDown = self.moveLeft = self.moveRight = False
 
@@ -272,5 +276,19 @@ class Player:
         if item.type == "potion":
             self.health = max(100,10)
 
-    def collision_check(self):
+    # check collision with the given x,y coordinates
+    def collision_check(self, x=0, y=0):
+        for point in self.handler_points:
+            if self.point_collision_check(point.x + x, point.y + y):
+                # return the object collided with
+                pass
+        return None
+
+    # check if the given point collides with another entity
+    def point_collision_check(self, x, y):
         pass
+
+class _Point:
+    def __init__(self, p):
+        self.x = p[0]
+        self.y = p[1]
