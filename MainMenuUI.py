@@ -118,6 +118,19 @@ class UI:
         text = textDef.font.render("Options Menu", False, (0, 0, 0))
         self.optionSurface.blit(text, (10,10))
 
+        s1 = pygame.Surface((100, 100))
+        s2 = pygame.Surface((100, 100))
+
+        # draw hud background
+        #Else(255, 9, 9, 51)
+        #Else(9, 255, 67, 51)
+
+        s1.fill((9, 255, 67, 51))
+        s2.fill((206,255,217))
+
+        self.optionSurface.blit(s1, (0,50))
+        self.optionSurface.blit(s2, (110,50))
+
     def loadControlSettings(self):
         self.controlSurface = pygame.Surface((int(FRAMEPIXELWIDTH * .95), int(FRAMEPIXELHEIGHT * .95)))
         self.controlSurface.fill((230, 230, 230, 0))

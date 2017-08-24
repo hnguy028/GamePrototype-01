@@ -1,6 +1,6 @@
-from includes import *
 from resource_loader import *
 from Controls import *
+import math
 
 class Player:
     def __init__(self, room, inventory, spawn, character, health, magic, direction):
@@ -14,14 +14,12 @@ class Player:
         self.x = spawn.x % room.pixelWidth
         self.y = spawn.y % room.pixelHeight
 
-        # list of points relative to the player, used to check for collision
-        self.handler_points = []
-
         self.direction = direction  # initial stance
         self.running = self.moveUp = self.moveDown = self.moveLeft = self.moveRight = False
 
         # get sprite's pixel size
         self.width, self.height = self.front_facing.get_size()
+        print(str(self.width) + str(self.height))
 
         # player stats
         self.health = health
@@ -49,9 +47,16 @@ class Player:
         self.animObjs['left_run'].flip(True, False)
         self.animObjs['left_run'].makeTransformsPermanent()
 
-        # TODO : might need to move conductor to the game loop
         self.moveConductor = pyganim.PygConductor(self.animObjs)
         self.attackConductor = None
+
+        # list of points relative to the player, used to check for collision (offsets)
+        self.handler_points = [
+            _Point((0, 0)),
+            _Point((0, self.height)),
+            _Point((self.width, 0)),
+            _Point((self.width, self.height))
+        ]
 
     # handles if key has been pushed down, taking a reference to event
     def handleKeyDown(self, e):
@@ -127,60 +132,42 @@ class Player:
             tmxCodes.STRUCTURES_LAYER)
 
     def move_Up(self, rate, tileSize, room):
-        topLeft = room.gameMap.get_tile_properties(
-            (self.x + (room.pixelWidth * room.xRoom)) / tileSize,
-            ((self.y + (room.pixelHeight * room.yRoom) - rate) / tileSize),
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
-        topRight = room.gameMap.get_tile_properties(
-            (self.x + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
-            ((self.y + (room.pixelHeight * room.yRoom) - rate) / tileSize),
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
+        meta_code = self.get_meta(room, self.x, self.y - rate)
 
-        if topLeft == 'false' and topRight == 'false':
-            self.y -= rate
+        if not meta_code == tmxCodes.META_CODE_FREE:
+            # if collides with something, stop
+            return
+
+        self.y -= rate
 
     def move_Down(self, rate, tileSize, room):
-        bottomLeft = room.gameMap.get_tile_properties(
-            (self.x + (room.pixelWidth * room.xRoom)) / tileSize,
-            ((self.y + rate + self.height + (room.pixelHeight * room.yRoom)) / tileSize),
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
 
-        bottomRight = room.gameMap.get_tile_properties(
-            (self.x + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
-            ((self.y + rate + self.height + (room.pixelHeight * room.yRoom)) / tileSize),
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
+        meta_code = self.get_meta(room, self.x, self.y + rate)
 
-        if bottomLeft == 'false' and bottomRight == 'false':
-            self.y += rate
+        if not meta_code == tmxCodes.META_CODE_FREE:
+            # if collides with something, stop
+            return
+
+        self.y += rate
 
     def move_Left(self, rate, tileSize, room):
-        topLeft = room.gameMap.get_tile_properties(
-            (self.x - rate + (room.pixelWidth * room.xRoom)) / tileSize,
-            (self.y + (room.pixelHeight * room.yRoom)) / tileSize,
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
+        meta_code = self.get_meta(room, self.x - rate, self.y)
 
-        bottomLeft = room.gameMap.get_tile_properties(
-            (self.x - rate + (room.pixelWidth * room.xRoom)) / tileSize,
-            (self.y + self.height + (room.pixelHeight * room.yRoom)) / tileSize,
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
+        if not meta_code == tmxCodes.META_CODE_FREE:
+            # if collides with something, stop
+            return
 
-        if topLeft == 'false' and bottomLeft == 'false':
-            self.x -= rate
+        self.x -= rate
 
     def move_Right(self, rate, tileSize, room):
-        topRight = room.gameMap.get_tile_properties(
-            (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
-            (self.y + (room.pixelHeight * room.yRoom)) / tileSize,
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
+        meta_code = self.get_meta(room, self.x + rate, self.y)
 
-        bottomRight = room.gameMap.get_tile_properties(
-            (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / tileSize,
-            (self.y + self.height + (room.pixelHeight * room.yRoom)) / tileSize,
-            tmxCodes.META_LAYER)[tmxCodes.IMPASSIVE_CODE]
+        if not meta_code == tmxCodes.META_CODE_FREE:
+            # if collides with something, stop
+            return
 
-        if topRight == 'false' and bottomRight == 'false':
-            self.x += rate
+        self.x += rate
 
     def idle(self, world):
         # standing still
@@ -198,6 +185,7 @@ class Player:
 
         if self.attackConductor:
             self.attackConductor.blit(world.surface, (self.x+10, self.y-50))
+
 
     def walkRunMotion(self, world):
 
@@ -277,23 +265,41 @@ class Player:
         if item.type == "potion":
             self.health = max(100,10)
 
-    # check collision with the given x,y coordinates
-    def collision_check(self, room, x=0, y=0):
+    # returns the meta code at the given x,y coordinates
+    def get_meta(self, room, x=0, y=0):
+
         for point in self.handler_points:
-            if self.point_collision_check(room, point.x + x, point.y + y):
-                # return the object collided with
-                pass
+
+            rgb = self.get_meta_rgb(room, point.x + x, point.y + y)
+
+            if _rgb_sim(rgb, tmxCodes.META_RGB_FREE):
+                return tmxCodes.META_CODE_FREE
+
+            elif _rgb_sim(rgb, tmxCodes.META_RGB_BLOCK):
+                return tmxCodes.META_CODE_BLOCK
+
         return None
 
-    # check if the given point collides with another entity
-    def point_collision_check(self, room, x, y):
+    def get_meta_rgb(self, room, x, y):
         # need to calculate the number of pixels into the tile
-        x,y = x % 32, y % 32
-        # round up ?
-        tile_x, tile_y = x // 32, y // 32
+        p_x, p_y = int(x % TILESIZE), int(y % TILESIZE)
 
-        # check if rgb is close to green or red
-        return room.get_tile(tile_x, tile_y).get_at(x, y)
+        # get tiles represented by the coordinates
+        tile = room.get_tile(math.floor(x / TILESIZE), math.floor(y / TILESIZE))
+
+        # temp surface
+        surface = pygame.Surface((32, 32))
+        surface.fill((255, 255, 255))
+
+        # place tile on surface
+        surface.blit(tile, (0, 0))
+
+        # return rgba value at coordinates
+        return surface.get_at((p_x, p_y))
+
+# return true of the similarity between 2 rbg values are less than the cos difference
+def _rgb_sim(self, other, cos=2):
+    return (abs(self[0] - other[0]) < cos) and (abs(self[1] - other[1]) < cos) and (abs(self[2] - other[2]) < cos)
 
 class _Point:
     def __init__(self, p):

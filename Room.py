@@ -58,7 +58,7 @@ class RoomSurface:
 
     # return the surface of the tile at (x, y) of the collision/meta layer
     def get_tile(self, x, y):
-        return self.tileLayers[tmxCodes.META_LAYER][x * y]
+        return self.gameMap.get_tile_image(x + (self.xRoom * self.tileWidth), y + (self.yRoom * self.tileHeight), tmxCodes.META_LAYER)
 
 
 

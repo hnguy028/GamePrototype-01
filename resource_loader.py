@@ -1,4 +1,3 @@
-from Types import *
 from functions import *
 
 #######################################################################################################################
@@ -143,11 +142,28 @@ class tmxCodes:
     IMPASSIVE_CODE = 'collidable'
     COLLECTABLE_CODE = 'collectables'
 
+    # number of layers drawn
     DRAWN_LAYERS = 2
 
     META_LAYER = 2
     STRUCTURES_LAYER = 1
     GROUND_LAYER = 0
+
+    # rgb color for meta layer collision
+    META_RGB_FREE = (206,255,217,255)
+    META_RGB_BINARY = ()
+    META_RGB_MULTI = ()
+    META_RGB_BLOCK = (255,206,206,255)
+    META_RGB_SOLID = ()
+    META_RGB_WATER = ()
+
+    META_CODE_FREE = 'FREE'
+    META_CODE_BINARY = ''
+    META_CODE_MULTI = ''
+    META_CODE_BLOCK = 'BLOCK'
+    META_CODE_SOLID = 'SOLID'
+    META_CODE_WATER = 'WATER'
+
 
 #######################################################################################################################
 #                                              Item Loader

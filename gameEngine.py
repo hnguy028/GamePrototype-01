@@ -216,7 +216,7 @@ class gameEngine:
             #       coinx, coiny, coinq = getCoin()
             #        world.loadMap()
 
-            # TODO : add gui
+            # draw hud
             self.hud.draw(self.world.surface)
             #self.hud.drawRect(self.world.surface)
             # create menu gui - player menu / controls
