@@ -272,13 +272,13 @@ class Player:
 
             rgb = self.get_meta_rgb(room, point.x + x, point.y + y)
 
-            if _rgb_sim(rgb, tmxCodes.META_RGB_FREE):
-                return tmxCodes.META_CODE_FREE
-
-            elif _rgb_sim(rgb, tmxCodes.META_RGB_BLOCK):
+            if _rgb_sim(rgb, tmxCodes.META_RGB_BLOCK):
                 return tmxCodes.META_CODE_BLOCK
 
-        return None
+            #if _rgb_sim(rgb, tmxCodes.META_RGB_FREE):
+
+        # if it gets here then there are no obstructions
+        return tmxCodes.META_CODE_FREE
 
     def get_meta_rgb(self, room, x, y):
         # need to calculate the number of pixels into the tile
