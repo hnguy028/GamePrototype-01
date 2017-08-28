@@ -23,7 +23,7 @@ class fontLibrary:
 
 
 class textDef:
-    font = pygame.font.Font(fontDirectory.freesansbold,20)
+    font = pygame.font.Font(fontDirectory.freesansbold,15)
     font_size = font.get_height()
 
 #######################################################################################################################

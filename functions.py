@@ -1,11 +1,15 @@
 from includes import *
 
-
+# TODO : move function into Room class
 # load map subsection defined by the portal location
 def checkPortal(player, room, world):
     # TODO : need to check if a portal exists in the first place (currently assuming that there is a portal on each map)
     # TODO : should work anyways, the for loop should handle null (need to test)
     portals = room.gameMap.get_layer_by_name("portals")
+
+    prev_worldName = room.worldName
+
+    spawns = {}
 
     # if portal == None?
     for portal in portals:
@@ -15,12 +19,23 @@ def checkPortal(player, room, world):
                 and ((player.x + (room.xRoom * room.pixelWidth)) <= (portal.x + portal.width))
                 and ((player.y + (room.yRoom * room.pixelHeight)) <= (portal.y + portal.height))):
 
+            room.worldName = portal.worldName
             room.gameMap = load_pygame(MAPS_DIRECTORY + '%s.tmx' % portal.worldName)
 
-            room.playerSpawn = room.gameMap.get_object_by_name("spawn_point")
+            try:
+                for spawn in room.gameMap.get_layer_by_name("spawns"):
+                    print(room.worldName + str(spawn.x) + " " + str(spawn.y))
+                    spawns[spawn.worldName] = spawn
 
-            room.xRoom = int(room.playerSpawn.x // room.pixelWidth)
-            room.yRoom = int(room.playerSpawn.y // room.pixelHeight)
+                if prev_worldName == None:
+                    room.playerSpawn = spawns["None"]
+                else:
+                    room.playerSpawn = spawns[prev_worldName]
+            except ValueError:
+                room.playerSpawn = room.gameMap.get_object_by_name("spawn_point")
+
+            room.xRoom = int(room.playerSpawn.x / room.pixelWidth)
+            room.yRoom = int(room.playerSpawn.y / room.pixelHeight)
 
             player.x = room.playerSpawn.x % room.pixelWidth
             player.y = room.playerSpawn.y % room.pixelHeight

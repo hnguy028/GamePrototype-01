@@ -11,7 +11,7 @@ class InventoryEquipment:
 
         self.surface = pygame.Surface((self.width, self.height))
 
-        self.equipmentKeys = ["left_hand", "accessory1", "ammunition", "accessory2", "right_hand", "head_gear", "chest_gear", "waist_gear", "leg_gear", "feet_gear"]
+        self.equipmentKeys = ["left_hand", "accessory1", "ammunition", "potion", "right_hand", "head_gear", "chest_gear", "waist_gear", "leg_gear", "feet_gear"]
 
         self.equipmentMap = {}
         self.equipmentMatrix = []

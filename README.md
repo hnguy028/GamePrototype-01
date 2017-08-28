@@ -2,46 +2,18 @@
 2D RPG game using pygame. Let's see where this goes.
 
 TODO
-(1) Implement Main Menu
-    X Move Main Menu creation code into class or function definition
-    X 3 Layer Sprites
-    X Front - Character Selection
-        X Make character position dynamically calculated
-        X Implement Character Selection
-            X Need to handle if savefiles dont exist
-    X Front - Additional Options
-        X Add Options Button (Should most likely be sprites)
-        X If character is chosen --> give option to [LoadGame | DeleteGame -> [Confirmation]]
-        X If blank character is chosen --> query [NewGame]
-    X Middle - Static Castle Sprite
-    X Back - Moving Enviroment Background
-        X Make Translations smoother
-        X Use RNG to generate random transformation on a set number of clouds for the background
-            X size, speed, transparency, location etc
-            X when scaling we need to keep the aspect ratio
+- function.py
+check_portal()
+    - attribute error
+    - null portal and spawn_points exceptions
+    - possible combine portal and spawn_point? - add property to portal for spawn_point offset
 
-X Clear surface buffer at the beginning of every loop
-    X Look into python memory managment
-
-Implement Basic Inventory Interface
-    Inventory (set static size)
-        X Add currency counter
-        - Inventory.add method needs to be able to handle all item/currency/power types
-        X Implement panel navigation with cursor sprite
-        - Implement equiping item from backpack (depending on types)
-            X Equiping item from backpack needs to check if backpack space is required
-            X Same with unequiping
-        - Implement backpack scrolling
-        - Implement equipment slot type lock
-    Inventory Overview Page
-        X Display currency (implement coin for now)
-        X Implement toggle between inventory tabs
-
-Collision Detection
-    - From Room class def
-    - print(self.tileLayers[str(layer)][i].get_at((25,25)))
-    - it is possible to extract the rgb color of a tile
-    - (could use the alpha???? instead)
+- enemies.py
+implement enemies
+    - zombies
+    - modulated movement patterns
+    - modulated attack behaviour (ie within 2 square tiles -> attack)
+        - use generator/iterator for next move
 
 Item Types
     - determine how to implement item type heiarchy
@@ -55,22 +27,12 @@ Implement a map page (and minimap?)
 Implement Character Creation Page
     - Transition from main menu to character creation
 
-Implement a Better Collision Detection Method
-    - Using tmx object layer instead of tile meta class layer for collision surface
-
 Add Audio
     - Sound effects
     - Background Music
 
 Implement Loading Screen
     - Display Percentage and Errors in loading
-
-Implement Heads Up Display
-    - HEALTH, MP
-    - Wallet (Currency count)
-
-Implement Quick Use Slots
-    - Abilities and Actions
 
 Implement Menus
     - Shop Menus
@@ -81,14 +43,11 @@ Implement Clothing (overlay other sprites ontop of character / relative to chara
 
 Implement Attack and Defend Sprite Motion
 
-Dynamic Character Collision Points in a List / Array
 Character Size Transformation
 
 Implement Window Resize (Possibly just static and predefined sizes in options menu)
 
 Bugs
-Collision Detection is a little off -- revamp entire collision system
-Maps are rendered with non visible tiles from the adjacent rooms
 Need to clean up variables and images that are not used
 Player class methods don't require reference to a world object ??? (only a surface to draw on?)
 Updates are a little laggy --> need to speed up game loop

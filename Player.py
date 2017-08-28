@@ -19,7 +19,6 @@ class Player:
 
         # get sprite's pixel size
         self.width, self.height = self.front_facing.get_size()
-        print(str(self.width) + str(self.height))
 
         # player stats
         self.health = health
@@ -90,6 +89,8 @@ class Player:
                 self.attack(None)
             else:
                 self.stopAttack()
+        elif e.key == K_KP1:
+            self.take_damage(5)
 
     def handleKeyUp(self, e):
         if e.key in (K_LSHIFT, K_RSHIFT):
@@ -121,17 +122,15 @@ class Player:
                 self.direction = UP
             if self.moveDown:
                 self.direction = DOWN
-        elif e.key == K_l:
-            self.check_collide()
 
-    def check_collide(self, rate, room):
-        #pytmx.TiledObjectGroup.
-        return room.gameMap.get_tile_properties(
-            (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / TILESIZE,
-            (self.y + (room.pixelHeight * room.yRoom)) / TILESIZE,
-            tmxCodes.STRUCTURES_LAYER)
+    # def check_collide(self, rate, room):
+    #     #pytmx.TiledObjectGroup.
+    #     return room.gameMap.get_tile_properties(
+    #         (self.x + rate + self.width + (room.pixelWidth * room.xRoom)) / TILESIZE,
+    #         (self.y + (room.pixelHeight * room.yRoom)) / TILESIZE,
+    #         tmxCodes.STRUCTURES_LAYER)
 
-    def move_Up(self, rate, tileSize, room):
+    def move_Up(self, rate, room):
 
         meta_code = self.get_meta(room, self.x, self.y - rate)
 
@@ -141,7 +140,7 @@ class Player:
 
         self.y -= rate
 
-    def move_Down(self, rate, tileSize, room):
+    def move_Down(self, rate, room):
 
         meta_code = self.get_meta(room, self.x, self.y + rate)
 
@@ -151,7 +150,7 @@ class Player:
 
         self.y += rate
 
-    def move_Left(self, rate, tileSize, room):
+    def move_Left(self, rate, room):
         meta_code = self.get_meta(room, self.x - rate, self.y)
 
         if not meta_code == tmxCodes.META_CODE_FREE:
@@ -160,7 +159,7 @@ class Player:
 
         self.x -= rate
 
-    def move_Right(self, rate, tileSize, room):
+    def move_Right(self, rate, room):
         meta_code = self.get_meta(room, self.x + rate, self.y)
 
         if not meta_code == tmxCodes.META_CODE_FREE:
@@ -230,6 +229,15 @@ class Player:
         self.attackConductor.stop()
         self.attackConductor = None
 
+    def take_damage(self, dmg):
+        if self.health > 1:
+            self.health = max(1, self.health - dmg)
+            print(str(dmg) + " damage taken.")
+        elif dmg > 0:
+            self.health = 0
+            print(str(dmg) + " damage taken.")
+            print("We dead boi")
+
     # check if player has move beyond the frame
     def boundsCheck(self, room):
         if self.x < 0:
@@ -263,7 +271,7 @@ class Player:
 
     def apply_item(self, item):
         if item.type == "potion":
-            self.health = max(100,10)
+            self.health = min(100,self.health + item.value)
 
     # returns the meta code at the given x,y coordinates
     def get_meta(self, room, x=0, y=0):
@@ -283,6 +291,8 @@ class Player:
     def get_meta_rgb(self, room, x, y):
         # need to calculate the number of pixels into the tile
         p_x, p_y = int(x % TILESIZE), int(y % TILESIZE)
+
+        # TODO : catch exception, if get tile is null
 
         # get tiles represented by the coordinates
         tile = room.get_tile(math.floor(x / TILESIZE), math.floor(y / TILESIZE))

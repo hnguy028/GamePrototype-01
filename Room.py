@@ -4,7 +4,7 @@ from resource_loader import *
 class RoomSurface:
     # width, height : of the room in tiles (20)
     # playerSpawn : obj holding x,y location of player spawn
-    def __init__(self, worldName):
+    def __init__(self, worldName, pos=(0, 0)):
         self.tileWidth = ROOMWIDTH
         self.tileHeight = ROOMHEIGHT
 
@@ -20,10 +20,13 @@ class RoomSurface:
         self.numRoomsX = self.gameMap.layers[0].width / self.tileWidth
         self.numRoomsY = self.gameMap.layers[0].height / self.tileHeight
 
-        self.playerSpawn = self.gameMap.get_object_by_name(tmxCodes.SPAWN_CODE)  # defined in tmx meta
+        self.playerSpawn = self.gameMap.get_object_by_name("init_spawn_point")  # defined in tmx meta
 
         self.xRoom = int(self.playerSpawn.x // (TILESIZE * self.tileWidth))
         self.yRoom = int(self.playerSpawn.y // (TILESIZE * self.tileHeight))
+
+        self.surface = pygame.Surface((self.pixelWidth, self.pixelHeight))
+        self.pos = pos
 
         # dictionary of layers to be drawn
         self.tileLayers = {}
@@ -46,14 +49,19 @@ class RoomSurface:
                 for xTile in range(self.tileWidth * self.xRoom, self.tileWidth * (self.xRoom + 1)):
                     self.tileLayers[str(layer)].append(self.gameMap.get_tile_image(xTile, yTile, layer))
 
+                self.numRoomsX = self.gameMap.layers[0].width / self.tileWidth
+                self.numRoomsY = self.gameMap.layers[0].height / self.tileHeight
+
     # tile size : size of tiles in pixels (32)
     # roomWidth, roomHeight : room size in tiles (20)
     def drawMap(self, surface):
+        surface.blit(self.surface, self.pos)
+
         for layer in range(tmxCodes.DRAWN_LAYERS):
             i = 0
             for yTile in range(ROOMHEIGHT):
                 for xTile in range(ROOMWIDTH):
-                    surface.blit(self.tileLayers[str(layer)][i], (xTile * TILESIZE, yTile * TILESIZE))
+                    self.surface.blit(self.tileLayers[str(layer)][i], (xTile * TILESIZE, yTile * TILESIZE))
                     i += 1
 
     # return the surface of the tile at (x, y) of the collision/meta layer

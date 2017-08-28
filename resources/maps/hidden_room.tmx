@@ -22,7 +22,7 @@
  <tileset firstgid="220" name="temp_sprites" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="522" columns="18">
   <image source="temp_sprites.png" width="610" height="988"/>
  </tileset>
- <layer name="base" width="15" height="15">
+ <layer name="base" width="15" height="15" visible="0">
   <data encoding="csv">
 211,212,213,211,212,213,211,212,213,211,212,213,211,212,213,
 214,215,216,214,215,216,214,215,216,214,215,216,214,215,216,
@@ -41,7 +41,7 @@
 217,218,219,214,215,216,3,3,3,214,215,216,217,218,219
 </data>
  </layer>
- <layer name="structures" width="15" height="15">
+ <layer name="structures" width="15" height="15" visible="0">
   <data encoding="csv">
 282,282,282,282,282,282,282,282,282,282,282,282,282,282,282,
 282,282,282,282,282,282,282,282,282,282,282,282,282,282,282,
@@ -60,7 +60,7 @@
 282,282,282,282,282,282,282,282,282,282,282,282,282,282,282
 </data>
  </layer>
- <layer name="meta" width="15" height="15">
+ <layer name="meta" width="15" height="15" visible="0">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -79,18 +79,22 @@
 1,1,1,1,1,1,2,2,2,1,1,1,1,1,1
 </data>
  </layer>
- <objectgroup name="portals">
+ <objectgroup name="portals" visible="0">
   <object id="12" name="portal" x="191" y="435.667" width="96" height="42.6667">
    <properties>
     <property name="worldName" value="desert_world2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="poi">
-  <object id="1" name="spawn_point" x="233.667" y="428" width="16" height="16"/>
+ <objectgroup name="spawns">
+  <object id="1" name="spawn_point" x="233.667" y="428" width="16" height="16">
+   <properties>
+    <property name="worldName" value="desert_world2"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="event_triggers"/>
- <objectgroup name="collectables">
+ <objectgroup name="event_triggers" visible="0"/>
+ <objectgroup name="collectables" visible="0">
   <object id="7" name="coin" x="162.667" y="208.666" width="15" height="15"/>
   <object id="8" name="coin" x="232.667" y="209" width="15" height="15"/>
   <object id="10" name="coin" x="303.333" y="207.333" width="15" height="15"/>

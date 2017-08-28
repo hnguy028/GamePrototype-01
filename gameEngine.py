@@ -153,7 +153,7 @@ class gameEngine:
     def loadSurface(self):
         if not self.frameLoaded:
             self.frameLoaded = True
-            self.world = WindowSurface(HUDSIZE_BOTTOM, ROOMWIDTH, ROOMHEIGHT)
+            self.world = WindowSurface(HUDSIZE_TOP + HUDSIZE_BOTTOM, ROOMWIDTH, ROOMHEIGHT)
             self.ui = UI(self.world.surface)
             self.mainMenuState = MainMenuState.MAIN
 
@@ -163,11 +163,13 @@ class gameEngine:
             self.gameLoaded = True
             self.game_state = GameState.WORLD
 
-            self.room = RoomSurface("town")
+            self.room = RoomSurface("town", (0, TILESIZE * HUDSIZE_TOP))
             self.inventory = Inventory(self.world.surface)
             self.player = Player(self.room, self.inventory, self.room.playerSpawn, CHARACTER_NAME, 100, 100, DOWN)
 
-            self.hud = HUD(FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM, (0, ROOMHEIGHT * TILESIZE), self.player)
+            self.hud = HUD((FRAMEPIXELWIDTH,TILESIZE * HUDSIZE_TOP), (0,0),
+                           (FRAMEPIXELWIDTH, TILESIZE * HUDSIZE_BOTTOM), (0, FRAMEPIXELHEIGHT - (TILESIZE * HUDSIZE_BOTTOM)),
+                           self.player)
             self.room.loadMap()
 
             # TODO : relocate coin1
@@ -186,7 +188,7 @@ class gameEngine:
             if self.player.moveUp or self.player.moveDown or self.player.moveLeft or self.player.moveRight:
 
                 # if in motion, then draw animation
-                self.player.walkRunMotion(self.world)
+                self.player.walkRunMotion(self.room)
 
                 currRate = 0
 
@@ -196,16 +198,16 @@ class gameEngine:
                     currRate = self.player.walkRate
 
                 if self.player.moveUp:
-                    self.player.move_Up(currRate, TILESIZE, self.room)
+                    self.player.move_Up(currRate, self.room)
                 if self.player.moveDown:
-                    self.player.move_Down(currRate, TILESIZE, self.room)
+                    self.player.move_Down(currRate, self.room)
                 if self.player.moveLeft:
-                    self.player.move_Left(currRate, TILESIZE, self.room)
+                    self.player.move_Left(currRate, self.room)
                 if self.player.moveRight:
-                    self.player.move_Right(currRate, TILESIZE, self.room)
+                    self.player.move_Right(currRate, self.room)
 
             else:
-                self.player.idle(self.world)
+                self.player.idle(self.room)
 
             # make sure the player does move off the screen
             self.player.boundsCheck(self.room)
@@ -217,8 +219,9 @@ class gameEngine:
             #        world.loadMap()
 
             # draw hud
+            # self.hud.drawRect(self.world.surface)
             self.hud.draw(self.world.surface)
-            #self.hud.drawRect(self.world.surface)
+
             # create menu gui - player menu / controls
             # windowSurface.blit(instructionSurf, instructionRect)
         elif self.game_state == GameState.INVENTORY:
@@ -287,7 +290,7 @@ class gameEngine:
                             (char_margin*3) - posCorrection,
                             (char_margin*5) - posCorrection,
                             (char_margin*7) - posCorrection]
-            charYPosition = 450
+            charYPosition = int(0.75 * FRAMEPIXELHEIGHT)
 
             # set character 00 as default selected
             self.mm_ui_list["0"] = [Sprite(self.mm_character_selected, (charXPosition[0], charYPosition))]
@@ -345,7 +348,7 @@ class gameEngine:
 
             # Add Buttons to user interface list
             # char pos, char height, padding
-            buttonPosY = charYPosition + self.mmLockedCharacter_Knight.get_height() + 10
+            buttonPosY = FRAMEPIXELHEIGHT - (button_template.get_height() + 10 )
             buttonPosX = button_template.get_width() + 10
 
             self.mm_ui_list["1"] = []

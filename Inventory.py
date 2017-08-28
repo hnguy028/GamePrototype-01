@@ -258,7 +258,7 @@ class Inventory:
                 del self.itemMap[self.selectedSlot.item.name]
 
     # Getter methods mainly for the hud to get equiped items
-    def getEquiped(self):
+    def get_HUD_slots(self):
         return self.equipment.equipmentMap["left_hand"]
 
 class InventoryTabs:
