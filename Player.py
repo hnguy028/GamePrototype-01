@@ -22,7 +22,11 @@ class Player:
 
         # player stats
         self.health = health
+        self.max_health = health
+
         self.magic = magic
+        self.max_magic = magic
+
         self.experience = 0
 
         self.inventory = inventory
@@ -88,7 +92,7 @@ class Player:
             if not self.attackConductor:
                 self.attack(None)
             else:
-                self.stopAttack()
+                self.stop_attack()
         elif e.key == K_KP1:
             self.take_damage(5)
 
@@ -225,7 +229,7 @@ class Player:
         # collision detection with any object within radius
         pass
 
-    def stopAttack(self):
+    def stop_attack(self):
         self.attackConductor.stop()
         self.attackConductor = None
 
@@ -239,7 +243,7 @@ class Player:
             print("We dead boi")
 
     # check if player has move beyond the frame
-    def boundsCheck(self, room):
+    def bounds_check(self, room):
         if self.x < 0:
             if room.xRoom > 0:  # load next screen in X direction
                 room.xRoom -= 1
@@ -271,7 +275,7 @@ class Player:
 
     def apply_item(self, item):
         if item.type == "potion":
-            self.health = min(100,self.health + item.value)
+            self.health = min(100, self.health + item.value)
 
     # returns the meta code at the given x,y coordinates
     def get_meta(self, room, x=0, y=0):
@@ -283,7 +287,7 @@ class Player:
             if _rgb_sim(rgb, tmxCodes.META_RGB_BLOCK):
                 return tmxCodes.META_CODE_BLOCK
 
-            #if _rgb_sim(rgb, tmxCodes.META_RGB_FREE):
+            # if _rgb_sim(rgb, tmxCodes.META_RGB_FREE):
 
         # if it gets here then there are no obstructions
         return tmxCodes.META_CODE_FREE
@@ -310,6 +314,7 @@ class Player:
 # return true of the similarity between 2 rbg values are less than the cos difference
 def _rgb_sim(self, other, cos=2):
     return (abs(self[0] - other[0]) < cos) and (abs(self[1] - other[1]) < cos) and (abs(self[2] - other[2]) < cos)
+
 
 class _Point:
     def __init__(self, p):

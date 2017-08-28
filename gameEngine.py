@@ -210,7 +210,7 @@ class gameEngine:
                 self.player.idle(self.room)
 
             # make sure the player does move off the screen
-            self.player.boundsCheck(self.room)
+            self.player.bounds_check(self.room)
 
             # check if the player has stepped into a portal object
             checkPortal(self.player, self.room, self.world)
