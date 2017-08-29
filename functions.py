@@ -22,7 +22,7 @@ def checkPortal(player, room, world):
 
             try:
                 for spawn in room.gameMap.get_layer_by_name("spawns"):
-                    print(room.worldName + str(spawn.x) + " " + str(spawn.y))
+                    # TODO : will throw error if spawn object has no property worldName
                     spawns[spawn.worldName] = spawn
 
                 if prev_worldName == None:

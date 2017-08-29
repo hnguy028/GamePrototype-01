@@ -230,7 +230,6 @@
     <property name="worldName" value="desert_world2"/>
    </properties>
   </object>
-  <object id="5" name="Next" x="1727.27" y="1663.64" width="124.242" height="63.6364" visible="0"/>
  </objectgroup>
  <objectgroup name="event_triggers"/>
 </map>
