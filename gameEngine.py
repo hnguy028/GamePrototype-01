@@ -1,5 +1,6 @@
 from GameClasses import *
 from MainMenuUI import *
+from Mob import *
 ## TODO remove
 from Loot_2D import *
 import copy
@@ -122,6 +123,8 @@ class gameEngine:
             if event.type == KEYDOWN:
                 if event.key == C_INVENTORY:
                     self.game_state = GameState.INVENTORY
+                elif event.key == K_RETURN:
+                    self.test = True
                 else:
                     self.player.handleKeyDown(event)
             elif event.type == KEYUP:
@@ -175,6 +178,9 @@ class gameEngine:
             # TODO : relocate coin1
             self.COIN = Coin1()
 
+            self.zombie = Zombie('', 0, 5, (50, 50))
+            self.test = False
+
     def drawGame(self):
         if self.game_state == GameState.WORLD:
             # draw current room to screen
@@ -215,6 +221,9 @@ class gameEngine:
             # check if the player has stepped into a portal object
             checkPortal(self.player, self.room, self.world)
 
+            if self.test:
+                self.zombie.move(self.player.x, self.player.y)
+                self.zombie.draw(self.room.surface)
             #       coinx, coiny, coinq = getCoin()
             #        world.loadMap()
 

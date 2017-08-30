@@ -1,11 +1,13 @@
 from NPC_Movement import *
+from includes import *
 
 # Base Class - defines methods and init variables that are constant for all subclasses
 class Mob():
-    def __init__(self, filename, health):
+    def __init__(self, filename, health, pos):
         self._isSubclass()
+        self.image_name = filename
         self.health = health
-        self.pos = None
+        self.pos = pos
         self.width, self.height = 0, 0
         self.image = None
         self.move_conductor = None
@@ -18,11 +20,11 @@ class Mob():
     def next(self):
         raise NotImplementedError("Subclass must override this method")
 
-    def move(self):
-        self.pos = (self.next())
+    def move(self, x, y):
+        self.pos = (self.next(x, y))
 
     def draw(self, surface):
-        print(self.direction)
+        pygame.draw.circle(surface, (255, 0, 0), self.pos, 10)
 
     def check_collision(self):
         pass
@@ -32,30 +34,23 @@ class Mob():
 
 # Subclass - for each type of Mob
 class Zombie(Mob):
-    def __init__(self, filename, health, movement_speed):
-        super().__init__(filename, health)
+    def __init__(self, filename, health, movement_speed, pos):
+        super().__init__(filename, health, pos)
         self.pattern = Square_Pattern(movement_speed)
+        self.homing_pattern = Homing_Pattern(movement_speed)
 
     def _isSubclass(self): return True
 
     # TODO : one the player is within a certain radius -> change movement behaviour / speed
-    def next(self):
+    def next(self, x, y):
         # if within radius
         # note : dont need to check all points of player just a single handle is fine
             # linear pattern.next()
         # else:
-        return self.pattern.next()
+        return self.homing_pattern.next(self_pos=self.pos, player_pos=(x, y))
+        #return self.pattern.next()
 
 class Tt():
     def __init__(self, *args):
         #self.t = args[0]
         pass
-
-z = Zombie("", " world", 0)
-z.draw("")
-z.move()
-z.draw("")
-
-pat = Linear_Pattern(9)
-x, y = pat.next(self_x=0, self_y=0, player_x=10, player_y=10)
-print(x," ",y)
