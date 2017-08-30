@@ -49,8 +49,3 @@ class Zombie(Mob):
         # else:
         return self.homing_pattern.next(self_pos=self.pos, player_pos=(x, y))
         #return self.pattern.next()
-
-class Tt():
-    def __init__(self, *args):
-        #self.t = args[0]
-        pass

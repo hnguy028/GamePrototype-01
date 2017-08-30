@@ -1,4 +1,3 @@
-# TODO : check for exception and error if **kwwargs does not contain the variable name required for next()
 import math
 
 class _Movement_Pattern():
@@ -49,6 +48,13 @@ class Linear_Pattern(_Movement_Pattern):
 
             return self_x, self_y + self.movement_speed
         else:
+            if self.depart:
+                # move towards p2
+                pass
+            else:
+                # move towards p1
+                pass
+
             return self_x + self.movement_speed, self_y
 
 class Homing_Pattern(_Movement_Pattern):
