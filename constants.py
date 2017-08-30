@@ -68,3 +68,16 @@ ROOMHEIGHT = 15
 
 MAX_ALPHA = 255
 MIN_ALPHA = 0
+
+
+
+
+
+
+
+##############################################  NPC CONFIG  ############################################################
+zombie_health = 10
+zombie_speed = 10
+zombie_damage = 10
+zombie_attack_radius = 30
+zombie_dimension = (16, 16)

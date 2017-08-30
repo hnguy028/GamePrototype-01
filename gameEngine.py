@@ -183,7 +183,7 @@ class gameEngine:
             self.COIN = Coin1()
 
             # todo : test code
-            self.zombie = Zombie('', 0, 5, (50, 50))
+            self.zombie = Zombie((50, 50))
             self.test = False
 
     def drawGame(self):
@@ -228,7 +228,7 @@ class gameEngine:
 
            # todo : test code
             if self.test:
-                self.zombie.move(self.player.x, self.player.y)
+                self.zombie.move(self.player.get_center())
                 self.zombie.draw(self.room.surface)
             #       coinx, coiny, coinq = getCoin()
             #        world.loadMap()

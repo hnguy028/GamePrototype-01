@@ -1,4 +1,4 @@
-from resource_loader import *
+from Mob import *
 
 # Room size definition
 class RoomSurface:
@@ -51,6 +51,8 @@ class RoomSurface:
 
                 self.numRoomsX = self.gameMap.layers[0].width / self.tileWidth
                 self.numRoomsY = self.gameMap.layers[0].height / self.tileHeight
+
+        # load in enemies layer, and collectables layer
 
     # tile size : size of tiles in pixels (32)
     # roomWidth, roomHeight : room size in tiles (20)

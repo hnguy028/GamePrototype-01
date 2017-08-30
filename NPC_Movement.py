@@ -13,6 +13,14 @@ class _Movement_Pattern():
     def next(self, **kwargs):
         raise NotImplementedError("")
 
+class Idle_Pattern(_Movement_Pattern):
+    def __init__(self, movement_speed):
+        super().__init__('idle_pattern')
+        self.movement_speed = 0
+
+    def next(self, **kwargs):
+        return kwargs['self_pos']
+
 class Square_Pattern(_Movement_Pattern):
     def __init__(self, movement_speed):
         super().__init__('square_pattern')

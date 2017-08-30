@@ -61,6 +61,9 @@ class Player:
             _Point((self.width, self.height))
         ]
 
+    def get_center(self):
+        return self.x + (self.width // 2), self.y + (self.height // 2)
+
     # handles if key has been pushed down, taking a reference to event
     def handleKeyDown(self, e):
         # if shift key is pressed init player running
@@ -188,7 +191,6 @@ class Player:
 
         if self.attackConductor:
             self.attackConductor.blit(world.surface, (self.x+10, self.y-50))
-
 
     def walkRunMotion(self, world):
 

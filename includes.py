@@ -3,7 +3,6 @@ from __future__ import division
 import pygame
 import sys
 import time
-import math
 import pyganim
 import random
 import pytmx
