@@ -138,7 +138,7 @@ class tmxDirectory:
 
 # TMX object codes
 class tmxCodes:
-    SPAWN_CODE = 'spawn_point'
+    SPAWN_POINT_CODE = 'spawn_point'
     IMPASSIVE_CODE = 'collidable'
     COLLECTABLE_CODE = 'collectables'
 
@@ -148,6 +148,15 @@ class tmxCodes:
     META_LAYER = 2
     STRUCTURES_LAYER = 1
     GROUND_LAYER = 0
+
+    # Object layer names
+    EVENT_TRIGGER_LAYER = 'event_triggers'
+    COLLECTABLES_LAYER = ''
+    ENEMIES_LAYER = 'enemies'
+    PORTAL_LAYER = 'portals'
+    SPAWN_LAYER = 'spawns'
+
+    OBJECT_LAYERS = [SPAWN_LAYER, PORTAL_LAYER, ENEMIES_LAYER, COLLECTABLE_CODE, EVENT_TRIGGER_LAYER]
 
     # rgb color for meta layer collision
     META_RGB_FREE = (206,255,217,255)

@@ -4,16 +4,11 @@
 TODO
 - function.py
 check_portal()
-    - attribute error
-    - null portal and spawn_points exceptions
+    - Redo player-portal collision, using player.get_center()
+    - move the check_portal() method
     - possible combine portal and spawn_point? - add property to portal for spawn_point offset
 
-- enemies.py
-implement enemies
-    - zombies
-    - modulated movement patterns
-    - modulated attack behaviour (ie within 2 square tiles -> attack)
-        - use generator/iterator for next move
+Load NPCs into defined positions in tmx file
 
 Item Types
     - determine how to implement item type heiarchy

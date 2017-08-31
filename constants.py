@@ -42,8 +42,6 @@ CHARACTER_WIDTH = 0
 CHARACTER_HEIGHT = 0
 
 # TMX object codes
-SPAWN_CODE = 'spawn_point'
-IMPASSIVE_CODE = 'collidable'
 COLLECTABLE_CODE = 'collectables'
 
 # Window variables

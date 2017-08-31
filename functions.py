@@ -5,10 +5,6 @@ from includes import *
 def checkPortal(player, room, world):
     portals = room.gameMap.get_layer_by_name("portals")
 
-    prev_worldName = room.worldName
-
-    spawns = {}
-
     # if portal == None?
     for portal in portals:
         # check if player is within the bounds of the portal
@@ -17,29 +13,12 @@ def checkPortal(player, room, world):
                 and ((player.x + (room.xRoom * room.pixelWidth)) <= (portal.x + portal.width))
                 and ((player.y + (room.yRoom * room.pixelHeight)) <= (portal.y + portal.height))):
 
-            room.worldName = portal.worldName
-            room.gameMap = load_pygame(MAPS_DIRECTORY + '%s.tmx' % portal.worldName)
+            print(portal.worldName)
+            room.changeMap(portal.worldName)
 
-            try:
-                for spawn in room.gameMap.get_layer_by_name("spawns"):
-                    # TODO : will throw error if spawn object has no property worldName
-                    spawns[spawn.worldName] = spawn
-
-                if prev_worldName == None:
-                    room.playerSpawn = spawns["None"]
-                else:
-                    room.playerSpawn = spawns[prev_worldName]
-            except ValueError:
-                room.playerSpawn = room.gameMap.get_object_by_name("spawn_point")
-
-            room.xRoom = int(room.playerSpawn.x / room.pixelWidth)
-            room.yRoom = int(room.playerSpawn.y / room.pixelHeight)
 
             player.x = room.playerSpawn.x % room.pixelWidth
             player.y = room.playerSpawn.y % room.pixelHeight
-
-            # reload tmx of new world
-            room.loadMap()
 
             # draw new world
             room.drawMap(world.surface)

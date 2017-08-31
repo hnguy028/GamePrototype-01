@@ -234,11 +234,8 @@ class gameEngine:
             #        world.loadMap()
 
             # draw hud
-            # self.hud.drawRect(self.world.surface)
             self.hud.draw(self.world.surface)
 
-            # create menu gui - player menu / controls
-            # windowSurface.blit(instructionSurf, instructionRect)
         elif self.game_state == GameState.INVENTORY:
             self.inventory.draw()
 

@@ -70,7 +70,7 @@ class Zombie(Mob):
         # scale these according to level
         filename = CHARACTER_DIRECTORY + "zombie/0/0.png"
         movement_speed = 3 * level
-        dim = (16, 16)
+        dim = (32, 32)
 
         health = 10
         damage = 5
