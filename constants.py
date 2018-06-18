@@ -24,8 +24,8 @@ FPS = 30
 
 ########## Character Information
 CHARACTER_NAME = "link"
-CHAR_WALKRATE = 10
-CHAR_RUNRATE = 20
+CHAR_WALKRATE = 5
+CHAR_RUNRATE = 6
 
 ######### Inventory Defaults
 INITIAL_INVENTORY_SIZE = 13

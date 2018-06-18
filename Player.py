@@ -53,16 +53,17 @@ class Player:
         self.moveConductor = pyganim.PygConductor(self.animObjs)
         self.attackConductor = None
 
-        # list of points relative to the player, used to check for collision (offsets)
+        # list of points relative to the player (top left coordinate), used to check for collision (offsets)
         self.handler_points = [
-            _Point((0, 0)),
-            _Point((0, self.height)),
-            _Point((self.width, 0)),
-            _Point((self.width, self.height))
+            _Point((self.width // 2, int(self.height * 0.1))), # 10% padding from the top
+            _Point((self.width // 2, self.height // 2)),
+            _Point((self.width // 2, int(self.height * 0.9))), # 10% padding from the bottom
+            _Point((0, self.height // 2)),
+            _Point((self.width, self.height // 2))
         ]
 
     def get_center(self):
-        return self.x + (self.width // 2), self.y + (self.height // 2)
+        return (self.x + self.width // 2, self.y + self.height //2)
 
     # handles if key has been pushed down, taking a reference to event
     def handleKeyDown(self, e):
@@ -138,12 +139,14 @@ class Player:
     #         tmxCodes.STRUCTURES_LAYER)
 
     def move_Up(self, rate, room):
-
         meta_code = self.get_meta(room, self.x, self.y - rate)
 
         if not meta_code == tmxCodes.META_CODE_FREE:
             # if collides with something, stop
             return
+
+        # if meta_code === tmxCodes.META_SLOW/WATER
+        # reduce player movement rate
 
         self.y -= rate
 
@@ -313,7 +316,7 @@ class Player:
         # return rgba value at coordinates
         return surface.get_at((p_x, p_y))
 
-# return true of the similarity between 2 rbg values are less than the cos difference
+# returns true if the similarity between 2 rbg values are less than the cos difference
 def _rgb_sim(self, other, cos=2):
     return (abs(self[0] - other[0]) < cos) and (abs(self[1] - other[1]) < cos) and (abs(self[2] - other[2]) < cos)
 

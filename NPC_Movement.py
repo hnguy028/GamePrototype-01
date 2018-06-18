@@ -46,15 +46,23 @@ class Linear_Pattern(_Movement_Pattern):
         p1_x, p1_y = kwargs['origin']
         p2_x, p2_y = kwargs['destination']
 
-        if self.vertical:
-            if self.depart:
-                # move towards p2
-                pass
-            else:
-                # move towards p1
-                pass
+        newx, newy = self_x, self_y
 
-            return self_x, self_y + self.movement_speed
+        if self.vertical:
+            if self.depart: # move towards destination
+                if p2_y > p1_y: # moving down
+                    newx, newy = self_x, min(self_y + self.movement_speed, p2_y)
+                elif p2_y < p1_y: # moving up
+                    newx, newy = self_x, max(self_y - self.movement_speed, p2_y)
+            else: # move towards origin
+                if p2_y > p1_y: # moving up
+                    newx, newy = self_x, max(self_y - self.movement_speed, p1_y)
+                else: # moving down
+                    newx, newy = self_x, max(self_y + self.movement_speed, p1_y)
+
+            # if destination has been reached turn around
+            if p2_y == newy or p1_y == newy:
+                self.depart = not self.depart
         else:
             if self.depart:
                 # move towards p2
@@ -64,6 +72,8 @@ class Linear_Pattern(_Movement_Pattern):
                 pass
 
             return self_x + self.movement_speed, self_y
+
+        return newx, newy
 
 class Homing_Pattern(_Movement_Pattern):
     def __init__(self, movement_speed):

@@ -69,7 +69,7 @@ class Zombie(Mob):
     def __init__(self, origin, level=1):
         # scale these according to level
         filename = CHARACTER_DIRECTORY + "zombie/0/0.png"
-        movement_speed = 3 * level
+        movement_speed = 1 * level
         dim = (32, 32)
 
         health = 10
@@ -81,7 +81,8 @@ class Zombie(Mob):
         super().__init__(filename, origin, movement_speed, dim, **stats)
 
         # self.pattern = Square_Pattern(self.movement_speed)
-        self.idle_pattern = Idle_Pattern(self.movement_speed)
+        # self.idle_pattern = Idle_Pattern(self.movement_speed)
+        self.idle_pattern = Linear_Pattern(self.movement_speed, True)
         self.attack_pattern = Homing_Pattern(self.movement_speed)
 
     def _isSubclass(self): return True
@@ -98,4 +99,10 @@ class Zombie(Mob):
             return self.attack_pattern.next(self_pos=self.pos, player_pos=(x, y))
         else:
             # normal behaviour
-            return self.idle_pattern.next(self_pos=self.pos)
+            destx, desty = self.origin
+            return self.idle_pattern.next(self_pos=self.pos, origin=self.origin, destination=(destx, desty+50))
+            # return self.idle_pattern.next(self_pos=self.pos)
+
+            #self_x, self_y = kwargs['self_pos']
+            #p1_x, p1_y = kwargs['origin']
+            #p2_x, p2_y = kwargs['destination']
